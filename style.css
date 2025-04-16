@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f5f8fa;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #01545a;
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo {
+  height: 70px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  background: linear-gradient(to right, #4facfe,#004d99);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+h2 {
+  color: #004d99;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+input, textarea {
+  padding: 10px;
+  font-size: 1em;
+}
+
+button {
+  background-color: #004d99;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #eee;
+}
+
+.message-area {
+  margin-top: 10px;
+  color: green;
+}

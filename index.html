@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>合同会社to.Morrow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-log">
+      <img src="to.Morrowlogo.svg" alt="to.Morrow ロゴ" class="logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">会社情報</a></li>
+        <li><a href="#services">事業内容</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>明日を創る。</h1>
+      <p>ITで次の一歩を支援する、信頼のパートナー</p>
+    </section>
+
+    <section id="about">
+      <h2>会社情報</h2>
+      <p><strong>社名：</strong>合同会社to.Morrow</p>
+      <p><strong>設立：</strong>2023年4月</p>
+      <p><strong>所在地：</strong>東京都渋谷区〇〇ビル3F</p>
+    </section>
+
+    <section id="services">
+      <h2>事業内容</h2>
+      <ul>
+        <li><strong>ITコンサルティング：</strong>DX支援・業務改善</li>
+        <li><strong>システム開発：</strong>Web/モバイルアプリ・業務システム</li>
+        <li><strong>IT業務委託：</strong>常駐・業務支援</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>お問い合わせ</h2>
+      <form id="contactForm">
+        <label>お名前：<input type="text" name="name" required></label>
+        <label>メールアドレス：<input type="email" name="email" required></label>
+        <label>お問い合わせ内容：<textarea name="message" required></textarea></label>
+        <button type="submit">送信</button>
+      </form>
+      <p class="message-area" id="formMessage"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 合同会社to.Morrow</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
