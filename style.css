@@ -35,6 +35,19 @@ nav a {
   color: white;
   padding: 60px 20px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.hero-text {
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(270deg, #ffffff, #ffffff, #5adafd);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 6s ease infinite;
 }
 
 section {
@@ -43,6 +56,11 @@ section {
 
 h2 {
   color: #004d99;
+  text-align: center;
+}
+
+h3 {
+  font-weight: bold;
 }
 
 form {
@@ -74,4 +92,642 @@ footer {
 .message-area {
   margin-top: 10px;
   color: green;
+}
+
+.card {
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin: 20px 20px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.card-text {
+  position: relative;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 自動で折り返し */
+  gap: 20px; /* アイテム間の余白 */
+  text-align: center;
+}
+
+.card-grid-item {
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column; /* 縦並びに変更 */
+  align-items: center;    /* 中央寄せ */
+  justify-content: center;
+  width: 100%;            /* 幅は常に親要素にフィット */
+  box-sizing: border-box; /* paddingやborderを含めて計算 */
+  background-color: #EAF4FB;
+  z-index: 1;
+}
+
+#card-grid-item2 {
+  background-color: #FFF9F2;
+}
+
+.card-grid-item img {
+  max-width: 100%; /* 画像が枠からはみ出さないように */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card-grid-item-in-item {
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  width: 100%;             /* 親の幅に収める */
+  box-sizing: border-box;  /* paddingやborder込みで幅を計算 */
+  word-wrap: break-word;   /* 長い単語を強制改行 */
+  overflow-wrap: break-word; /* モダンブラウザ対応 */
+}
+
+.card-grid-item-in-item p {
+  margin: 0;
+  width: 100%;             /* pタグも親の幅いっぱい */
+  word-break: break-word;  /* 日本語・英数字混在にも対応 */
+}
+
+#about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* justify-content: center; */
+  align-items: center;
+  gap: 2rem;
+}
+
+#about-list {
+  flex: 1;
+  align-items: end;
+}
+
+#about-img {
+  flex: 1;
+  text-align: center;
+}
+
+.logo-about {
+  max-width: 80%;
+  height: auto;
+}
+
+.about-item {
+  display: flex;
+}
+
+dl {
+  display: grid;
+  /* grid-template-columns: 100px 1fr; 左側はラベル幅、右側は内容 */
+  row-gap: 0.8rem;
+  column-gap: 1rem;
+}
+
+dt {
+  font-weight: bold;
+  text-align: right;
+  color: #333;
+  width: 30%;
+}
+
+dd {
+  margin-left: 10%;
+  text-align: left;
+}
+
+#card2 {
+  position: relative;
+  background-image: url('開発IMG.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 50px 30px;
+}
+
+#card2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* 50% 黒 */
+  z-index: 0;
+}
+
+#card1 {
+  position: relative;
+  background-image: url('ITCIMG2.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 50px 30px;
+}
+
+#card1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* 50% 黒 */
+  z-index: 0;
+}
+
+#card3 {
+  position: relative;
+  background-image: url('IT.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 50px 30px;
+}
+
+#card3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* 50% 黒 */
+  z-index: 0;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal[data-delay="100"] { transition-delay: 100ms; }
+.reveal[data-delay="200"] { transition-delay: 200ms; }
+.reveal[data-delay="300"] { transition-delay: 300ms; }
+.reveal[data-delay="400"] { transition-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+:root {
+  --accent: #0072ff;      /* ブランドカラーに置換OK */
+  --accent-2: #00c6ff;    /* サブの差し色 */
+  --bg-soft: rgba(255, 255, 255, 0.7);
+  --surface: #ffffff;             /* 入力の背景は白 */
+  --surface-muted: #f7f8fa;       /* 薄いグレー */
+  --text: #111;                
+  --muted: #6b7280;
+  --radius: 14px;
+  --ring: 3px;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --bg-soft: rgba(17, 24, 39, 0.6);
+    --text: #f6f7f9;
+    --muted: #9aa0a6;
+  }
+} */
+
+.contact-section {
+  width: min(80vw, 1080px); /* 画面の80%かつ最大1080pxに制限 */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 28px;
+  border-radius: var(--radius);
+  position: relative;
+  backdrop-filter: blur(10px);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.3)) border-box;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  z-index: -1;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  opacity: .15;
+  filter: blur(10px);
+}
+
+.contact-title {
+  margin: 0 0 20px;
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--text);
+  color: #004d99;
+}
+
+/* ===== Form Layout ===== */
+.contact-section .contact-form {
+  max-width: none !important;
+  width: 100%;                /* 親(.contact-section)幅にフィット */
+  margin-inline: auto;        /* 中央寄せ */
+  display: flex;              /* 念のため上書き */
+  flex-direction: column;
+  align-items: center;        /* 子要素を中央に */
+  gap: 16px;
+}
+
+.contact-section .field,
+.contact-section .button,
+.contact-section .message-area {
+  width: clamp(280px, 80%, 720px); /* 最小280px、親の80%、最大720px */
+}
+
+.contact-section .input,
+.contact-section .textarea {
+  width: 100%;
+}
+
+.field-label {
+  font-size: .95rem;
+  font-weight: 600;
+  color: #004d99;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: box-shadow .2s ease, border-color .2s ease, transform .08s ease;
+}
+
+.textarea { resize: vertical; min-height: 140px; }
+
+.input::placeholder, .textarea::placeholder {
+  color: var(--muted);
+}
+
+/* フォーカスリング */
+.input:focus, .textarea:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+/* 無効やエラーの視覚フィードバック（HTML5の:invalid） */
+.input:invalid, .textarea:invalid {
+  border-color: color-mix(in oklab, black 40%, transparent);
+}
+
+.field-error { margin: 4px 0 0; min-height: 1em; font-size: .9rem; color: #b00020; }
+.input.is-error, .textarea.is-error {
+  border-color: #b00020;
+  box-shadow: 0 0 0 2px rgba(176,0,32,.18);
+}
+
+/* 送信ボタン */
+.button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .08s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+.button:hover { filter: brightness(1.05); transform: translateY(-2px);}
+.button:active { transform: translateY(1px); }
+.button:disabled {
+  opacity: .6; cursor: not-allowed; filter: grayscale(.2);
+}
+
+/* メッセージ表示 */
+.message-area {
+  margin-top: 14px;
+  min-height: 1.3em;
+  font-size: .95rem;
+}
+
+.message-area.is-success {
+  color: #0a7f45;
+}
+.message-area.is-error {
+  color: #b00020;
+}
+
+/* スマホ1カラム */
+@media (max-width: 768px) {
+  .contact-form { grid-template-columns: 1fr; }
+  .button { justify-self: stretch; text-align: center; }
+}
+
+#voices {
+  display: none;
+}
+
+#works {
+  display: none;
+}
+
+#card-grid-item4 {
+  position: relative;
+  overflow: hidden;                 /* 画像をはみ出させない */
+  background: linear-gradient(135deg, #eaf4fb 0%, #f7fbff 60%, #ffffff 100%);
+  border: none;                     /* 枠線が“区切り感”を生むので外す */
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  justify-content: flex-end;
+}
+
+/* 画像をフルブリード化して背景と融合 */
+#card-grid-item4 > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                /* どのサイズの画像でも美しく敷き詰め */
+  transform: scale(1.05);           /* ほんの少し拡大して余白を見せない */
+  filter: saturate(.95) contrast(1.05);
+  /* 端をふわっと溶かすマスク（対応ブラウザで効きます） */
+  -webkit-mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
+  z-index: 0;
+}
+
+/* 画像の上にごく薄いカラーべールを敷く（統一トーン用） */
+#card-grid-item4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(0,115,230,.14), rgba(255,255,255,.0) 45%, rgba(0,0,0,.04));
+  z-index: 0;
+}
+
+/* テキストブロックを“グラスカード”にして読みやすく */
+#card-grid-item4 .card-grid-item-in-item {
+  position: relative;
+  z-index: 1;
+  width: min(90%, 560px);
+  margin: 200px auto 6px;
+  padding: 14px 16px;
+  text-align: center;
+  background: rgba(255,255,255,.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+}
+
+/* タイトルと本文のトーン最適化 */
+#card-grid-item4 .card-grid-item-in-item h3 {
+  margin: 0 0 6px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: #0a3d7a;
+}
+#card-grid-item4 .card-grid-item-in-item p {
+  margin: 0;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* 既存のカード全体スタイルが強すぎる場合の調整（任意） */
+#card-grid-item4.card-grid-item {
+  background-color: transparent; /* 背景色を消して画像とグラデのみ見せる */
+}
+
+#card-grid-item5 {
+  position: relative;
+  overflow: hidden;                 /* 画像をはみ出させない */
+  background: linear-gradient(135deg, #eaf4fb 0%, #f7fbff 60%, #ffffff 100%);
+  border: none;                     /* 枠線が“区切り感”を生むので外す */
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  justify-content: flex-end;
+}
+
+/* 画像をフルブリード化して背景と融合 */
+#card-grid-item5 > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                /* どのサイズの画像でも美しく敷き詰め */
+  transform: scale(1.05);           /* ほんの少し拡大して余白を見せない */
+  filter: saturate(.95) contrast(1.05);
+  /* 端をふわっと溶かすマスク（対応ブラウザで効きます） */
+  -webkit-mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
+  z-index: 0;
+}
+
+/* 画像の上にごく薄いカラーべールを敷く（統一トーン用） */
+#card-grid-item5::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(0,115,230,.14), rgba(255,255,255,.0) 45%, rgba(0,0,0,.04));
+  z-index: 0;
+}
+
+/* テキストブロックを“グラスカード”にして読みやすく */
+#card-grid-item5 .card-grid-item-in-item {
+  position: relative;
+  z-index: 1;
+  width: min(90%, 560px);
+  margin: 200px auto 6px;
+  padding: 14px 16px;
+  text-align: center;
+  background: rgba(255,255,255,.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+}
+
+/* タイトルと本文のトーン最適化 */
+#card-grid-item5 .card-grid-item-in-item h3 {
+  margin: 0 0 6px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: #0a3d7a;
+}
+#card-grid-item5 .card-grid-item-in-item p {
+  margin: 0;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* 既存のカード全体スタイルが強すぎる場合の調整（任意） */
+#card-grid-item5.card-grid-item {
+  background-color: transparent; /* 背景色を消して画像とグラデのみ見せる */
+}
+
+#card-grid-item6 {
+  position: relative;
+  overflow: hidden;                 /* 画像をはみ出させない */
+  background: linear-gradient(135deg, #eaf4fb 0%, #f7fbff 60%, #ffffff 100%);
+  border: none;                     /* 枠線が“区切り感”を生むので外す */
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  justify-content: flex-end;
+}
+
+/* 画像をフルブリード化して背景と融合 */
+#card-grid-item6 > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                /* どのサイズの画像でも美しく敷き詰め */
+  transform: scale(1.05);           /* ほんの少し拡大して余白を見せない */
+  filter: saturate(.95) contrast(1.05);
+  /* 端をふわっと溶かすマスク（対応ブラウザで効きます） */
+  -webkit-mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
+  z-index: 0;
+}
+
+/* 画像の上にごく薄いカラーべールを敷く（統一トーン用） */
+#card-grid-item6::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(0,115,230,.14), rgba(255,255,255,.0) 45%, rgba(0,0,0,.04));
+  z-index: 0;
+}
+
+/* テキストブロックを“グラスカード”にして読みやすく */
+#card-grid-item6 .card-grid-item-in-item {
+  position: relative;
+  z-index: 1;
+  width: min(90%, 560px);
+  margin: 200px auto 6px;
+  padding: 14px 16px;
+  text-align: center;
+  background: rgba(255,255,255,.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+}
+
+/* タイトルと本文のトーン最適化 */
+#card-grid-item6 .card-grid-item-in-item h3 {
+  margin: 0 0 6px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: #0a3d7a;
+}
+#card-grid-item6 .card-grid-item-in-item p {
+  margin: 0;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* 既存のカード全体スタイルが強すぎる場合の調整（任意） */
+#card-grid-item6.card-grid-item {
+  background-color: transparent; /* 背景色を消して画像とグラデのみ見せる */
+}
+
+#card1-button-area {
+  display: flex;
+  gap: 16px;               /* ボタン間の余白 */
+  justify-content: center; /* 中央寄せ */
+  margin-top: 20px;
+}
+
+#card1-button-area button {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  z-index: 1;
+}
+
+/* 1つ目のボタン: プライマリカラー */
+#card1-button1 {
+  grid-column: 1 / -1;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .08s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+#card1-button1:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 91, 187, .25);
+}
+
+/* 2つ目のボタン: アウトラインスタイル */
+#card1-button2 {
+  background: #fff;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+#card1-button2:hover {
+  background: #007bff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 91, 187, .25);
+}
+
+#card2-item1-button1 {
+  position: relative;
+  z-index: 1;
+}
+
+#card2-item2-button1 {
+  position: relative;
+  z-index: 1;
+}
+
+#card2-item3-button1 {
+  position: relative;
+  z-index: 1;
 }
