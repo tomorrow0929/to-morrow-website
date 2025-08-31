@@ -15,49 +15,221 @@
       <ul>
         <li><a href="#about">会社情報</a></li>
         <li><a href="#services">事業内容</a></li>
+        <!-- <li><a href="#works">実績</a></li>
+        <li><a href="#voices">お客様の声</a></li> -->
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
-      <h1>明日を創る。</h1>
-      <p>ITで次の一歩を支援する、信頼のパートナー</p>
+      <h1 class="hero-text">明日を創る。</h1>
+      <p class="hero-text">ITで次の一歩を支援する、信頼のパートナー</p>
+      <a href="#contact" class="btn-cta">無料相談はこちら</a>
     </section>
 
-    <section id="about">
-      <h2>会社情報</h2>
-      <p><strong>社名：</strong>合同会社to.Morrow</p>
-      <p><strong>設立：</strong>2023年4月</p>
-      <p><strong>所在地：</strong>東京都渋谷区〇〇ビル3F</p>
-    </section>
-
-    <section id="services">
+    <!-- Services -->
+    <section id="services" class="services">
       <h2>事業内容</h2>
+      <div class="service-cards">
+        <div class="card" id="card1">
+          <div class="card-text">
+            <h3>ITコンサルティング</h3>
+            <p>DX支援・業務改善を通じて企業成長をサポートします。</p>
+          </div>
+          <div class="card-grid">
+            <div class="card-grid-item"  id="card-grid-item1">
+              <img src="社内DXイラストIMG.png" alt="社内DXイラスト" width="65%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>社内DX推進支援</h3>
+                <p>社内におけるDX化を推進するための支援をさせていただいております。</p>
+              </div>
+            </div>
+            <div class="card-grid-item" id="card-grid-item2">
+              <img src="IT導入支援IMG.png" alt="社内DXイラスト" width="65%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>IT導入支援</h3>
+                <p>弊社で開発したITシステムやその他のITシステムの導入のサポートをさせていただいております。</p>
+              </div>
+            </div >
+            <div class="card-grid-item" id="card-grid-item3">
+              <img src="IT運用支援IMG.png" alt="社内DXイラスト" width="65%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>IT運用支援</h3>
+                <p>ITを導入した後の運用のサポートや修正対応をさせていただいております。</p>
+              </div>
+            </div>
+          </div>
+          <div id="card1-button-area">
+            <button id="card1-button1" class="button">ITコンサルについて</button>
+            <button id="card1-button2" class="button"><a href="#contact">無料相談</a></button>
+          </div>
+        </div>
+        <div class="card" id="card2">
+          <div class="card-text">
+            <h3 >開発</h3>
+            <p >Webシステム/HP・業務システムの設計・開発を提供。</p>
+          </div>
+          <div class="card-grid">
+            <div class="card-grid-item" id="card-grid-item4">
+              <img src="HPIMG.png" alt="Webシステムイラスト" width="65%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>webサイト</h3>
+                <p>webサイト、HPやLPを1から作成いたします。お客様のご要望に柔軟に対応した、独自のサイトをお作り致します。
+                </p>
+              </div>
+              <div id="card2-item1-button-area">
+                <button id="card2-item1-button1" class="button">webサイトについて</button>
+              </div>
+            </div>
+            <div class="card-grid-item" id="card-grid-item5">
+              <img src="systemtoolIMG.png" alt="社内DXイラスト" width="60%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>ITツール(システム)</h3>
+                <p>kintoneを利用した記録システムや、業務支援システムパックの開発をしております。独自にシステムを作りたい！というご要望に沿って開発致します。</p>
+              </div>
+              <div id="card2-item2-button-area">
+                <button id="card2-item2-button1" class="button">ITツールについて</button>
+              </div>
+            </div >
+            <div class="card-grid-item" id="card-grid-item6">
+              <img src="pluginIMG.png" alt="社内DXイラスト" width="65%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>kintone plugin</h3>
+                <p>kintoneで使える便利なプラグインを無料で提供しております。またkintoneプラグイン開発依頼も承っております。</p>
+              </div>
+              <div id="card2-item3-button-area">
+                <button id="card2-item3-button1" class="button">kintone pluginサイト</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="card3" style="display: none;">
+          <div class="card-text">
+            <h3>IT業務委託</h3>
+            <p>常駐・リモートを問わず、柔軟に業務支援を行います。</p>
+          </div>
+          <div class="card-grid">
+            <div class="card-grid-item" id="card-grid-item7">
+              <img src="社内DXイラストIMG.png" alt="社内DXイラスト" width="65%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>社内DX推進支援</h3>
+                <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+              </div>
+            </div>
+            <div class="card-grid-item" id="card-grid-item8">
+              <img src="IT導入支援IMG.png" alt="社内DXイラスト" width="65%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>IT導入支援</h3>
+                <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+              </div>
+            </div >
+            <div class="card-grid-item" id="card-grid-item9">
+              <img src="IT運用支援IMG.png" alt="社内DXイラスト" width="65%" height="60%">
+              <div class="card-grid-item-in-item">
+                <h3>IT運用支援</h3>
+                <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section id="works" class="works">
+      <h2>実績</h2>
       <ul>
-        <li><strong>ITコンサルティング：</strong>DX支援・業務改善</li>
-        <li><strong>システム開発：</strong>Web/モバイルアプリ・業務システム</li>
-        <li><strong>IT業務委託：</strong>常駐・業務支援</li>
+        <li>大手小売業向け業務システム導入（売上20%改善）</li>
+        <li>スタートアップ向けWebアプリ開発（リリースまで最短3ヶ月）</li>
+        <li>医療機関のDX支援（ペーパーレス化に成功）</li>
       </ul>
     </section>
 
-    <section id="contact">
-      <h2>お問い合わせ</h2>
-      <form id="contactForm">
-        <label>お名前：<input type="text" name="name" required></label>
-        <label>メールアドレス：<input type="email" name="email" required></label>
-        <label>お問い合わせ内容：<textarea name="message" required></textarea></label>
-        <button type="submit">送信</button>
+    <!-- Voices -->
+    <section id="voices" class="voices">
+      <h2>お客様の声</h2>
+      <div class="voice-list">
+        <blockquote>
+          <p>「親身に相談に乗っていただき、安心して任せられました。」</p>
+          <cite>小売業 A社様</cite>
+        </blockquote>
+        <blockquote>
+          <p>「スピード感があり、期待以上の成果を実現してくれました。」</p>
+          <cite>ITベンチャー B社様</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>会社情報</h2>
+      <div id="about-content">
+        <div id="about-list">
+          <dl>
+            <div class="about-item">
+              <dt>　社名</dt><dd>合同会社to.Morrow</dd>
+            </div>
+            <div class="about-item">
+              <dt>　設立</dt><dd>2023年4月</dd>
+            </div>
+            <div class="about-item">
+              <dt>所在地</dt><dd>広島県広島市西区高須台3-2-12</dd>
+            </div>
+            <div class="about-item">
+              <dt>　代表</dt><dd>今井 渓</dd>
+            </div>
+            <div class="about-item">
+              <dt>　理念</dt><dd>ITの力で「明日」を共に創る。</dd>
+            </div>
+          </dl>
+        </div>
+        <div id="about-img">
+          <img src="to.Morrowlogo.svg" alt="to.Morrow ロゴ" class="logo-about" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+      <h2 class="contact-title">お問い合わせ</h2>
+      <form id="contactForm" class="contact-form" novalidate>
+        <label class="field">
+          <span class="field-label">お名前</span>
+          <input class="input" type="text" name="name" required placeholder="山田 太郎" id="name-field">
+          <p class="field-error" id="err-name" aria-live="polite"></p>
+        </label>
+    
+        <label class="field">
+          <span class="field-label">メールアドレス</span>
+          <input class="input" type="email" name="email" required placeholder="taro@example.com" inputmode="email" id="email-field">
+          <p class="field-error" id="err-email" aria-live="polite"></p>
+        </label>
+    
+        <label class="field field--full">
+          <span class="field-label">お問い合わせ内容</span>
+          <textarea class="textarea" name="message" required placeholder="ご用件をご記入ください" rows="5" id="message-field"></textarea>
+          <p class="field-error" id="err-message" aria-live="polite"></p>
+        </label>
+        <input type="hidden" name="recaptchaToken" id="recaptchaToken">
+        <button class="button" id="send-button" type="submit" aria-live="polite">
+          送信
+        </button>
       </form>
-      <p class="message-area" id="formMessage"></p>
+    
+      <p class="message-area" id="formMessage" aria-live="polite"></p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 合同会社to.Morrow</p>
+    <p>&copy; 2025 合同会社to.Morrow | プライバシーポリシー | 採用情報</p>
+    <div class="sns-links">
+      <a href="#">X</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+    </div>
   </footer>
-
+  <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
   <script src="script.js"></script>
 </body>
 </html>
