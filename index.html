@@ -14,17 +14,17 @@
     <meta name="theme-color" content="#01545a" />
 
     <!-- ===== SEO / SNSシェア用 ===== -->
-    <title>合同会社to.Morrow | ITで次の一歩を支援する、信頼のパートナー</title>
+    <title>to.Morrow | ITで次の一歩を支援する、信頼のパートナー</title>
     <meta
       name="description"
-      content="広島のITコンサルティング・システム開発会社。社内DX推進支援、IT導入・運用支援、Webサイト制作、kintoneプラグイン開発を行っています。"
+      content="広島のITコンサルティング・システム開発。社内DX推進支援、IT導入・運用支援、Webサイト制作、kintoneプラグイン開発を行っています。"
     />
     <!-- ↓ 公開後のURLに書き換えてください（例: https://ユーザー名.github.io/to-morrow-website/） -->
     <link rel="canonical" href="https://to-morrow.example.com/" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="合同会社to.Morrow" />
-    <meta property="og:title" content="合同会社to.Morrow" />
+    <meta property="og:site_name" content="to.Morrow" />
+    <meta property="og:title" content="to.Morrow" />
     <meta
       property="og:description"
       content="ITで次の一歩を支援する、信頼のパートナー。"
@@ -35,6 +35,33 @@
   <body>
     <!-- React はこの div の中に描画されます -->
     <div id="root"></div>
+
+    <!--
+      index.html をダブルクリックして開くと（file:// で開くと）、
+      ブラウザは JSX を読み込めないため画面が真っ白になります。
+      そのときだけ案内を出す、という小さな仕掛けです。
+      通常のURL（http/https）で開いたときは何も表示されません。
+    -->
+    <div id="file-protocol-notice" hidden>
+      <div style="font-family: sans-serif; max-width: 640px; margin: 15vh auto; padding: 24px; line-height: 1.8; color: #333;">
+        <h1 style="font-size: 1.2rem; color: #004d99;">このファイルは直接開けません</h1>
+        <p>
+          このサイトは React で作られているため、<code>index.html</code> をダブルクリックしても表示されません。<br />
+          ターミナルでプロジェクトのフォルダを開き、次のコマンドを実行してください。
+        </p>
+        <pre style="background: #f0f3f6; padding: 12px 16px; border-radius: 8px; overflow-x: auto;">npm run dev</pre>
+        <p>
+          表示された <strong>http://localhost:5173/</strong> をブラウザで開いてください。<br />
+          完成品を確認したいときは <code>npm run build</code> のあとに <code>npm run preview</code> です。
+        </p>
+      </div>
+    </div>
+    <script>
+      if (location.protocol === 'file:') {
+        document.getElementById('file-protocol-notice').hidden = false;
+      }
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
