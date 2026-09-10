@@ -9,6 +9,7 @@ import itOperation from '../assets/images/it-operation.png'
 import website from '../assets/images/website.png'
 import systemTool from '../assets/images/system-tool.png'
 import kintonePlugin from '../assets/images/kintone-plugin.png'
+import { externalLinks } from './site.js'
 
 export const services = [
   {
@@ -81,7 +82,13 @@ export const services = [
           'kintoneで使える便利なプラグインを無料で提供しております。またkintoneプラグイン開発依頼も承っております。',
         image: kintonePlugin,
         imageAlt: 'kintoneプラグインのイメージ',
-        action: { label: 'kintone pluginサイト' },
+        // URLが未設定のうちは href が付かず、ただのボタン表示になります
+        action: {
+          label: 'kintone pluginサイト',
+          // URLが未設定なら href が付かず、押せないボタン表示になります
+          href: externalLinks.kintonePluginSite || undefined,
+          external: true, // 別サイトなので新しいタブで開く
+        },
       },
     ],
   },

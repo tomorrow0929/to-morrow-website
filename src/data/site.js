@@ -15,6 +15,13 @@ export const company = {
   ],
 }
 
+// 別サイトへのリンク。
+// kintoneプラグイン配布サイトを公開したら、そのURLをここに入れてください。
+// 空のままだと、事業内容の「kintone pluginサイト」ボタンは押せないままになります。
+export const externalLinks = {
+  kintonePluginSite: 'https://main.d3cec5zpyigwxh.amplifyapp.com/',
+}
+
 export const navLinks = [
   { href: '#about', label: '事業者情報' },
   { href: '#services', label: '事業内容' },

@@ -24,7 +24,13 @@ export default function ServiceCardItem({ item, variant = 'plain', delay = 0 }) 
       {item.action && (
         <div className="card-grid-item__actions">
           {item.action.href ? (
-            <a href={item.action.href} className="button">
+            <a
+              href={item.action.href}
+              className="button"
+              {...(item.action.external
+                ? { target: '_blank', rel: 'noreferrer' }
+                : {})}
+            >
               {item.action.label}
             </a>
           ) : (
