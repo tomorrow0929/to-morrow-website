@@ -1,14 +1,14 @@
 // 事業内容（トップページのカード）のデータ。
 // 画像は import して使うと、ビルド時に自動でファイル名が最適化されます。
-import consultingBg from '../assets/images/consulting-bg.png'
-import developmentBg from '../assets/images/development-bg.png'
-import outsourcingBg from '../assets/images/outsourcing-bg.png'
-import dxSupport from '../assets/images/dx-support.png'
-import itIntroduction from '../assets/images/it-introduction.png'
-import itOperation from '../assets/images/it-operation.png'
-import website from '../assets/images/website.png'
-import systemTool from '../assets/images/system-tool.png'
-import kintonePlugin from '../assets/images/kintone-plugin.png'
+import consultingBg from '../assets/images/consulting-bg.webp'
+import developmentBg from '../assets/images/development-bg.webp'
+import outsourcingBg from '../assets/images/outsourcing-bg.webp'
+import dxSupport from '../assets/images/dx-support.webp'
+import itIntroduction from '../assets/images/it-introduction.webp'
+import itOperation from '../assets/images/it-operation.webp'
+import website from '../assets/images/website.webp'
+import systemTool from '../assets/images/system-tool.webp'
+import kintonePlugin from '../assets/images/kintone-plugin.webp'
 import { externalLinks } from './site.js'
 
 export const services = [
