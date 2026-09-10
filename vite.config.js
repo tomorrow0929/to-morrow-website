@@ -4,10 +4,16 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // './' にしておくと、GitHub Pages のプロジェクトページ
-  // (https://<ユーザー名>.github.io/<リポジトリ名>/) でも
-  // 独自ドメインでも、そのまま動きます。
-  base: './',
+
+  // サイトを配信する基準パス。
+  // AWS Amplify はドメインのルート（https://〜/）で配信するので '/' が正解です。
+  // ここを './' にすると、Vite が index.html 内のパスも相対に書き換えるため、
+  // 下の階層のURLを開いたときにファビコンなどが見つからなくなります。
+  //
+  // ※ もし「https://example.com/site/」のようにサブディレクトリで公開する場合は、
+  //    ここを '/site/' に変更してください。
+  base: '/',
+
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

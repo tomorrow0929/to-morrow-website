@@ -2,14 +2,14 @@
   "name": "to.Morrow",
   "short_name": "to.Morrow",
   "description": "ITで次の一歩を支援する、信頼のパートナー",
-  "start_url": "./",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#f5f8fa",
   "theme_color": "#01545a",
   "icons": [
-    { "src": "./favicon.svg", "type": "image/svg+xml", "sizes": "any" },
-    { "src": "./favicon-192x192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "./favicon-512x512.png", "type": "image/png", "sizes": "512x512" },
-    { "src": "./apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/favicon-192x192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/favicon-512x512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
   ]
 }

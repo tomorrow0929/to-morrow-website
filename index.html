@@ -6,11 +6,17 @@
 
     <!-- ===== ファビコン（タブに出る小さいアイコン） =====
          public/ フォルダの中身は、そのままの名前で公開されます。
-         差し替えたいときは public/ の中のファイルを入れ替えるだけでOK。 -->
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="./favicon.ico" sizes="32x32" />
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <link rel="manifest" href="./site.webmanifest" />
+         差し替えたいときは public/ の中のファイルを入れ替えるだけでOK。
+
+         パスは "/" 始まり（サイトのルート基準）にしています。
+         "./" だと /about のような下の階層を開いたときに
+         /about/favicon.svg を探しにいってしまい、見つからなくなるためです。
+         ※ サブディレクトリ配下で公開する場合はここを "./" に戻してください。 -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#01545a" />
 
     <!-- ===== SEO / SNSシェア用 ===== -->
@@ -19,8 +25,8 @@
       name="description"
       content="広島のITコンサルティング・システム開発。社内DX推進支援、IT導入・運用支援、Webサイト制作、kintoneプラグイン開発を行っています。"
     />
-    <!-- ↓ 公開後のURLに書き換えてください（例: https://ユーザー名.github.io/to-morrow-website/） -->
-    <link rel="canonical" href="https://to-morrow.example.com/" />
+    <!-- ↓ 独自ドメインを設定したら、このURLを書き換えてください -->
+    <link rel="canonical" href="https://main.d3k8o4bbbbo4ke.amplifyapp.com/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="to.Morrow" />
@@ -29,7 +35,11 @@
       property="og:description"
       content="ITで次の一歩を支援する、信頼のパートナー。"
     />
-    <meta property="og:image" content="./favicon-512x512.png" />
+    <meta property="og:url" content="https://main.d3k8o4bbbbo4ke.amplifyapp.com/" />
+    <meta
+      property="og:image"
+      content="https://main.d3k8o4bbbbo4ke.amplifyapp.com/favicon-512x512.png"
+    />
     <meta name="twitter:card" content="summary" />
   </head>
   <body>
