@@ -5,7 +5,7 @@ import './About.css'
 export default function About() {
   return (
     <section id="about" className="about">
-      <h2>会社情報</h2>
+      <h2>事業者情報</h2>
       <div className="about__content">
         <dl className="about__list">
           {company.profile.map((row) => (

@@ -30,7 +30,7 @@ export const services = [
         id: 'introduction',
         title: 'IT導入支援',
         description:
-          '弊社で開発したITシステムやその他のITシステムの導入のサポートをさせていただいております。',
+          '当方で開発したITシステムやその他のITシステムの導入のサポートをさせていただいております。',
         image: itIntroduction,
         imageAlt: 'IT導入支援のイラスト',
         tone: 'warm', // 背景色を少し暖色にする
@@ -118,13 +118,10 @@ export const services = [
   },
 ]
 
-export const works = [
-  '大手小売業向け業務システム導入（売上20%改善）',
-  'スタートアップ向けWebアプリ開発（リリースまで最短3ヶ月）',
-  '医療機関のDX支援（ペーパーレス化に成功）',
-]
+// 実績。実際に手がけた案件が出たらここに追加してください。
+// （中身が空のうちは src/data/site.js の features.works を false のままに）
+export const works = []
 
-export const voices = [
-  { quote: '親身に相談に乗っていただき、安心して任せられました。', author: '小売業 A社様' },
-  { quote: 'スピード感があり、期待以上の成果を実現してくれました。', author: 'ITベンチャー B社様' },
-]
+// お客様の声。実際にいただいたコメントだけを、掲載許可を得た上で追加してください。
+// （中身が空のうちは src/data/site.js の features.voices を false のままに）
+export const voices = []

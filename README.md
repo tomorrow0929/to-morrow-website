@@ -1,6 +1,11 @@
-# to.Morrow コーポレートサイト
+# to.Morrow ウェブサイト
 
-合同会社to.Morrow の公式Webサイトです。
+IT事業「to.Morrow」のWebサイトです。
+
+> **メモ:** 法人（合同会社to.Morrow）はまだ設立していません。
+> 登記が済むまでは屋号「to.Morrow」として表記しています（会社法7条）。
+> 設立後は `src/data/site.js` の `company.name` と `profile` を書き換えてください。
+
 **React + Vite** で作られており、GitHub Pages に自動で公開されます。
 
 ---
@@ -113,10 +118,10 @@ to.morrow_website/
 
 | やりたいこと | 編集するファイル |
 | --- | --- |
-| 会社情報・住所・代表者名を変える | `src/data/site.js` |
+| 屋号・住所・代表者名を変える | `src/data/site.js` |
 | 事業内容の文章や画像を変える | `src/data/services.js` |
 | ナビゲーション／SNSリンクを変える | `src/data/site.js` |
-| 「実績」「お客様の声」を公開する | `src/data/site.js` の `features` を `true` に |
+| 「実績」「お客様の声」を公開する | `src/data/services.js` に中身を書いてから `src/data/site.js` の `features` を `true` に |
 | 「IT業務委託」カードを公開する | `src/data/services.js` の `published` を `true` に |
 | 色を変える | `src/styles/variables.css` |
 | ページのタイトル・説明文（SEO） | `index.html` |
@@ -195,4 +200,16 @@ npm run preview   # dist を実際のサーバーのように表示して確認
 - **画像が重い（合計約20MB）**。トップページの表示が遅くなります。
   PNG → WebP に変換し、幅1600px程度にリサイズすると 1/10 以下になります。
 - `index.html` の `canonical` URL を、公開後の実際のURLに書き換える。
-- フッターの「プライバシーポリシー」「採用情報」「SNS」のリンク先が未設定（`#`）。
+- フッターの「プライバシーポリシー」「SNS」のリンク先が未設定（`#`）。
+
+### 法人を設立したらやること
+
+- `src/data/site.js` の `company.name` を「合同会社to.Morrow」に変更
+- 同ファイルの `profile` で「屋号」→「社名」に変更し、「設立」の行（実際の登記日）を追加
+- `index.html` の `<title>` と OGP、`public/site.webmanifest` の `name` も合わせて変更
+
+### 実績・お客様の声を載せるとき
+
+必ず**実際に手がけた案件・実際にいただいた声**だけを載せてください。
+架空の実績や推薦文は景品表示法（優良誤認）の問題になります。
+お客様の声は、掲載の許可を得てから載せてください。
