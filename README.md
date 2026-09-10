@@ -6,7 +6,7 @@ IT事業「to.Morrow」のWebサイトです。
 > 登記が済むまでは屋号「to.Morrow」として表記しています（会社法7条）。
 > 設立後は `src/data/site.js` の `company.name` と `profile` を書き換えてください。
 
-**React + Vite** で作られており、GitHub Pages に自動で公開されます。
+**React + Vite** で作られており、AWS Amplify に自動で公開されます。
 
 ---
 
@@ -61,7 +61,8 @@ npm run dev
 to.morrow_website/
 ├── index.html              ← ページの土台（<head>・ファビコン・SEO設定はここ）
 ├── package.json            ← 使うライブラリと npm コマンドの一覧
-├── vite.config.js          ← ビルド設定
+├── vite.config.js          ← ビルド設定（Viteの出力先など）
+├── amplify.yml             ← AWS Amplify のビルド設定（公開先は dist）
 ├── .env.example            ← 環境変数のひな形（コピーして .env を作る）
 │
 ├── public/                 ← そのままの名前で公開されるファイル置き場
@@ -108,9 +109,6 @@ to.morrow_website/
 ├── tools/
 │   └── generate-favicons.mjs   ファビコン画像を作り直すスクリプト
 │
-├── .github/workflows/
-│   └── deploy.yml              GitHub Pages への自動公開設定
-│
 └── dist/                       ビルド結果（自動生成。Gitには入れません）
 ```
 
@@ -147,7 +145,7 @@ npm run favicons
 
 ## 6. お問い合わせフォームの送信先
 
-**GitHub Pages は静的サイトなので、サーバー側のプログラム（`/api/contact`）は動きません。**
+**Amplify のホスティングは静的サイトなので、サーバー側のプログラム（`/api/contact`）は動きません。**
 外部のフォームサービスを使ってください。
 
 1. [Formspree](https://formspree.io/) などでフォームを作り、送信先URLを取得
@@ -158,25 +156,20 @@ VITE_CONTACT_ENDPOINT=https://formspree.io/f/xxxxxxxx
 VITE_RECAPTCHA_SITE_KEY=
 ```
 
-3. GitHub でも同じ値を登録
-   リポジトリ → Settings → Secrets and variables → Actions → New repository secret
-   - Name: `VITE_CONTACT_ENDPOINT` / Value: 上記URL
+3. Amplify にも同じ値を登録
+   Amplify コンソール → 対象アプリ → **App settings** → **Environment variables** → **Manage variables**
+   - Variable: `VITE_CONTACT_ENDPOINT` / Value: 上記URL
+
+   ※ ここに登録しないと、ビルド時に値が空になり送信できません。
 
 `VITE_` で始まる変数は**ブラウザから見える**ので、パスワードなど秘密の値は入れないでください。
 
 ---
 
-## 7. 公開する（GitHub Pages）
+## 7. 公開する（AWS Amplify）
 
-### 最初の1回だけ
-
-1. GitHub にリポジトリを作り、このフォルダを push
-2. リポジトリ → **Settings** → **Pages** →
-   「Build and deployment」の **Source** を **GitHub Actions** に変更
-
-### 2回目以降
-
-`main` ブランチに push するだけで、自動でビルド＆公開されます。
+GitHub リポジトリを Amplify に接続してあるので、`main` ブランチに push すると
+Amplify が自動でビルドして公開します。
 
 ```bash
 git add .
@@ -184,7 +177,29 @@ git commit -m "サイトを更新"
 git push
 ```
 
-進捗は GitHub の **Actions** タブで確認できます。
+進捗は AWS Amplify のコンソールで確認できます。
+
+### ビルド設定（重要）
+
+ビルド手順は [`amplify.yml`](./amplify.yml) に書いてあります。
+とくに大事なのが次の行です。
+
+```yaml
+artifacts:
+  baseDirectory: dist
+```
+
+Vite は完成したファイルを `dist` フォルダに出力します。
+この設定が無いと、Amplify はビルド前のファイル（`index.html` と `src/`）を
+そのまま配信してしまい、**画面が真っ白になります**。
+
+Amplify コンソール側にも古い設定が残っていることがあるので、
+うまくいかないときは次を確認してください。
+
+1. Amplify コンソール → 対象アプリ → **Hosting** → **Build settings**
+2. `amplify.yml` の内容と同じになっているか（違う場合は上書き）
+3. **App settings** → **Environment variables** に `VITE_CONTACT_ENDPOINT` を登録
+4. 直してから **Redeploy this version** ではなく、**新しく push して再ビルド**
 
 ### 手元で完成品を確認したいとき
 
@@ -192,8 +207,6 @@ git push
 npm run build     # dist フォルダに完成品ができる
 npm run preview   # dist を実際のサーバーのように表示して確認
 ```
-
----
 
 ## 8. 今後の改善メモ
 

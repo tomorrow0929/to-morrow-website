@@ -1,0 +1,22 @@
+# AWS Amplify のビルド設定。
+# リポジトリのルート（package.json と同じ場所）に置きます。
+#
+# ポイントは artifacts.baseDirectory: dist です。
+# Vite は完成したファイルを dist フォルダに出力するので、
+# Amplify にも「公開するのは dist の中身」と教える必要があります。
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
