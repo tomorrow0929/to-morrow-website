@@ -145,24 +145,33 @@ npm run favicons
 
 ## 6. お問い合わせフォームの送信先
 
-**Amplify のホスティングは静的サイトなので、サーバー側のプログラム（`/api/contact`）は動きません。**
-外部のフォームサービスを使ってください。
+**Amplify のホスティングは静的配信なので、サーバー側のプログラムは動きません。**
+外部のフォームサービス（Formspree）に送信しています。
 
-1. [Formspree](https://formspree.io/) などでフォームを作り、送信先URLを取得
-2. `.env` に設定
+送信先は [`src/data/site.js`](./src/data/site.js) の `contactEndpoint` に書いてあります。
 
-```
-VITE_CONTACT_ENDPOINT=https://formspree.io/f/xxxxxxxx
-VITE_RECAPTCHA_SITE_KEY=
+```js
+export const contactEndpoint = 'https://formspree.io/f/meaqvnvy'
 ```
 
-3. Amplify にも同じ値を登録
-   Amplify コンソール → 対象アプリ → **App settings** → **Environment variables** → **Manage variables**
-   - Variable: `VITE_CONTACT_ENDPOINT` / Value: 上記URL
+このURLは**ビルド時にブラウザ側へ埋め込まれる公開情報**です（秘密ではありません）。
+そのため環境変数にする必要はなく、コード側で管理しています。
 
-   ※ ここに登録しないと、ビルド時に値が空になり送信できません。
+別のサービスに切り替えたいときは、この値を書き換えて push してください。
+一時的に切り替えたいだけなら、`.env` に `VITE_CONTACT_ENDPOINT` を書くと
+そちらが優先されます。
 
-`VITE_` で始まる変数は**ブラウザから見える**ので、パスワードなど秘密の値は入れないでください。
+### 届いた問い合わせを見る
+
+[Formspree の管理画面](https://formspree.io/forms)にログインすると、
+送信内容の一覧と、通知メールの宛先を設定できます。
+
+### 注意
+
+- Formspree の無料プランには**月あたりの送信件数の上限**があります。
+  超えると送信できなくなるので、問い合わせが増えてきたら確認してください。
+- 送信内容は Formspree のサーバーに保存されます。
+  プライバシーポリシーを用意する際は、この点に触れておくのが望ましいです。
 
 ---
 

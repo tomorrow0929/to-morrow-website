@@ -22,6 +22,13 @@ export const externalLinks = {
   kintonePluginSite: 'https://main.d3cec5zpyigwxh.amplifyapp.com/',
 }
 
+// お問い合わせフォームの送信先（Formspree）。
+// Amplify は静的配信なので、サーバー側のプログラムは動きません。
+// 外部のフォームサービスに送信しています。
+// この値はビルド時にブラウザ側へ埋め込まれる公開情報です（秘密ではありません）。
+// 環境変数 VITE_CONTACT_ENDPOINT を設定すると、そちらが優先されます。
+export const contactEndpoint = 'https://formspree.io/f/meaqvnvy'
+
 export const navLinks = [
   { href: '#about', label: '事業者情報' },
   { href: '#services', label: '事業内容' },

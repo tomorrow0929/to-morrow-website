@@ -1,9 +1,11 @@
 import { useRef, useState } from 'react'
 import { useRecaptcha } from '../hooks/useRecaptcha.js'
+import { contactEndpoint } from '../data/site.js'
 import './Contact.css'
 
-// 送信先URL。.env の VITE_CONTACT_ENDPOINT で設定します。
-const ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || '/api/contact'
+// 送信先URL。既定は src/data/site.js の値で、
+// 環境変数 VITE_CONTACT_ENDPOINT があればそちらを優先します。
+const ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || contactEndpoint
 
 // 実用的なメール形式チェック（<input type="email"> のチェックも併用）
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
@@ -94,14 +96,22 @@ export default function Contact() {
         body: formData,
         headers: { Accept: 'application/json' },
       })
-      if (!response.ok) throw new Error('send_failed')
+      if (!response.ok) {
+        // Formspree はエラー時に理由をJSONで返すので、拾えれば表示する
+        const detail = await response
+          .json()
+          .then((d) => d?.errors?.map((e) => e.message).join(' / ') || d?.error)
+          .catch(() => null)
+        throw new Error(detail || 'send_failed')
+      }
 
       setStatus({ type: 'success', text: '送信が完了しました。担当よりご連絡いたします。' })
       setValues(EMPTY_VALUES)
-    } catch {
+    } catch (error) {
+      const detail = error?.message && error.message !== 'send_failed' ? `（${error.message}）` : ''
       setStatus({
         type: 'error',
-        text: '送信に失敗しました。時間をおいて再度お試しください。',
+        text: `送信に失敗しました。時間をおいて再度お試しください。${detail}`,
       })
     } finally {
       setIsSending(false)
