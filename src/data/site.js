@@ -35,14 +35,17 @@ export const navLinks = [
   { href: '#contact', label: 'お問い合わせ' },
 ]
 
+// SNS。href が空のものはフッターに表示されない（リンク切れを作らないため）。
+// アカウントを作ったらURLを入れる。
 export const snsLinks = [
-  { href: '#', label: 'X' },
-  { href: '#', label: 'LinkedIn' },
-  { href: '#', label: 'Instagram' },
+  { href: '', label: 'X' },
+  { href: '', label: 'LinkedIn' },
+  { href: '', label: 'Instagram' },
 ]
 
 export const footerLinks = [
-  { href: '#', label: 'プライバシーポリシー' },
+  // public/privacy.html（Reactを通さない単独ページ）
+  { href: '/privacy.html', label: 'プライバシーポリシー' },
 ]
 
 // まだ公開していないセクションのスイッチ（true にすると表示されます）

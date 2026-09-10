@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <meta name="theme-color" content="#01545a" />
+
+    <title>プライバシーポリシー | to.Morrow</title>
+    <meta name="description" content="to.Morrow の個人情報の取り扱いについて。" />
+
+    <!--
+      React を使わない単独ページ。
+      サイト本体は1ページ構成でルーターを入れていないため、
+      ここだけ素のHTMLにしてある（Amplify の書き換えルールも不要）。
+      色は src/styles/variables.css と同じ値を使っている。
+    -->
+    <style>
+      :root {
+        --brand-dark: #01545a;
+        --brand-navy: #004d99;
+        --page-bg: #f5f8fa;
+        --surface: #ffffff;
+        --text: #333;
+        --muted: #6b7280;
+        --border: #e2e8ef;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Helvetica Neue', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+        background: var(--page-bg);
+        color: var(--text);
+        line-height: 1.9;
+      }
+
+      header {
+        background: var(--brand-dark);
+        padding: 14px 20px;
+      }
+
+      header a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      main {
+        max-width: 760px;
+        margin: 40px auto 64px;
+        padding: 32px 28px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.5rem;
+        color: var(--brand-navy);
+      }
+
+      .updated {
+        margin: 0 0 28px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      h2 {
+        margin: 32px 0 10px;
+        padding-bottom: 6px;
+        font-size: 1.05rem;
+        color: var(--brand-navy);
+        border-bottom: 1px solid var(--border);
+      }
+
+      ul {
+        padding-left: 1.3em;
+      }
+
+      dl {
+        margin: 0;
+      }
+
+      dt {
+        font-weight: bold;
+        margin-top: 12px;
+      }
+
+      dd {
+        margin: 2px 0 0 1.5em;
+      }
+
+      footer {
+        padding: 24px 20px;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      @media (max-width: 600px) {
+        main {
+          margin: 20px 12px 40px;
+          padding: 24px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/">← to.Morrow</a>
+    </header>
+
+    <main>
+      <h1>プライバシーポリシー</h1>
+      <p class="updated">最終更新日: 2026年9月10日</p>
+
+      <p>
+        to.Morrow（以下「当方」）は、当サイトのご利用にあたって取得する個人情報を、
+        以下の方針に従って取り扱います。
+      </p>
+
+      <h2>1. 事業者の情報</h2>
+      <dl>
+        <dt>屋号</dt>
+        <dd>to.Morrow</dd>
+        <dt>代表</dt>
+        <dd>今井 渓</dd>
+        <dt>所在地</dt>
+        <dd>広島県広島市西区</dd>
+        <dt>連絡先</dt>
+        <dd><a href="/#contact">当サイトのお問い合わせフォーム</a>よりご連絡ください</dd>
+      </dl>
+
+      <h2>2. 取得する情報</h2>
+      <p>当方が取得するのは、お問い合わせフォームにご入力いただいた以下の情報のみです。</p>
+      <ul>
+        <li>お名前</li>
+        <li>メールアドレス</li>
+        <li>お問い合わせ内容</li>
+      </ul>
+      <p>
+        会員登録の仕組みはなく、閲覧だけであれば個人情報を取得することはありません。
+      </p>
+
+      <h2>3. 利用目的</h2>
+      <ul>
+        <li>お問い合わせへの回答およびご連絡</li>
+        <li>お問い合わせ内容に関するご相談・お見積りのご提案</li>
+      </ul>
+      <p>上記以外の目的には利用しません。</p>
+
+      <h2>4. 第三者への提供・外部サービスの利用</h2>
+      <p>
+        取得した個人情報を、ご本人の同意なく第三者に販売・提供することはありません。
+        ただし、当サイトの運営上、以下の外部サービスを利用しています。
+      </p>
+      <dl>
+        <dt>Formspree（Formspree, Inc.／米国）</dt>
+        <dd>
+          お問い合わせフォームの送信処理に利用しています。ご入力いただいた内容は
+          同社のサーバーに保存され、当方に通知されます。
+          <br />
+          <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noreferrer">
+            Formspree のプライバシーポリシー
+          </a>
+        </dd>
+        <dt>AWS Amplify（Amazon Web Services, Inc.）</dt>
+        <dd>
+          当サイトのホスティングに利用しています。アクセスに伴い、IPアドレスや
+          ブラウザの種類などの接続情報が同社のログに記録される場合があります。
+        </dd>
+      </dl>
+      <p>
+        これらのサービスは日本国外のサーバーで運用されているため、
+        個人情報が国外に移転されることがあります。
+      </p>
+
+      <h2>5. アクセス解析・Cookie</h2>
+      <p>
+        当サイトでは、アクセス解析ツールおよび広告配信のための Cookie は使用していません。
+        今後導入する場合は、本ポリシーを改定してお知らせします。
+      </p>
+
+      <h2>6. 保管期間</h2>
+      <p>
+        お問い合わせいただいた内容は、対応の完了後も、同種のご相談への対応や
+        経緯の確認のために一定期間保管します。
+        削除をご希望の場合は、次項の手続きにより対応します。
+      </p>
+
+      <h2>7. 開示・訂正・削除のご請求</h2>
+      <p>
+        ご自身の個人情報について、開示・訂正・利用停止・削除をご希望の場合は、
+        <a href="/#contact">お問い合わせフォーム</a>よりご連絡ください。
+        ご本人であることを確認したうえで、速やかに対応します。
+      </p>
+
+      <h2>8. 安全管理</h2>
+      <p>
+        当サイトは通信を暗号化（HTTPS）しています。
+        取得した個人情報への不正アクセス・紛失・改ざん・漏えいを防ぐため、
+        必要かつ適切な管理を行います。
+      </p>
+
+      <h2>9. 本ポリシーの変更</h2>
+      <p>
+        法令の変更や事業内容の変更に応じて、本ポリシーを改定することがあります。
+        重要な変更を行う場合は、当サイト上でお知らせします。
+      </p>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 to.Morrow</p>
+      <p><a href="/">トップページへ戻る</a></p>
+    </footer>
+  </body>
+</html>

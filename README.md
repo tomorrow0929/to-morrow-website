@@ -60,7 +60,8 @@ to.morrow_website/
 │   ├── favicon-192x192.png / favicon-512x512.png
 │   ├── apple-touch-icon.png
 │   ├── site.webmanifest
-│   └── robots.txt
+│   ├── robots.txt
+│   └── privacy.html        プライバシーポリシー（Reactを通さない単独ページ）
 │
 ├── src/
 │   ├── main.jsx            入口
@@ -141,7 +142,7 @@ export const contactEndpoint = 'https://formspree.io/f/meaqvnvy'
 
 - 届いた問い合わせ: https://formspree.io/forms
 - 無料プランには月あたりの送信件数上限がある。増えてきたら確認する
-- 送信内容は Formspree 側に保存される。プライバシーポリシーを書くときに触れる
+- 送信内容は Formspree 側に保存される。この点はプライバシーポリシーに記載済み
 
 ---
 
@@ -168,11 +169,29 @@ Amplify コンソール側に古いビルド設定が保存されていること
 
 ---
 
+## プライバシーポリシー
+
+`public/privacy.html` に置いている。サイト本体は1ページ構成でルーターを
+入れていないので、ここだけ素のHTMLにした（Amplify の書き換えルールも要らない）。
+色は `src/styles/variables.css` と同じ値をインラインで持たせている。
+
+フッターのリンクは `src/data/site.js` の `footerLinks` から。
+
+外部サービス（Formspree / AWS Amplify）への言及と、国外移転についても書いてある。
+アクセス解析を入れたら5章を書き直す。
+
+**内容は自分で書いた事実ベースのもので、専門家のレビューは受けていない。**
+事業内容が広がったら見直す。
+
+---
+
 ## やること
 
 - [x] Formspree でのテスト送信を確認（2026-09-10）
+- [x] プライバシーポリシーを作成（2026-09-10）
+- [ ] SNS アカウントを作ったら `src/data/site.js` の `snsLinks` にURLを入れる
+      （`href` が空のものはフッターに表示されない）
 - [ ] `index.html` の `canonical` を独自ドメインに（今は Amplify の URL）
-- [ ] フッターのプライバシーポリシー・SNS のリンク先（今は `#`）
 - [ ] 法人設立後の名称・会社情報の差し替え
 - [ ] 実績・お客様の声は**実際の案件・実際にいただいた声だけ**を載せる
       （架空の内容は景表法の優良誤認になる。お客様の声は掲載許可を取ってから）
