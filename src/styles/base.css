@@ -1,0 +1,61 @@
+@import './variables.css';
+@import './button.css';
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  background-color: var(--page-bg);
+  color: #333;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+h2 {
+  color: var(--brand-navy);
+  text-align: center;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ===== スクロールしたら要素をふわっと出すアニメーション ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* アニメーションを減らす設定の人には動きを出さない */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

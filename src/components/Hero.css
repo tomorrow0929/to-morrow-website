@@ -1,0 +1,20 @@
+.hero {
+  background: linear-gradient(to right, #4facfe, var(--brand-navy));
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.hero-text {
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(270deg, #ffffff, #ffffff, #5adafd);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 6s ease infinite;
+}

@@ -1,0 +1,33 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--brand-dark);
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.logo {
+  height: 70px;
+}
+
+.site-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

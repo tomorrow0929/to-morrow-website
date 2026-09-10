@@ -1,0 +1,126 @@
+.contact-section {
+  position: relative;
+  width: min(80vw, 1080px);
+  margin-inline: auto;
+  padding: 28px;
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  z-index: -1;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  opacity: 0.15;
+  filter: blur(10px);
+}
+
+.contact-title {
+  margin: 0 0 20px;
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--brand-navy);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.contact-form .field,
+.contact-form .button,
+.contact-section .message-area {
+  width: clamp(280px, 80%, 720px);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--brand-navy);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  font: inherit;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--muted);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+.input.is-error,
+.textarea.is-error {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px rgba(176, 0, 32, 0.18);
+}
+
+.field-error {
+  margin: 4px 0 0;
+  min-height: 1em;
+  font-size: 0.9rem;
+  color: var(--danger);
+}
+
+/* 送信結果のメッセージ */
+.message-area {
+  margin-top: 14px;
+  margin-inline: auto;
+  min-height: 1.3em;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.message-area.is-success {
+  color: var(--success);
+}
+
+.message-area.is-error {
+  color: var(--danger);
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    width: min(92vw, 1080px);
+    padding: 20px;
+  }
+
+  .contact-form .button {
+    width: clamp(280px, 100%, 720px);
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "to-morrow-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "合同会社to.Morrow コーポレートサイト",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "favicons": "node tools/generate-favicons.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7"
+  }
+}

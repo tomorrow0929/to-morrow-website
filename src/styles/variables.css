@@ -1,0 +1,19 @@
+/* サイト全体で使う色・角丸などの設定。ここを変えると全体の見た目が変わります。 */
+:root {
+  --brand-dark: #01545a;   /* ヘッダーの深緑 */
+  --brand-navy: #004d99;   /* 見出しの紺 */
+  --accent: #0072ff;       /* ボタンなどのメインカラー */
+  --accent-2: #00c6ff;     /* サブの差し色 */
+
+  --surface: #ffffff;      /* 入力欄などの背景 */
+  --surface-muted: #f7f8fa;
+  --page-bg: #f5f8fa;
+
+  --text: #111;
+  --muted: #6b7280;
+  --danger: #b00020;
+  --success: #0a7f45;
+
+  --radius: 14px;
+  --radius-lg: 15px;
+}

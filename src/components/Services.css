@@ -1,0 +1,161 @@
+/* ===== 事業内容カード ===== */
+.card {
+  position: relative;
+  display: block;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 50px 30px;
+  padding: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 背景写真の上に黒いベールを敷いて、文字を読みやすくする */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+.card-text {
+  position: relative;
+  color: #fff;
+  z-index: 1;
+}
+
+.card-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+/* ===== カードの中の各項目 ===== */
+.card-grid-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: var(--radius-lg);
+  background-color: #eaf4fb;
+  border: 2px solid #ccc;
+}
+
+.card-grid-item--warm {
+  background-color: #fff9f2;
+}
+
+.card-grid-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card-grid-item__body {
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.card-grid-item__body p {
+  margin: 0;
+  width: 100%;
+}
+
+.card-grid-item__actions {
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+/* ===== 写真を背景いっぱいに敷くタイプ（開発カード） ===== */
+.card-grid-item--featured {
+  overflow: hidden;
+  justify-content: flex-end;
+  border: none;
+  background: linear-gradient(135deg, #eaf4fb 0%, #f7fbff 60%, #ffffff 100%);
+  background-color: transparent;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  min-height: 380px;
+}
+
+.card-grid-item--featured > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  transform: scale(1.05);
+  filter: saturate(0.95) contrast(1.05);
+  /* 端をふわっと溶かすマスク */
+  -webkit-mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
+  z-index: 0;
+}
+
+/* 画像の上に薄いカラーベールを敷いてトーンを揃える */
+.card-grid-item--featured::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    140deg,
+    rgba(0, 115, 230, 0.14),
+    rgba(255, 255, 255, 0) 45%,
+    rgba(0, 0, 0, 0.04)
+  );
+  z-index: 0;
+}
+
+/* 文章はガラス風のカードに載せて読みやすくする */
+.card-grid-item--featured .card-grid-item__body {
+  position: relative;
+  z-index: 1;
+  width: min(90%, 560px);
+  margin: auto auto 6px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.card-grid-item--featured .card-grid-item__body h3 {
+  margin: 0 0 6px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #0a3d7a;
+}
+
+.card-grid-item--featured .card-grid-item__body p {
+  margin: 0;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* ===== カード下部のボタン ===== */
+.card-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+}
