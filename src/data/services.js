@@ -13,43 +13,6 @@ import { externalLinks } from './site.js'
 
 export const services = [
   {
-    id: 'consulting',
-    published: true,
-    title: 'ITコンサルティング',
-    description: 'DX支援・業務改善を通じて企業成長をサポートします。',
-    backgroundImage: consultingBg,
-    itemVariant: 'plain', // 画像を上に、文章を下に置く通常レイアウト
-    items: [
-      {
-        id: 'dx',
-        title: '社内DX推進支援',
-        description: '社内におけるDX化を推進するための支援をさせていただいております。',
-        image: dxSupport,
-        imageAlt: '社内DX推進支援のイラスト',
-      },
-      {
-        id: 'introduction',
-        title: 'IT導入支援',
-        description:
-          '当方で開発したITシステムやその他のITシステムの導入のサポートをさせていただいております。',
-        image: itIntroduction,
-        imageAlt: 'IT導入支援のイラスト',
-        tone: 'warm', // 背景色を少し暖色にする
-      },
-      {
-        id: 'operation',
-        title: 'IT運用支援',
-        description: 'ITを導入した後の運用のサポートや修正対応をさせていただいております。',
-        image: itOperation,
-        imageAlt: 'IT運用支援のイラスト',
-      },
-    ],
-    actions: [
-      { id: 'about-consulting', label: 'ITコンサルについて', variant: 'primary' },
-      { id: 'free-consult', label: '無料相談', href: '#contact', variant: 'outline' },
-    ],
-  },
-  {
     id: 'development',
     published: true,
     title: '開発',
@@ -90,6 +53,43 @@ export const services = [
           external: true, // 別サイトなので新しいタブで開く
         },
       },
+    ],
+  },
+  {
+    id: 'consulting',
+    published: true,
+    title: 'ITコンサルティング',
+    description: 'DX支援・業務改善を通じて企業成長をサポートします。',
+    backgroundImage: consultingBg,
+    itemVariant: 'plain', // 画像を上に、文章を下に置く通常レイアウト
+    items: [
+      {
+        id: 'dx',
+        title: '社内DX推進支援',
+        description: '社内におけるDX化を推進するための支援をさせていただいております。',
+        image: dxSupport,
+        imageAlt: '社内DX推進支援のイラスト',
+      },
+      {
+        id: 'introduction',
+        title: 'IT導入支援',
+        description:
+          '当方で開発したITシステムやその他のITシステムの導入のサポートをさせていただいております。',
+        image: itIntroduction,
+        imageAlt: 'IT導入支援のイラスト',
+        tone: 'warm', // 背景色を少し暖色にする
+      },
+      {
+        id: 'operation',
+        title: 'IT運用支援',
+        description: 'ITを導入した後の運用のサポートや修正対応をさせていただいております。',
+        image: itOperation,
+        imageAlt: 'IT運用支援のイラスト',
+      },
+    ],
+    actions: [
+      { id: 'about-consulting', label: 'ITコンサルについて', variant: 'primary' },
+      { id: 'free-consult', label: '無料相談', href: '#contact', variant: 'outline' },
     ],
   },
   {
