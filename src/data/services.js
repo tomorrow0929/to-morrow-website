@@ -9,7 +9,7 @@ import itOperation from '../assets/images/it-operation.webp'
 import website from '../assets/images/website.webp'
 import systemTool from '../assets/images/system-tool.webp'
 import kintonePlugin from '../assets/images/kintone-plugin.webp'
-import { externalLinks } from './site.js'
+import { externalLinks, detailPages } from './site.js'
 
 export const services = [
   {
@@ -27,7 +27,7 @@ export const services = [
           'webサイト、HPやLPを1から作成いたします。お客様のご要望に柔軟に対応した、独自のサイトをお作り致します。',
         image: website,
         imageAlt: 'Webサイト制作のイメージ',
-        action: { label: 'webサイトについて' },
+        action: { label: 'webサイトについて', href: detailPages.website },
       },
       {
         id: 'system',
@@ -36,7 +36,7 @@ export const services = [
           'kintoneを利用した記録システムや、業務支援システムパックの開発をしております。独自にシステムを作りたい！というご要望に沿って開発致します。',
         image: systemTool,
         imageAlt: '業務システム開発のイメージ',
-        action: { label: 'ITツールについて' },
+        action: { label: 'ITツールについて', href: detailPages.system },
       },
       {
         id: 'plugin',
@@ -88,7 +88,12 @@ export const services = [
       },
     ],
     actions: [
-      { id: 'about-consulting', label: 'ITコンサルについて', variant: 'primary' },
+      {
+        id: 'about-consulting',
+        label: 'ITコンサルについて',
+        href: detailPages.consulting,
+        variant: 'primary',
+      },
       { id: 'free-consult', label: '無料相談', href: '#contact', variant: 'outline' },
     ],
   },

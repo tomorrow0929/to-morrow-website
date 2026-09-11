@@ -22,6 +22,14 @@ export const externalLinks = {
   kintonePluginSite: 'https://main.d3cec5zpyigwxh.amplifyapp.com/',
 }
 
+// 事業内容の各ボタンから開く説明ページ。
+// public/ に置いた素のHTML（1ページ構成でルーターを入れていないため）。
+export const detailPages = {
+  consulting: '/consulting.html',
+  website: '/website.html',
+  system: '/system.html',
+}
+
 // お問い合わせフォームの送信先（Formspree）。
 // Amplify は静的配信なので、サーバー側のプログラムは動きません。
 // 外部のフォームサービスに送信しています。
