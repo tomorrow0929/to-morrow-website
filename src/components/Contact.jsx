@@ -107,6 +107,17 @@ export default function Contact() {
 
       setStatus({ type: 'success', text: '送信が完了しました。担当よりご連絡いたします。' })
       setValues(EMPTY_VALUES)
+
+      // 問い合わせ成立をGA4に記録する。
+      // これを「キーイベント」に設定すると、どの流入・どのページから
+      // 問い合わせにつながったかがレポートで追えるようになります。
+      // 計測が未設定のときは window.gtag が無いので何も起きません。
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          form_name: 'contact',
+          page_location: window.location.href,
+        })
+      }
     } catch (error) {
       const detail = error?.message && error.message !== 'send_failed' ? `（${error.message}）` : ''
       setStatus({

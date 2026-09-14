@@ -16,10 +16,10 @@ export const company = {
 }
 
 // 別サイトへのリンク。
-// kintoneプラグイン配布サイトを公開したら、そのURLをここに入れてください。
-// 空のままだと、事業内容の「kintone pluginサイト」ボタンは押せないままになります。
+// kintoneプラグイン配布サイトのURL。
+// 空にすると、事業内容の「kintone pluginサイト」ボタンは押せない表示になります。
 export const externalLinks = {
-  kintonePluginSite: 'https://main.d3cec5zpyigwxh.amplifyapp.com/',
+  kintonePluginSite: 'https://plugins.to-morrow.net/',
 }
 
 // 事業内容の各ボタンから開く説明ページ。

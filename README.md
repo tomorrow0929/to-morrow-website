@@ -2,7 +2,7 @@
 
 IT事業「to.Morrow」のコーポレートサイト。
 
-- 本番: https://main.d3k8o4bbbbo4ke.amplifyapp.com/
+- 本番: https://to-morrow.net/
 - リポジトリ: https://github.com/tomorrow0929/to-morrow-website
 - ホスティング: AWS Amplify（`main` に push すると自動デプロイ）
 

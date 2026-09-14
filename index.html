@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script>
+      // 旧URL（amplifyapp.com）で開かれたら、新しいドメインへ移します。
+      // Amplifyコンソール側の301リダイレクトが本命で、これはその保険です。
+      (function () {
+        if (location.hostname.indexOf('.amplifyapp.com') !== -1) {
+          location.replace(
+            'https://to-morrow.net' + location.pathname + location.search + location.hash
+          )
+        }
+      })()
+    </script>
+
     <!-- ===== ファビコン（タブに出る小さいアイコン） =====
          public/ フォルダの中身は、そのままの名前で公開されます。
          差し替えたいときは public/ の中のファイルを入れ替えるだけでOK。
@@ -23,24 +35,63 @@
     <title>to.Morrow | ITで次の一歩を支援する、信頼のパートナー</title>
     <meta
       name="description"
-      content="広島のITコンサルティング・システム開発。社内DX推進支援、IT導入・運用支援、Webサイト制作、kintoneプラグイン開発を行っています。"
+      content="広島のITコンサルティング・システム開発。kintoneの業務システム構築、帳票作成代行、無料プラグインの配布、社内DX推進支援、Webサイト制作を行っています。"
     />
     <!-- ↓ 独自ドメインを設定したら、このURLを書き換えてください -->
-    <link rel="canonical" href="https://main.d3k8o4bbbbo4ke.amplifyapp.com/" />
+    <link rel="canonical" href="https://to-morrow.net/" />
+    <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="to.Morrow" />
     <meta property="og:title" content="to.Morrow" />
     <meta
       property="og:description"
-      content="ITで次の一歩を支援する、信頼のパートナー。"
+      content="ITで次の一歩を支援する、信頼のパートナー。kintoneの導入・帳票作成代行から、無料プラグインの配布まで。"
     />
-    <meta property="og:url" content="https://main.d3k8o4bbbbo4ke.amplifyapp.com/" />
+    <meta property="og:url" content="https://to-morrow.net/" />
     <meta
       property="og:image"
-      content="https://main.d3k8o4bbbbo4ke.amplifyapp.com/favicon-512x512.png"
+      content="https://to-morrow.net/favicon-512x512.png"
     />
+    <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "to.Morrow",
+      "url": "https://to-morrow.net/",
+      "description": "広島のITコンサルティング・システム開発。kintoneの業務システム構築、帳票作成代行、無料プラグインの配布、社内DX推進支援、Webサイト制作を行っています。",
+      "slogan": "ITで次の一歩を支援する、信頼のパートナー",
+      "founder": {
+        "@type": "Person",
+        "name": "今井 渓"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "広島県",
+        "addressLocality": "広島市西区"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "日本"
+      },
+      "knowsAbout": [
+        "kintone",
+        "kintoneプラグイン開発",
+        "帳票出力",
+        "業務システム開発",
+        "DX推進支援",
+        "Webサイト制作"
+      ],
+      "sameAs": [
+        "https://plugins.to-morrow.net/"
+      ]
+    }
+    </script>
+    <!-- アクセス計測（測定IDは public/analytics.js の1箇所） -->
+    <script src="/analytics.js" defer></script>
   </head>
   <body>
     <!-- React はこの div の中に描画されます -->
