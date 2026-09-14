@@ -28,6 +28,12 @@ export const detailPages = {
   consulting: '/consulting.html',
   website: '/website.html',
   system: '/system.html',
+  // 有料メニューの料金表。プラグイン配布サイトのCTAからもここに来ます。
+  services: '/services.html',
+  // 帳票出力に特化した説明ページ（検索からの入口を兼ねています）
+  reports: '/reports.html',
+  support: '/support.html',
+  terms: '/terms.html',
 }
 
 // お問い合わせフォームの送信先（Formspree）。
@@ -40,6 +46,8 @@ export const contactEndpoint = 'https://formspree.io/f/meaqvnvy'
 export const navLinks = [
   { href: '#about', label: '事業者情報' },
   { href: '#services', label: '事業内容' },
+  // 料金を先に見せることで、予算感の合わないお問い合わせを減らす狙いがあります
+  { href: '/services.html', label: '料金' },
   { href: '#contact', label: 'お問い合わせ' },
 ]
 
@@ -52,7 +60,10 @@ export const snsLinks = [
 ]
 
 export const footerLinks = [
-  // public/privacy.html（Reactを通さない単独ページ）
+  // いずれも public/ 直下の単独ページ（Reactを通しません）
+  { href: '/services.html', label: '料金' },
+  { href: '/support.html', label: 'サポート範囲' },
+  { href: '/terms.html', label: 'プラグイン利用規約' },
   { href: '/privacy.html', label: 'プライバシーポリシー' },
 ]
 

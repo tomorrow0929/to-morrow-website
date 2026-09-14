@@ -42,7 +42,7 @@ export const services = [
         id: 'plugin',
         title: 'kintone plugin',
         description:
-          'kintoneで使える便利なプラグインを無料で提供しております。またkintoneプラグイン開発依頼も承っております。',
+          'kintoneで使える便利なプラグインを36本、すべて無料で公開しています（会員登録不要・利用期限なし）。帳票出力・Excel出力・ガントチャートなど。設定の代行やプラグイン開発のご依頼も承ります。',
         image: kintonePlugin,
         imageAlt: 'kintoneプラグインのイメージ',
         // URLが未設定のうちは href が付かず、ただのボタン表示になります
@@ -53,6 +53,17 @@ export const services = [
           external: true, // 別サイトなので新しいタブで開く
         },
       },
+    ],
+    // 無料プラグインを見に来た方が、有料メニューにたどり着けるようにする導線。
+    // 「帳票を出したい」という具体的な困りごとが最も多いため、先に帳票ページを置く。
+    actions: [
+      {
+        id: 'reports',
+        label: 'kintoneの帳票出力について',
+        href: detailPages.reports,
+        variant: 'primary',
+      },
+      { id: 'prices', label: '料金を見る', href: detailPages.services, variant: 'outline' },
     ],
   },
   {
