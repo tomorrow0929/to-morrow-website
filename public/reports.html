@@ -105,7 +105,17 @@
         プラグインは無料。月額費用も、出力枚数の制限もありません。
       </p>
       <p class="page-hero__actions">
-        <a href="https://plugins.to-morrow.net/" class="button" target="_blank" rel="noreferrer">
+        <!--
+          プラグイン一覧ではなく、帳票出力プラグインの詳細ページへ直接送る。
+          「帳票を出したい」で来た人に36本の一覧を見せると迷わせるだけで、
+          検索エンジンから見ても、どのページが本題なのかが伝わらない。
+        -->
+        <a
+          href="https://plugins.to-morrow.net/plugins/to-morrow-form-output-plugin"
+          class="button"
+          target="_blank"
+          rel="noreferrer"
+        >
           帳票出力プラグインを見る
         </a>
       </p>
@@ -262,6 +272,75 @@
         </p>
       </section>
 
+      <!--
+        帳票まわりで実際に併用するプラグインへのリンク。
+        訪問者の次の一手になるうえ、検索エンジンが36本の詳細ページを
+        見つける道にもなる（このページは事業サイト側で被リンクが集まりやすい）。
+      -->
+      <section>
+        <h2>帳票まわりで一緒に使う無料プラグイン</h2>
+        <p>
+          いずれも無料・会員登録不要です。帳票出力とあわせて使うと、
+          転記や計算の手作業がまとめて減ります。
+        </p>
+        <ul class="plugin-links">
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/to-morrow-form-output-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >帳票出力プラグイン</a
+            >
+            <span>台紙PDFにレコードの値を流し込んでPDFを出す（このページの本体）</span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/auto-sequential-numbering-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >連番自動採番プラグイン</a
+            >
+            <span>請求書番号・見積番号を自動で振る。手入力の重複が無くなる</span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/calculation-extension-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >計算拡張プラグイン</a
+            >
+            <span>消費税・値引き・端数処理など、標準の計算式では書けない金額計算</span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/related-record-aggregation-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >関連レコード集計プラグイン</a
+            >
+            <span>別アプリの明細を合計して、請求書の金額として持ってくる</span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/paste-bulk-import-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >貼り付け一括登録プラグイン</a
+            >
+            <span>Excelの明細をコピーして、そのままサブテーブルに貼り付ける</span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/excel-export-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >Excel出力プラグイン</a
+            >
+            <span>PDFではなくExcel（.xlsx）で渡す必要があるとき</span>
+          </li>
+        </ul>
+      </section>
+
       <section class="note">
         <h2>介護・福祉、建設、製造などの様式にも対応します</h2>
         <p>
@@ -274,10 +353,21 @@
       <div class="cta">
         <h2>まず無料で試してください</h2>
         <p>プラグインをダウンロードして、うまくいかなければご相談ください。お見積りまで費用はかかりません。</p>
-        <a href="https://plugins.to-morrow.net/" class="button" target="_blank" rel="noreferrer">
-          プラグインを見る
+        <a
+          href="https://plugins.to-morrow.net/plugins/to-morrow-form-output-plugin"
+          class="button"
+          target="_blank"
+          rel="noreferrer"
+        >
+          帳票出力プラグインをダウンロード
         </a>
-        <p class="cta__sub"><a href="/#contact">帳票作成を相談する</a></p>
+        <p class="cta__sub">
+          <a href="/#contact">帳票作成を相談する</a>
+          ｜
+          <a href="https://plugins.to-morrow.net/" target="_blank" rel="noreferrer"
+            >無料プラグイン全36本を見る</a
+          >
+        </p>
       </div>
     </main>
 
