@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <meta name="theme-color" content="#01545a" />
+
+    <title>介護施設のkintone活用｜まず手をつけるのは「請求」 | to.Morrow</title>
+    <meta
+      name="description"
+      content="介護施設でkintoneを使うなら、記録より先に請求から組むほうが効果が出ます。kintoneが担える範囲と、国保連への伝送のように担えない範囲を分けて、3アプリ構成の具体的な組み方まで書きました。"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://to-morrow.net/blog/kintone-kaigo-billing.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="to.Morrow" />
+    <meta property="og:title" content="介護施設のkintone活用｜まず手をつけるのは「請求」" />
+    <meta
+      property="og:description"
+      content="記録より先に請求から組むほうが効果が出ます。kintoneが担える範囲と担えない範囲を分けて、3アプリ構成の組み方まで。"
+    />
+    <meta
+      property="og:url"
+      content="https://to-morrow.net/blog/kintone-kaigo-billing.html"
+    />
+    <meta property="og:image" content="https://to-morrow.net/favicon-512x512.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="/page.css" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "介護施設のkintone活用｜まず手をつけるのは「請求」",
+      "description": "介護施設でkintoneを使うなら、記録より先に請求から組むほうが効果が出ます。kintoneが担える範囲と担えない範囲を分けて解説します。",
+      "inLanguage": "ja",
+      "datePublished": "2026-09-15",
+      "dateModified": "2026-09-15",
+      "author": {
+        "@type": "Organization",
+        "name": "to.Morrow",
+        "url": "https://to-morrow.net/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "to.Morrow",
+        "url": "https://to-morrow.net/"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://to-morrow.net/blog/kintone-kaigo-billing.html"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "to.Morrow", "item": "https://to-morrow.net/" },
+        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://to-morrow.net/blog.html" },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "介護施設のkintone活用｜まず手をつけるのは「請求」",
+          "item": "https://to-morrow.net/blog/kintone-kaigo-billing.html"
+        }
+      ]
+    }
+    </script>
+    <!-- アクセス計測（測定IDは public/analytics.js の1箇所） -->
+    <script src="/analytics.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <a href="/">← to.Morrow</a>
+      <nav class="page-header__nav">
+        <a href="/blog.html">ブログ</a>
+        <a href="/services.html">料金</a>
+        <a href="/#contact">お問い合わせ</a>
+      </nav>
+    </header>
+
+    <div class="page-hero">
+      <h1>介護施設のkintone活用｜まず手をつけるのは「請求」</h1>
+      <p>
+        介護施設にうかがって最初に出てくる言葉は、だいたい同じです。
+        <strong>「請求が大変」</strong>。
+        記録でもシフトでもなく、まずここです。
+        kintone を入れるなら、この一言から設計を始めるのが一番早く効きます。
+      </p>
+    </div>
+
+    <main>
+      <p class="updated">最終更新日：2026年9月15日</p>
+
+      <section>
+        <h2>先に結論</h2>
+        <ol class="steps">
+          <li>
+            <strong>記録より先に、請求から組む</strong>
+            <span>効果が数字で見えるのが請求だからです。記録は後からでも足せます。</span>
+          </li>
+          <li>
+            <strong>kintone が担うのは「請求データを作るまで」</strong>
+            <span
+              >国保連への伝送は kintone では完結しません。ここを最初に線引きしておきます。</span
+            >
+          </li>
+          <li>
+            <strong>kintone の出口はCSV</strong>
+            <span>決まった列順の一覧を作っておき、そこから書き出して専用ソフトに取り込みます。</span>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>なぜ記録より請求を先にやるのか</h2>
+        <p>
+          kintone の導入事例では「まず記録から」と紹介されることが多いのですが、
+          現場で先に限界が来ているのは請求のほうです。理由は3つあります。
+        </p>
+        <ul>
+          <li>
+            <strong>締切が動かない</strong>：記録は多少遅れても回りますが、請求は期限を過ぎると
+            その月の入金が遅れます。毎月同じ時期に必ず負荷が集中します。
+          </li>
+          <li>
+            <strong>間違いのコストが大きい</strong>：返戻や過誤があると、
+            調べ直して出し直す手間が丸ごと発生します。記録の誤字とは重みが違います。
+          </li>
+          <li>
+            <strong>効果が数字で見える</strong>：「請求作業が3日から1日になった」は
+            誰にでも伝わります。導入を続ける理由になり、次の投資も通りやすくなります。
+          </li>
+        </ul>
+        <p>
+          記録をきれいに作っても、請求が楽にならなければ現場の評価は変わりません。
+          順番を逆にすると「入れたけど何も変わらない」になりがちです。
+        </p>
+      </section>
+
+      <section>
+        <h2>「請求が大変」の中身を分解する</h2>
+        <p>
+          一言で「大変」と言われるものを、作業に分けます。
+          どこに時間がかかっているかは施設によって違うので、まずここを一緒に見ます。
+        </p>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>作業</th>
+                <th>よくある状態</th>
+                <th>kintoneで変わるか</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">実績の集計</th>
+                <td>紙やExcelから月末にまとめて転記</td>
+                <td>変わる</td>
+              </tr>
+              <tr>
+                <th scope="row">利用者情報の確認</th>
+                <td>認定期間や負担割合を別のファイルで確認</td>
+                <td>変わる</td>
+              </tr>
+              <tr>
+                <th scope="row">請求データの作成</th>
+                <td>Excelで組んだ計算表に手入力</td>
+                <td>変わる</td>
+              </tr>
+              <tr>
+                <th scope="row">国保連への伝送</th>
+                <td>専用ソフトから送信</td>
+                <td><strong>変わらない</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">利用者への請求書発行</th>
+                <td>Excelの様式に転記して印刷</td>
+                <td>変わる</td>
+              </tr>
+              <tr>
+                <th scope="row">返戻・過誤の対応</th>
+                <td>過去分を探し直す</td>
+                <td>一部変わる（探すのが速くなる）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="note">
+        <h2>国保連への伝送は kintone では完結しません</h2>
+        <p>
+          ここは最初にはっきりさせておくべき線です。
+          <strong
+            >kintone から国保連へ直接データを送ることはできません。</strong
+          >
+          伝送は電子請求受付システムや、施設で使っている請求ソフトの役目です。
+        </p>
+        <p>
+          そのため現実的な形は、<strong
+            >kintone で請求データを作り、CSVとして書き出して、専用ソフトに取り込む</strong
+          >という流れになります。kintone は伝送ソフトの代わりではなく、
+          その手前にある「実績を集めて請求データの形にするまで」を引き受けます。
+        </p>
+        <p>
+          この線引きを曖昧にしたまま導入すると、
+          「結局ソフトも要るなら意味がないのでは」という話になります。
+          先に説明しておけば、役割の違いとして納得されます。
+        </p>
+        <p class="price-note">
+          介護報酬の算定要件・様式・単位数は改定されます。
+          どの項目をどう出すかは、お使いの請求ソフトの取込仕様と、
+          国保連や指定権者の案内をご確認ください。
+          当方は制度上の判断（算定の可否など）は行いません。
+          システムの組み方の部分をお引き受けしています。
+        </p>
+      </section>
+
+      <section>
+        <h2>3アプリで組む</h2>
+        <p>最小構成はこれだけです。最初から作り込まないのがコツです。</p>
+        <div class="cards">
+          <div class="card">
+            <h3>① 利用者マスタ</h3>
+            <p>
+              氏名・被保険者番号・要介護度・認定期間・負担割合・保険者。
+              あとの2つから参照します。ここが散らかっていると全部が崩れます。
+            </p>
+          </div>
+          <div class="card">
+            <h3>② サービス提供実績</h3>
+            <p>
+              利用者・提供日・サービス種別・回数や時間。
+              1日1行でも、利用者ごとに月1レコード＋サブテーブルでも構いません。
+              現場が入力しやすいほうを選びます。
+            </p>
+          </div>
+          <div class="card">
+            <h3>③ 請求データ</h3>
+            <p>
+              月・利用者ごとに、実績を集計した結果を持ちます。
+              ここから一覧を作って、CSVで書き出します。
+            </p>
+          </div>
+        </div>
+        <p>
+          ②の入力方法が続くかどうかで成否が決まります。
+          現場が紙で書いているなら、いきなりタブレット入力に変えず、
+          まずは月末にExcelから貼り付ける形でも構いません。入力が止まると全部止まります。
+        </p>
+      </section>
+
+      <section>
+        <h2>使える無料プラグイン</h2>
+        <p>
+          いずれも無料・会員登録不要です。請求まわりで効くものだけ挙げます。
+        </p>
+        <ul class="plugin-links">
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/paste-bulk-import-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >貼り付け一括登録プラグイン</a
+            >
+            <span>
+              Excelからコピーした表を一覧に貼り付けて一括登録します。
+              全行を検証してから登録できるので、月末にまとめて実績を入れる運用に向きます
+            </span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/calculation-extension-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >計算拡張プラグイン</a
+            >
+            <span>
+              加算の条件分岐など、標準の計算フィールドでは書ききれない数式を定義できます
+            </span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/bulk-update-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >一括更新・一括ステータス更新プラグイン</a
+            >
+            <span>
+              月次の請求ステータス（作成済み・送信済み・入金確認）をまとめて進められます
+            </span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/deadline-alert-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >期限アラートプラグイン</a
+            >
+            <span>
+              認定期間の満了が近い利用者を一覧で色付けします。期限切れに気づかないまま
+              請求してしまう事故を防げます
+            </span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/excel-export-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >Excel出力プラグイン</a
+            >
+            <span>
+              一覧で絞り込んだレコードをExcelに書き出します。列の加工が必要なときに
+            </span>
+          </li>
+          <li>
+            <a
+              href="https://plugins.to-morrow.net/plugins/to-morrow-form-output-plugin"
+              target="_blank"
+              rel="noreferrer"
+              >帳票出力プラグイン</a
+            >
+            <span>
+              利用者へお渡しする請求書・領収書を、決まった様式のPDFで出します
+            </span>
+          </li>
+        </ul>
+        <p class="price-note">
+          国保連向けのCSVは、kintone 標準の書き出し機能でも作れます。
+          請求ソフトの取込仕様に合わせた列順の一覧をあらかじめ作っておき、
+          毎月その一覧から書き出す形にしておくと、手作業が入りません。
+        </p>
+      </section>
+
+      <section>
+        <h2>記録とモニタリング表を後回しにする理由</h2>
+        <p>
+          記録をkintoneに載せること自体はできますし、実際やる価値もあります。
+          ただし順番として後にするほうが安全です。
+        </p>
+        <ul>
+          <li>
+            記録は入力する人数が多く、現場の習慣を変える話になります。
+            合意形成に時間がかかり、途中で止まると「kintoneは使えない」という評価になります。
+          </li>
+          <li>
+            請求が先に楽になっていれば、「あれをやった人たちが言うなら」と話が通ります。
+            最初の1つは、関わる人数が少なくて効果が大きいものを選ぶべきです。
+          </li>
+          <li>
+            モニタリング表や計画書は様式が決まっているので、
+            <a href="/blog/kintone-invoice-subtable.html">帳票の設計</a>の話になります。
+            請求で帳票の作り方に慣れてからのほうが早く組めます。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>導入の順番</h2>
+        <ol class="steps">
+          <li>
+            <strong>1か月目：利用者マスタを整える</strong>
+            <span>既存のExcelを取り込むだけ。ここを飛ばすと後で全部やり直しになります。</span>
+          </li>
+          <li>
+            <strong>2か月目：実績の入力と集計を回す</strong>
+            <span
+              >1か月分を実際に入れてみて、いまの請求結果と突き合わせます。
+              合わなければ設計を直します。</span
+            >
+          </li>
+          <li>
+            <strong>3か月目：CSV書き出しと請求書の帳票</strong>
+            <span
+              >取込仕様に合う列順を作り、利用者向けの請求書をPDFで出せるようにします。</span
+            >
+          </li>
+        </ol>
+        <p>
+          並行して記録に手を出したくなりますが、3か月は請求だけに絞ってください。
+          先に1つ完成させるほうが、結果的に早く進みます。
+        </p>
+      </section>
+
+      <section>
+        <h2>まとめ</h2>
+        <ul>
+          <li>施設が最初に言うのは「請求が大変」。そこから設計を始める</li>
+          <li>kintone が担うのは請求データを作るまで。国保連への伝送は専用ソフトの役目</li>
+          <li>出口はCSV。取込仕様に合う列順の一覧を作っておく</li>
+          <li>利用者マスタ・サービス提供実績・請求データの3アプリで始まる</li>
+          <li>記録とモニタリング表は、請求が回ってから</li>
+        </ul>
+      </section>
+
+      <div class="cta">
+        <h2>介護・福祉のkintoneをご相談ください</h2>
+        <p>
+          介護・福祉業界での kintone 導入支援と、業務システムの構築を行っています。
+          業種の説明から始めていただく必要はありません。
+          「請求が大変」の中身を一緒に分解するところからお手伝いします。
+        </p>
+        <a href="/#contact" class="button">相談する（お見積りまで無料）</a>
+        <p class="cta__sub">
+          <a href="/services.html">料金・ご依頼メニューを見る</a>
+          ｜
+          <a href="https://plugins.to-morrow.net/" target="_blank" rel="noreferrer"
+            >無料プラグインを見る</a
+          >
+        </p>
+      </div>
+
+      <section>
+        <h2>関連記事</h2>
+        <ul class="plugin-links">
+          <li>
+            <a href="/blog/kintone-invoice-subtable.html"
+              >kintoneで請求書を発行する｜明細を1枚に収める設計</a
+            >
+            <span>利用者向けの請求書を作るときの、明細まわりの設計</span>
+          </li>
+          <li>
+            <a href="/blog/kintone-report-comparison.html"
+              >kintoneで帳票（PDF）を出す4つの方法を比較する</a
+            >
+            <span>無料プラグインと月額サービスのどちらを選ぶべきか</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>&copy; 2026 to.Morrow</p>
+      <p>
+        <a href="/">トップページ</a> ｜
+        <a href="/blog.html">ブログ</a> ｜
+        <a href="/reports.html">帳票出力</a> ｜
+        <a href="/services.html">料金</a> ｜
+        <a href="https://plugins.to-morrow.net/" target="_blank" rel="noreferrer">無料プラグイン</a>
+        ｜
+        <a href="/privacy.html">プライバシーポリシー</a>
+      </p>
+    </footer>
+  </body>
+</html>
