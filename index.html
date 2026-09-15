@@ -24,8 +24,20 @@
          "./" だと /about のような下の階層を開いたときに
          /about/favicon.svg を探しにいってしまい、見つからなくなるためです。
          ※ サブディレクトリ配下で公開する場合はここを "./" に戻してください。 -->
+    <!--
+      検索結果に出るアイコン（ファビコン）。
+      Google は「48pxの倍数の正方形」を求めるので、48x48 を含む .ico と
+      192x192 の PNG を申告する。32x32 だけでは候補にならない。
+      sizes は実際に入っているサイズを正しく書くこと
+      （favicon.ico の中身は 16x16 / 32x32 / 48x48 の3つ）。
+
+      ※ Google はサイトのトップページの申告を見て、そのサイト全体の
+        アイコンを決める。反映はトップページが再クロールされたときで、
+        数日〜数週間かかる。
+    -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192" />
     <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
