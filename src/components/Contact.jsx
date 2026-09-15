@@ -10,7 +10,41 @@ const ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || contactEndpoint
 // 実用的なメール形式チェック（<input type="email"> のチェックも併用）
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
 
+/**
+ * 用件の選択肢。
+ *
+ * 【なぜ選ばせるか】
+ * 無料プラグインを配っているため、問い合わせが「不具合の報告」と
+ * 「有料の依頼」の両方で来る。用件が分からないと、返信の優先度も
+ * 返し方も決められない。
+ *
+ * note は選んだときに下に出す一言。
+ * 先に書いておくことで、あとから聞き直す往復を減らす。
+ * 文面はサポート範囲・利用規約と矛盾させないこと。
+ */
+const SUBJECT_OPTIONS = [
+  {
+    value: '不具合のご報告',
+    note: '無償で受け付けています。プラグイン名と、再現する手順を書いていただけると早く直せます（返信は週2回まとめてお返しします）。',
+  },
+  {
+    value: '有料サービスのご依頼',
+    note: '料金は「料金・ご依頼メニュー」に掲載しています。出したい帳票の見本（Excel・紙のコピーなど）があれば、このあとのやり取りで添えてください。',
+  },
+  {
+    value: '導入のご相談',
+    note: 'お見積りまで費用はかかりません。設定を変えるだけで解決できる場合は、そのようにお伝えします。',
+  },
+  { value: 'その他', note: '' },
+]
+
 const FIELDS = [
+  {
+    name: 'subject',
+    label: 'ご用件',
+    type: 'select',
+    requiredMessage: 'ご用件を選択してください。',
+  },
   {
     name: 'name',
     label: 'お名前',
@@ -30,12 +64,12 @@ const FIELDS = [
     name: 'message',
     label: 'お問い合わせ内容',
     type: 'textarea',
-    placeholder: 'ご用件をご記入ください',
+    placeholder: 'できるだけ具体的にご記入ください',
     requiredMessage: 'お問い合わせ内容を入力してください。',
   },
 ]
 
-const EMPTY_VALUES = { name: '', email: '', message: '' }
+const EMPTY_VALUES = { subject: '', name: '', email: '', message: '' }
 
 export default function Contact() {
   const [values, setValues] = useState(EMPTY_VALUES)
@@ -44,6 +78,9 @@ export default function Contact() {
   const [status, setStatus] = useState(null) // { type: 'success' | 'error', text: string }
   const inputRefs = useRef({})
   const { getToken } = useRecaptcha()
+
+  // 選ばれた用件に応じた案内文（SUBJECT_OPTIONS の note）
+  const subjectNote = SUBJECT_OPTIONS.find((o) => o.value === values.subject)?.note || ''
 
   const validate = (name, value) => {
     const field = FIELDS.find((f) => f.name === name)
@@ -88,6 +125,14 @@ export default function Contact() {
       const formData = new FormData()
       for (const field of FIELDS) formData.append(field.name, values[field.name].trim())
 
+      // Formspree は _subject を通知メールの件名に使う。
+      // 用件を件名に入れておくと、受信箱を開いた時点で仕分けできる。
+      // 仕様が変わって効かなくなっても、ただのフィールドが1つ増えるだけ。
+      formData.append(
+        '_subject',
+        `[${values.subject.trim()}] ${values.name.trim()} さまからのお問い合わせ`,
+      )
+
       const token = await getToken('contact')
       if (token) formData.append('recaptchaToken', token)
 
@@ -115,6 +160,9 @@ export default function Contact() {
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
         window.gtag('event', 'generate_lead', {
           form_name: 'contact',
+          // 用件を一緒に送る。KPIで数えるのは「有料の相談」だけなので、
+          // これが無いと不具合報告と区別できない（計画書 第12章）
+          contact_subject: values.subject.trim(),
           page_location: window.location.href,
         })
       }
@@ -152,7 +200,26 @@ export default function Contact() {
             <label className="field" key={field.name}>
               <span className="field-label">{field.label}</span>
 
-              {field.type === 'textarea' ? (
+              {/*
+                is-placeholder は未選択のあいだだけ付ける。
+                form に noValidate を付けているため CSS の :invalid が当たらず、
+                「選択してください」を薄い色にできないので、クラスで切り替えている。
+              */}
+              {field.type === 'select' ? (
+                <select
+                  {...shared}
+                  className={`select${values[field.name] ? '' : ' is-placeholder'}${
+                    hasError ? ' is-error' : ''
+                  }`}
+                >
+                  <option value="">選択してください</option>
+                  {SUBJECT_OPTIONS.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.value}
+                    </option>
+                  ))}
+                </select>
+              ) : field.type === 'textarea' ? (
                 <textarea
                   {...shared}
                   className={`textarea${hasError ? ' is-error' : ''}`}
@@ -165,6 +232,11 @@ export default function Contact() {
                   inputMode={field.type === 'email' ? 'email' : undefined}
                   className={`input${hasError ? ' is-error' : ''}`}
                 />
+              )}
+
+              {/* 選んだ用件に応じた案内。往復を減らすために先に出す */}
+              {field.name === 'subject' && subjectNote && (
+                <p className="field-note">{subjectNote}</p>
               )}
 
               <p className="field-error" id={errorId} aria-live="polite">
