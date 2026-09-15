@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <meta name="theme-color" content="#01545a" />
+
+    <title>kintoneで帳票（PDF）を出す4つの方法を比較する | to.Morrow</title>
+    <meta
+      name="description"
+      content="kintone の帳票出力は、標準機能・無料プラグイン・無料枠のあるサービス・月額サービスの4択です。実際の料金を確認したうえで、費用・できること・向いていないケースを並べました。無料で足りない条件も正直に書いています。"
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://to-morrow.net/blog/kintone-report-comparison.html"
+    />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="to.Morrow" />
+    <meta property="og:title" content="kintoneで帳票（PDF）を出す4つの方法を比較する" />
+    <meta
+      property="og:description"
+      content="標準機能・無料プラグイン・無料枠のあるサービス・月額サービスの4択を、実際の料金を確認したうえで比較しました。無料で足りない条件も書いています。"
+    />
+    <meta
+      property="og:url"
+      content="https://to-morrow.net/blog/kintone-report-comparison.html"
+    />
+    <meta property="og:image" content="https://to-morrow.net/favicon-512x512.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="/page.css" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "kintoneで帳票（PDF）を出す4つの方法を比較する",
+      "description": "kintone の帳票出力を、標準機能・無料プラグイン・無料枠のあるサービス・月額サービスの4つに分けて比較しました。",
+      "inLanguage": "ja",
+      "datePublished": "2026-09-15",
+      "dateModified": "2026-09-15",
+      "author": {
+        "@type": "Organization",
+        "name": "to.Morrow",
+        "url": "https://to-morrow.net/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "to.Morrow",
+        "url": "https://to-morrow.net/"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://to-morrow.net/blog/kintone-report-comparison.html"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "to.Morrow", "item": "https://to-morrow.net/" },
+        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://to-morrow.net/blog.html" },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "kintoneで帳票（PDF）を出す4つの方法を比較する",
+          "item": "https://to-morrow.net/blog/kintone-report-comparison.html"
+        }
+      ]
+    }
+    </script>
+    <!-- アクセス計測（測定IDは public/analytics.js の1箇所） -->
+    <script src="/analytics.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <a href="/">← to.Morrow</a>
+      <nav class="page-header__nav">
+        <a href="/blog.html">ブログ</a>
+        <a href="/services.html">料金</a>
+        <a href="/#contact">お問い合わせ</a>
+      </nav>
+    </header>
+
+    <div class="page-hero">
+      <h1>kintoneで帳票（PDF）を出す4つの方法を比較する</h1>
+      <p>
+        kintone には、レコードを指定の様式でPDF出力する標準機能がありません。
+        そのため帳票を出すには何かを足すことになりますが、選択肢は大きく4つです。
+        費用・できること・向いていないケースを、実際の料金を確認したうえで並べます。
+      </p>
+    </div>
+
+    <main>
+      <p class="updated">最終更新日：2026年9月15日</p>
+
+      <section>
+        <h2>先に結論</h2>
+        <p>
+          迷ったら、下の表で自分の状況に近い行を見てください。
+          当方は無料プラグインを配布している立場ですが、
+          月額サービスのほうが適している条件もはっきり書きます。
+        </p>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>あなたの状況</th>
+                <th>向いている方法</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">月に数件だけ発行する</th>
+                <td>標準機能＋Excelの手作業でも回る</td>
+              </tr>
+              <tr>
+                <th scope="row">月に数十〜数百枚、画面から1件ずつ出したい</th>
+                <td><strong>無料プラグイン</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">台紙づくりの時間が取れない</th>
+                <td><strong>無料プラグイン＋台紙の作成代行</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">夜間に自動で大量出力したい</th>
+                <td>月額サービス</td>
+              </tr>
+              <tr>
+                <th scope="row">監査ログを長期保管する必要がある</th>
+                <td>月額サービス</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>そもそも kintone の標準機能では帳票を出せない</h2>
+        <p>
+          kintone にも印刷機能はありますが、これはレコードの詳細画面をそのまま印刷するものです。
+          見積書や請求書の様式にはなりません。取引先に出せる体裁にするには、
+          結局どこかで「決まった様式に値を流し込む」仕組みが必要になります。
+        </p>
+        <p>
+          その結果、多くの現場が次の手順をくり返すことになります。
+          kintone からCSVを書き出す → Excel の様式に貼る → 体裁を直す → PDFにする。
+          1件あたり5分でも、月50件なら4時間以上が消えます。
+        </p>
+      </section>
+
+      <section>
+        <h2>選択肢は4つ</h2>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>方法</th>
+                <th>費用</th>
+                <th>出力枚数</th>
+                <th>自動出力</th>
+                <th>向いている規模</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">① 標準機能＋手作業</th>
+                <td class="price">0円</td>
+                <td>制限なし（人力）</td>
+                <td>なし</td>
+                <td>月に数件まで</td>
+              </tr>
+              <tr>
+                <th scope="row">② 無料プラグイン</th>
+                <td class="price">0円</td>
+                <td>制限なし</td>
+                <td>なし</td>
+                <td>月に数十〜数百枚</td>
+              </tr>
+              <tr>
+                <th scope="row">③ 無料枠のあるサービス</th>
+                <td class="price">0円〜</td>
+                <td>ページ数に上限</td>
+                <td>サービスによる</td>
+                <td>帳票が短いもの</td>
+              </tr>
+              <tr>
+                <th scope="row">④ 月額のサービス</th>
+                <td class="price">月額7,000円〜</td>
+                <td>プランごとに上限</td>
+                <td>あり</td>
+                <td>大量出力・統制要件あり</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>① 標準機能＋手作業（CSV → Excel）</h2>
+        <p>
+          費用はかかりません。すでに Excel の様式があるなら、今日から使えます。
+          月に数件しか発行しないなら、わざわざ仕組みを入れる必要はありません。
+        </p>
+        <p>
+          問題になるのは件数が増えたときです。転記のたびに貼り間違いのリスクがあり、
+          様式を直したときに過去分と体裁が揃わなくなります。
+          「毎月同じ作業をしている」と感じ始めたら、切り替えどきです。
+        </p>
+      </section>
+
+      <section>
+        <h2>② 無料プラグイン</h2>
+        <p>
+          台紙となるPDF（罫線と見出しだけの空の帳票）を用意し、その上にレコードの値を重ねる方式です。
+          当方が配布している
+          <a
+            href="https://plugins.to-morrow.net/plugins/to-morrow-form-output-plugin"
+            target="_blank"
+            rel="noreferrer"
+            >帳票出力プラグイン</a
+          >
+          もこの方式で、無料・会員登録不要で使えます。
+        </p>
+        <div class="cards">
+          <div class="card">
+            <h3>できること</h3>
+            <p>
+              台紙PDFへの値の配置／サブテーブル（明細）の出力／テンプレート3種類の使い分け／
+              レコード画面のボタンから出力
+            </p>
+          </div>
+          <div class="card">
+            <h3>できないこと</h3>
+            <p>
+              時間を指定した自動出力／数万枚規模の一括出力／監査ログの長期保管。
+              画面から1件ずつ出す使い方が前提です。
+            </p>
+          </div>
+        </div>
+        <p>
+          制限は「テンプレート最大3種類」「PDFをアップロードする場合は1テンプレートあたり3MBまで」です。
+          見積書・納品書・請求書の3種を1つのアプリで使い分ける、という使い方はちょうど収まります。
+          4種類以上を1アプリで扱いたい場合は、アプリを分けるかサービスの利用を検討してください。
+        </p>
+      </section>
+
+      <section>
+        <h2>③ 無料枠のあるサービス</h2>
+        <p>
+          一定の範囲まで無料で使えるサービスもあります。たとえば ReportsConnect は、
+          3ページまでのPDF出力であれば無料で利用でき、4ページ以上を出す場合に有料プランが必要になります。
+        </p>
+        <p>
+          帳票が3ページに収まるなら現実的な選択肢です。
+          一方で、明細が多くページ数が読めない帳票（工事の内訳書など）では、
+          途中から有料に切り替わる前提で考える必要があります。
+        </p>
+      </section>
+
+      <section>
+        <h2>④ 月額のサービス</h2>
+        <p>
+          kintone の帳票サービスで最も広く使われているのが、トヨクモの PrintCreator です。
+          2026年9月時点の公開料金は次のとおりでした。
+        </p>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>プラン</th>
+                <th>月額</th>
+                <th>年額</th>
+                <th>無料出力枚数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">ライト</th>
+                <td class="price">7,000円</td>
+                <td>84,000円</td>
+                <td>5万枚/月</td>
+              </tr>
+              <tr>
+                <th scope="row">スタンダード</th>
+                <td class="price">12,000円</td>
+                <td>144,000円</td>
+                <td>5万枚/月</td>
+              </tr>
+              <tr>
+                <th scope="row">プレミアム</th>
+                <td class="price">18,000円</td>
+                <td>216,000円</td>
+                <td>5万枚/月</td>
+              </tr>
+              <tr>
+                <th scope="row">プロフェッショナル</th>
+                <td class="price">30,000円</td>
+                <td>360,000円</td>
+                <td>5万枚/月</td>
+              </tr>
+              <tr>
+                <th scope="row">エンタープライズ</th>
+                <td class="price">35,000円</td>
+                <td>420,000円</td>
+                <td>5万枚/月</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="price-note">
+          このほか、ユーザーライセンスの追加が月額15,000円／1ライセンス〜、
+          出力1万枚の追加が月額10,000円といったオプションがあります。
+          プランによって使える機能が異なるため、
+          <a
+            href="https://www.kintoneapp.com/en/print-creator/pricing"
+            target="_blank"
+            rel="noreferrer"
+            >公式の料金ページ</a
+          >
+          で最新の内容をご確認ください。上表は2026年9月15日時点の記載にもとづくものです。
+        </p>
+        <p>
+          枚数の上限が大きく、時間指定の自動出力にも対応しているため、
+          発行量が多い会社や、基幹業務として帳票を回している会社には合理的な選択です。
+          サポートが契約に含まれる点も、社内にkintoneを見る人がいない場合には効いてきます。
+        </p>
+      </section>
+
+      <section>
+        <h2>3年使ったときの費用差</h2>
+        <p>
+          月額サービスは、使い続けるかぎり費用が発生します。
+          ライトプラン（年額84,000円）と、無料プラグインを3年使った場合を並べます。
+        </p>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>方法</th>
+                <th>1年目</th>
+                <th>3年間の合計</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">月額サービス（ライトプラン）</th>
+                <td class="price">84,000円</td>
+                <td class="price">252,000円</td>
+              </tr>
+              <tr>
+                <th scope="row">無料プラグイン（自分で設定）</th>
+                <td class="price">0円</td>
+                <td class="price">0円</td>
+              </tr>
+              <tr>
+                <th scope="row">無料プラグイン＋台紙の作成代行</th>
+                <td class="price">39,800円</td>
+                <td class="price">39,800円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="price-note">
+          代行は1回かぎりの費用です。納品後の変更はご自身でできるよう手順書をお渡ししているため、
+          2年目以降の費用はかかりません。
+        </p>
+      </section>
+
+      <section class="note">
+        <h2>無料で足りない3つのケース</h2>
+        <p>
+          次のどれかに当てはまる場合は、無料プラグインでは要件を満たせません。
+          月額サービスをご検討ください。無理におすすめはしません。
+        </p>
+        <ul>
+          <li>
+            <strong>時間を指定した自動出力が必要</strong>：毎月末に全件を自動でPDF化したい、
+            といった運用は無料プラグインでは実現できません。
+          </li>
+          <li>
+            <strong>月に数万枚を出力する</strong>：画面から1件ずつ出す方式のため、
+            大量出力の運用には向きません。
+          </li>
+          <li>
+            <strong>監査ログの長期保管や内部統制の要件がある</strong>：いつ誰が何を出力したかを
+            長期に残す仕組みは持っていません。
+          </li>
+        </ul>
+        <p>
+          逆に、日々の見積書・請求書を担当者が画面から出す、という使い方であれば無料で足ります。
+          中小企業の帳票運用の多くはこちらです。
+        </p>
+      </section>
+
+      <section>
+        <h2>実際につまずくのは「台紙づくり」です</h2>
+        <p>
+          ここまで費用の話をしてきましたが、無料プラグインを選んだ人が実際に手を止めるのは、
+          機能ではなく次の作業です。
+        </p>
+        <ul>
+          <li>罫線と見出しだけの台紙PDFを、Word や Excel で作る</li>
+          <li>台紙の上に項目を置き、1px 単位で位置をそろえる</li>
+          <li>文字サイズ・書体・明細の行数と行の高さを調整する</li>
+          <li>台紙を差し替えたときに、ずれた位置を直す</li>
+        </ul>
+        <p>
+          社内の担当者が半日〜1日かけて試行錯誤することになる部分で、
+          しかも完成する保証がありません。
+          当方はこの作業だけを
+          <a href="/reports.html">39,800円〜で代行</a>
+          しています。プラグイン本体は無料のままです。
+        </p>
+      </section>
+
+      <section>
+        <h2>まとめ</h2>
+        <ul>
+          <li>kintone の標準機能だけでは、様式どおりの帳票PDFは出せない</li>
+          <li>月に数件なら、Excelの手作業でも回る</li>
+          <li>月に数十〜数百枚を画面から出すなら、無料プラグインで足りる</li>
+          <li>自動出力・数万枚規模・監査ログが必要なら、月額サービスを選ぶ</li>
+          <li>無料を選んだ場合、費用ではなく「台紙づくりの時間」が最後の壁になる</li>
+        </ul>
+      </section>
+
+      <div class="cta">
+        <h2>まず無料で試してください</h2>
+        <p>
+          ダウンロードに会員登録は不要です。触ってみて、台紙づくりで手が止まったらご相談ください。
+          お見積りまで費用はかかりません。
+        </p>
+        <a
+          href="https://plugins.to-morrow.net/plugins/to-morrow-form-output-plugin"
+          class="button"
+          target="_blank"
+          rel="noreferrer"
+        >
+          帳票出力プラグインをダウンロード
+        </a>
+        <p class="cta__sub">
+          <a href="/reports.html">帳票作成代行について見る</a>
+          ｜
+          <a href="/#contact">相談する</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <p>&copy; 2026 to.Morrow</p>
+      <p>
+        <a href="/">トップページ</a> ｜
+        <a href="/blog.html">ブログ</a> ｜
+        <a href="/reports.html">帳票出力</a> ｜
+        <a href="/services.html">料金</a> ｜
+        <a href="https://plugins.to-morrow.net/" target="_blank" rel="noreferrer">無料プラグイン</a>
+        ｜
+        <a href="/privacy.html">プライバシーポリシー</a>
+      </p>
+    </footer>
+  </body>
+</html>
