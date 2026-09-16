@@ -178,9 +178,21 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="contact-section">
-      <h2 className="contact-title">お問い合わせ</h2>
+    <section id="contact" className="section contact">
+      {/* 背景の飾り（うっすら動く光） */}
+      <div className="contact__glow contact__glow--1" aria-hidden="true" />
+      <div className="contact__glow contact__glow--2" aria-hidden="true" />
 
+      <div className="container contact__inner">
+        <div className="section-head contact__head">
+          <p className="eyebrow contact__eyebrow">Contact</p>
+          <h2 className="section-title contact__title">お問い合わせ</h2>
+          <p className="section-lead contact__lead">
+            ご相談・お見積りは無料です。設定を変えるだけで解決できる場合は、そのようにお伝えします。
+          </p>
+        </div>
+
+        <div className="contact__card">
       <form className="contact-form" onSubmit={handleSubmit} noValidate>
         {FIELDS.map((field) => {
           const errorId = `err-${field.name}`
@@ -247,13 +259,20 @@ export default function Contact() {
         })}
 
         <button className="button" type="submit" disabled={isSending}>
-          {isSending ? '送信中…' : '送信'}
+          {isSending ? '送信中…' : '送信する'}
+          {!isSending && (
+            <span className="button__arrow" aria-hidden="true">
+              →
+            </span>
+          )}
         </button>
       </form>
 
-      <p className={`message-area${status ? ` is-${status.type}` : ''}`} aria-live="polite">
-        {status?.text}
-      </p>
+          <p className={`message-area${status ? ` is-${status.type}` : ''}`} aria-live="polite">
+            {status?.text}
+          </p>
+        </div>
+      </div>
     </section>
   )
 }

@@ -1,77 +1,126 @@
-.contact-section {
+/* ===== お問い合わせ ===== */
+.contact {
   position: relative;
-  width: min(80vw, 1080px);
-  margin-inline: auto;
-  padding: 28px;
-  border-radius: var(--radius);
-  backdrop-filter: blur(10px);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background: linear-gradient(165deg, var(--ink) 0%, var(--ink-2) 60%, #0b3f47 100%);
+  color: #fff;
 }
 
-.contact-section::before {
-  content: '';
+/* 背景でゆっくり動く光 */
+.contact__glow {
   position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  z-index: -1;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  opacity: 0.15;
-  filter: blur(10px);
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
 }
 
-.contact-title {
-  margin: 0 0 20px;
-  font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: var(--brand-navy);
+.contact__glow--1 {
+  top: -20%;
+  left: -10%;
+  width: 46vw;
+  min-width: 320px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(0, 114, 255, 0.45), transparent 68%);
+  animation: contactFloat 20s var(--ease-in-out) infinite;
+}
+
+.contact__glow--2 {
+  right: -12%;
+  bottom: -25%;
+  width: 40vw;
+  min-width: 280px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(255, 140, 66, 0.3), transparent 68%);
+  animation: contactFloat 26s var(--ease-in-out) infinite reverse;
+}
+
+@keyframes contactFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(10%, 12%, 0) scale(1.15);
+  }
+}
+
+.contact__inner {
+  position: relative;
+}
+
+/*
+ * 濃い背景に載せるので、文字は白にする。
+ * base.css の .section-title / .section-lead に負けないよう、
+ * 「.contact の中の」と書いて優先度を上げています。
+ */
+.contact .contact__title {
+  color: #fff;
+}
+
+.contact .contact__lead {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.contact .contact__eyebrow {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent-2);
+}
+
+/* ===== 入力欄を載せる白いカード ===== */
+.contact__card {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-lg);
+  color: var(--text);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  gap: 18px;
   width: 100%;
-}
-
-.contact-form .field,
-.contact-form .button,
-.contact-section .message-area {
-  width: clamp(280px, 80%, 720px);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .field-label {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--brand-navy);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
 }
 
 .input,
 .select,
 .textarea {
   width: 100%;
-  padding: 12px 14px;
-  box-sizing: border-box;
+  padding: 14px 16px;
   font: inherit;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: var(--surface);
+  font-size: var(--step-0);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface-muted);
   color: var(--text);
   outline: none;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    border-color 220ms var(--ease-out),
+    background 220ms var(--ease-out),
+    box-shadow 220ms var(--ease-out);
 }
 
 .textarea {
   resize: vertical;
-  min-height: 140px;
+  min-height: 150px;
+  line-height: 1.85;
 }
 
 .input::placeholder,
@@ -79,53 +128,64 @@
   color: var(--muted);
 }
 
+.input:hover,
+.select:hover,
+.textarea:hover {
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+}
+
 .input:focus,
 .select:focus,
 .textarea:focus {
-  border-color: transparent;
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent);
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
 }
 
 .input.is-error,
 .select.is-error,
 .textarea.is-error {
   border-color: var(--danger);
-  box-shadow: 0 0 0 2px rgba(176, 0, 32, 0.18);
+  background: #fff6f7;
+}
+
+.input.is-error:focus,
+.select.is-error:focus,
+.textarea.is-error:focus {
+  box-shadow: 0 0 0 4px rgba(176, 0, 32, 0.15);
 }
 
 .field-error {
-  margin: 4px 0 0;
+  margin: 0;
   min-height: 1em;
-  font-size: 0.9rem;
+  font-size: var(--step--1);
+  line-height: 1.5;
   color: var(--danger);
+}
+
+.contact-form .button {
+  margin-top: 6px;
+  align-self: center;
+  min-width: min(100%, 280px);
+  padding-block: 16px;
 }
 
 /* 送信結果のメッセージ */
 .message-area {
-  margin-top: 14px;
-  margin-inline: auto;
+  margin: 16px 0 0;
   min-height: 1.3em;
-  font-size: 0.95rem;
+  font-size: var(--step--1);
   text-align: center;
 }
 
 .message-area.is-success {
   color: var(--success);
+  font-weight: 700;
 }
 
 .message-area.is-error {
   color: var(--danger);
-}
-
-@media (max-width: 768px) {
-  .contact-section {
-    width: min(92vw, 1080px);
-    padding: 20px;
-  }
-
-  .contact-form .button {
-    width: clamp(280px, 100%, 720px);
-  }
+  font-weight: 700;
 }
 
 /* ===== ご用件のプルダウン =====
@@ -134,11 +194,11 @@
 .select {
   appearance: none;
   -webkit-appearance: none;
-  padding-right: 40px;
+  padding-right: 44px;
   cursor: pointer;
   background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
     linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-  background-position: calc(100% - 20px) calc(50% + 2px), calc(100% - 15px) calc(50% + 2px);
+  background-position: calc(100% - 22px) calc(50% + 2px), calc(100% - 17px) calc(50% + 2px);
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
 }
@@ -158,12 +218,18 @@
 /* ===== 用件を選んだときに出す案内 =====
    聞き直す往復を減らすために、先に伝えておく。 */
 .field-note {
-  margin: 6px 0 0;
-  padding: 9px 12px;
-  background: rgba(0, 114, 255, 0.06);
+  margin: 2px 0 0;
+  padding: 12px 14px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   border-left: 3px solid var(--accent);
-  border-radius: 0 6px 6px 0;
-  font-size: 0.85rem;
-  line-height: 1.8;
+  background: color-mix(in oklab, var(--accent) 7%, transparent);
+  font-size: var(--step--1);
+  line-height: 1.85;
   color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .contact-form .button {
+    width: 100%;
+  }
 }

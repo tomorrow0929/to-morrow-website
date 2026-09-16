@@ -1,19 +1,64 @@
-/* サイト全体で使う色・角丸などの設定。ここを変えると全体の見た目が変わります。 */
+/*
+ * サイト全体で使う色・文字サイズ・余白などの設定（デザイントークン）。
+ * ここを変えると全体の見た目が変わります。
+ *
+ * 色は「役割」で名前を付けています（ink＝一番濃い地の色、accent＝主役の色）。
+ * 下層ページ（public/page.css）にも同じ値を書いているので、
+ * 変えるときは両方そろえてください。
+ */
 :root {
-  --brand-dark: #01545a;   /* ヘッダーの深緑 */
-  --brand-navy: #004d99;   /* 見出しの紺 */
+  /* ===== ブランドカラー ===== */
+  --brand-dark: #01545a;   /* ロゴの深緑。ヘッダーや濃い面に使う */
+  --brand-navy: #003a75;   /* 見出しの紺 */
   --accent: #0072ff;       /* ボタンなどのメインカラー */
-  --accent-2: #00c6ff;     /* サブの差し色 */
+  --accent-2: #00c6ff;     /* サブの差し色（水色） */
+  --accent-warm: #ff8c42;  /* ロゴの夕日のオレンジ。差し色として少しだけ使う */
 
-  --surface: #ffffff;      /* 入力欄などの背景 */
-  --surface-muted: #f7f8fa;
-  --page-bg: #f5f8fa;
+  /* 一番濃い地の色。ヒーローやフッターの背景 */
+  --ink: #05202a;
+  --ink-2: #0a3341;
 
-  --text: #111;
-  --muted: #6b7280;
+  /* ===== 背景・文字 ===== */
+  --surface: #ffffff;      /* カードや入力欄の背景 */
+  --surface-muted: #f4f7fa;
+  --page-bg: #f6f8fb;
+  --border: #e4eaf1;
+
+  --text: #16242e;
+  --muted: #61717f;
   --danger: #b00020;
   --success: #0a7f45;
 
-  --radius: 14px;
-  --radius-lg: 15px;
+  /* ===== 角丸 ===== */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* ===== 影 ===== */
+  --shadow-sm: 0 1px 2px rgba(10, 35, 50, 0.06), 0 2px 8px rgba(10, 35, 50, 0.05);
+  --shadow: 0 10px 30px rgba(10, 35, 50, 0.08), 0 2px 8px rgba(10, 35, 50, 0.04);
+  --shadow-lg: 0 24px 60px rgba(10, 35, 50, 0.14), 0 6px 18px rgba(10, 35, 50, 0.06);
+  --shadow-accent: 0 12px 30px rgba(0, 114, 255, 0.28);
+
+  /* ===== 文字サイズ（画面幅に応じて滑らかに変わる） ===== */
+  --step--1: clamp(0.82rem, 0.79rem + 0.13vw, 0.9rem);
+  --step-0: clamp(0.95rem, 0.92rem + 0.16vw, 1.05rem);
+  --step-1: clamp(1.1rem, 1.03rem + 0.34vw, 1.3rem);
+  --step-2: clamp(1.3rem, 1.16rem + 0.7vw, 1.75rem);
+  --step-3: clamp(1.6rem, 1.33rem + 1.35vw, 2.5rem);
+  --step-4: clamp(2.1rem, 1.5rem + 3vw, 4rem);
+  --step-5: clamp(2.6rem, 1.6rem + 5vw, 5.5rem);
+
+  /* ===== 余白・レイアウト ===== */
+  --gutter: clamp(20px, 5vw, 48px);
+  --section-y: clamp(64px, 9vw, 128px);
+  --maxw: 1200px;
+  --maxw-narrow: 760px;
+  --header-h: 72px;
+
+  /* ===== 動きのカーブ ===== */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }

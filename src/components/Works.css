@@ -1,5 +1,19 @@
-.works ul {
-  max-width: 720px;
+.works {
+  background: var(--surface);
+}
+
+.works__list {
+  display: grid;
+  gap: 12px;
+  max-width: var(--maxw-narrow);
   margin-inline: auto;
-  line-height: 1.9;
+  padding: 0;
+  list-style: none;
+}
+
+.works__list li {
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-muted);
 }

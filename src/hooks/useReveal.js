@@ -5,6 +5,9 @@ import { useEffect, useRef, useState } from 'react'
  * 使い方:
  *   const reveal = useReveal(100)          // 100ms 遅れて表示
  *   <div ref={reveal.ref} className={reveal.className} style={reveal.style}>
+ *
+ * 一度表示したら、それ以降は出しっぱなしにします。
+ * （行ったり来たりするたびに消えると、かえって読みにくいため）
  */
 export function useReveal(delay = 0) {
   const ref = useRef(null)
@@ -15,8 +18,12 @@ export function useReveal(delay = 0) {
     if (!el) return
 
     const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 },
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        setIsVisible(true)
+        observer.disconnect() // もう見張らなくてよい
+      },
+      { root: null, rootMargin: '0px 0px -12% 0px', threshold: 0.08 },
     )
     observer.observe(el)
     return () => observer.disconnect()

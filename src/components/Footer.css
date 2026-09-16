@@ -1,13 +1,95 @@
+/* ===== フッター ===== */
 .site-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #eee;
+  position: relative;
+  padding: clamp(48px, 7vw, 88px) var(--gutter) 0;
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--step--1);
+}
+
+/* 上端に細いグラデーションの線を引く */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-2) 30%,
+    var(--accent-warm) 70%,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: clamp(32px, 5vw, 64px);
+  padding-bottom: clamp(32px, 5vw, 56px);
+}
+
+.site-footer__logo {
+  width: min(240px, 70%);
+  margin-bottom: 16px;
+}
+
+.site-footer__lead {
+  max-width: 34ch;
+  margin: 0 0 22px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== リンクの列 ===== */
+.site-footer__nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 28px;
+}
+
+.site-footer__heading {
+  margin: 0 0 14px;
+  font-size: var(--step--1);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #fff;
+}
+
+.site-footer__col ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .site-footer a {
-  color: var(--brand-navy);
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+  transition: color 240ms var(--ease-out);
 }
 
-.sns-links {
-  margin-top: 8px;
+.site-footer__col a:hover {
+  color: var(--accent-2);
+}
+
+/* ===== 一番下の1行 ===== */
+.site-footer__bottom {
+  padding: 20px 0 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.site-footer__bottom p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .site-footer__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

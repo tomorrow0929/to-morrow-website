@@ -1,20 +1,528 @@
+/* ===== トップの大きな画面 ===== */
 .hero {
-  background: linear-gradient(to right, #4facfe, var(--brand-navy));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
+  padding: calc(var(--header-h) + clamp(48px, 9vh, 96px)) var(--gutter)
+    clamp(96px, 14vh, 150px);
+  overflow: hidden;
+  background: var(--ink);
   color: #fff;
-  padding: 60px 20px;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease-out forwards;
+  isolation: isolate;
 }
 
-.hero-text {
-  font-weight: bold;
-  text-align: center;
-  background: linear-gradient(270deg, #ffffff, #ffffff, #5adafd);
-  background-size: 600% 600%;
+/* ===== 背景の写真 ===== */
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.12);
+  /* 切り替えは、じんわり2秒かけて重ねる */
+  transition: opacity 2000ms var(--ease-in-out);
+}
+
+/* 表示中の1枚だけ、ゆっくり寄っていく（ケン・バーンズ効果） */
+.hero__slide.is-active {
+  opacity: 1;
+  animation: heroZoom 14s linear forwards;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.12) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.26) translate3d(-1.5%, -1.5%, 0);
+  }
+}
+
+/* 写真の上に敷く暗い膜。文字を読みやすくするためのもの */
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 32, 42, 0.86) 0%,
+      rgba(5, 32, 42, 0.62) 45%,
+      rgba(5, 32, 42, 0.94) 100%
+    ),
+    linear-gradient(
+      100deg,
+      rgba(1, 84, 90, 0.7) 0%,
+      rgba(0, 58, 117, 0.4) 55%,
+      rgba(5, 32, 42, 0.2) 100%
+    );
+}
+
+/* ふわふわ動く光のかたまり（オーロラ） */
+.hero__aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.hero__aurora--1 {
+  width: 46vw;
+  height: 46vw;
+  min-width: 320px;
+  min-height: 320px;
+  top: -12%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(0, 198, 255, 0.85), transparent 70%);
+  animation: heroFloat1 18s var(--ease-in-out) infinite;
+}
+
+.hero__aurora--2 {
+  width: 40vw;
+  height: 40vw;
+  min-width: 280px;
+  min-height: 280px;
+  right: -10%;
+  bottom: -18%;
+  background: radial-gradient(circle, rgba(255, 140, 66, 0.6), transparent 70%);
+  animation: heroFloat2 22s var(--ease-in-out) infinite;
+}
+
+@keyframes heroFloat1 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(12%, 14%, 0) scale(1.15);
+  }
+}
+
+@keyframes heroFloat2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-14%, -10%, 0) scale(0.9);
+  }
+}
+
+/* 細いグリッド線。画面を「設計図」のように見せる飾り */
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 80%);
+}
+
+/* ===== 文字まわり ===== */
+.hero__inner {
+  position: relative;
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+}
+
+.hero__badge,
+.hero__lead,
+.hero__actions,
+.hero__note,
+.hero__stats {
+  opacity: 0;
+  animation: heroFadeUp 900ms var(--ease-out) forwards;
+}
+
+.hero__badge {
+  animation-delay: 150ms;
+}
+.hero__lead {
+  animation-delay: 900ms;
+}
+.hero__actions {
+  animation-delay: 1050ms;
+}
+.hero__note {
+  animation-delay: 1150ms;
+}
+.hero__stats {
+  animation-delay: 1250ms;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 clamp(20px, 3vw, 32px);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.hero__badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.7);
+  animation: heroPulse 2.4s ease-out infinite;
+}
+
+@keyframes heroPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(0, 198, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 198, 255, 0);
+  }
+}
+
+/* ===== 見出し（1文字ずつ出す） ===== */
+.hero__title {
+  margin: 0;
+  font-size: var(--step-5);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+}
+
+.hero__char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em) rotate(4deg);
+  /* 白から水色・オレンジへ流れるグラデーション文字 */
+  background: linear-gradient(115deg, #ffffff 0%, #ffffff 45%, #7fe7ff 75%, #ffb680 100%);
+  background-size: 260% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientFlow 6s ease infinite;
+  animation:
+    heroCharIn 1000ms var(--ease-out) forwards,
+    heroSheen 9s ease-in-out 2s infinite;
+}
+
+@keyframes heroCharIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heroSheen {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero__lead {
+  max-width: 46ch;
+  margin: clamp(18px, 2.5vw, 28px) 0 0;
+  font-size: var(--step-1);
+  font-weight: 500;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.86);
+  text-wrap: balance;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.hero__note {
+  margin: 18px 0 0;
+  font-size: var(--step--1);
+}
+
+.hero__note a {
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  transition:
+    color 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
+}
+
+.hero__note a:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* ===== 数字（すりガラスのカード） ===== */
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: clamp(36px, 5vw, 56px) 0 0;
+}
+
+.hero__stat {
+  flex: 1 1 180px;
+  max-width: 260px;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    transform 320ms var(--ease-out),
+    background 320ms var(--ease-out);
+}
+
+.hero__stat:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hero__stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  font-size: var(--step-2);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.hero__stat-unit {
+  font-size: var(--step-0);
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.hero__stat-label {
+  margin: 4px 0 0;
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* ===== 写真を選ぶドット ===== */
+.hero__dots {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(36px, 6vh, 56px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.hero__dot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.5);
+  font: inherit;
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: color 300ms var(--ease-out);
+}
+
+.hero__dot:hover,
+.hero__dot.is-active {
+  color: #fff;
+}
+
+.hero__dot-label {
+  opacity: 0;
+  transform: translateX(6px);
+  transition:
+    opacity 300ms var(--ease-out),
+    transform 300ms var(--ease-out);
+}
+
+.hero__dot:hover .hero__dot-label,
+.hero__dot.is-active .hero__dot-label {
+  opacity: 1;
+  transform: none;
+}
+
+/* 横棒。表示中のものだけ長く光る */
+.hero__dot-bar {
+  display: block;
+  order: 1;
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.35);
+  transition:
+    width 400ms var(--ease-out),
+    background 400ms var(--ease-out);
+}
+
+.hero__dot.is-active .hero__dot-bar {
+  width: 56px;
+  background: linear-gradient(90deg, var(--accent-2), #fff);
+}
+
+/* ===== 下へどうぞ、の合図 ===== */
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(20px, 4vh, 36px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-decoration: none;
+  transition: color 300ms var(--ease-out);
+}
+
+.hero__scroll:hover {
+  color: #fff;
+}
+
+.hero__scroll-line {
+  position: relative;
+  width: 1px;
+  height: 46px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* 線の中を、光の点が上から下へ流れていく */
+.hero__scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, transparent, var(--accent-2));
+  animation: heroScrollDrop 2.2s var(--ease-in-out) infinite;
+}
+
+@keyframes heroScrollDrop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(300%);
+  }
+}
+
+/* ===== 画面が狭いとき ===== */
+@media (max-width: 900px) {
+  .hero__dots {
+    right: auto;
+    left: var(--gutter);
+    bottom: clamp(24px, 4vh, 40px);
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero__dot-label {
+    display: none;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  /* 縦に積むと画面からはみ出すので、1行ずつの横並びにする */
+  .hero__stat {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-basis: 100%;
+    max-width: none;
+    padding: 10px 16px;
+  }
+
+  .hero__stat-value {
+    font-size: var(--step-1);
+  }
+
+  .hero__stat-label {
+    margin: 0;
+  }
+
+  .hero__stats {
+    gap: 8px;
+  }
+
+  .hero__lead {
+    font-size: var(--step-0);
+  }
+
+  .hero__actions .button {
+    flex: 1 1 auto;
+  }
+}
+
+/* 動きを減らす設定の人には、写真を止めて表示する */
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide.is-active {
+    animation: none;
+    transform: scale(1.02);
+  }
+
+  .hero__char,
+  .hero__badge,
+  .hero__lead,
+  .hero__actions,
+  .hero__note,
+  .hero__stats {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero__char {
+    background: none;
+    -webkit-text-fill-color: #fff;
+  }
 }

@@ -1,161 +1,285 @@
-/* ===== 事業内容カード ===== */
-.card {
+/* ===== 事業内容セクション ===== */
+.services {
   position: relative;
-  display: block;
-  text-align: center;
-  border-radius: 12px;
   overflow: hidden;
-  margin: 50px 30px;
-  padding: 10px;
-  background-size: cover;
-  background-position: center;
+  background:
+    radial-gradient(120% 60% at 50% 0%, #ffffff 0%, var(--page-bg) 60%);
 }
 
-/* 背景写真の上に黒いベールを敷いて、文字を読みやすくする */
+/* 背景でうっすら光る円。奥行きを出すための飾り */
+.services__glow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: min(900px, 90vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 198, 255, 0.14), transparent 65%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.service-cards {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 48px);
+}
+
+/* ===== カード1枚（開発 / ITコンサルティング …） ===== */
+.card {
+  position: relative;
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+/* 背景写真。カードに触れるとゆっくり寄る */
+.card__bg {
+  position: absolute;
+  inset: 0;
+  /* 膜（.card::before）より奥に置く。数字が小さいほど奥 */
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  transition: transform 1200ms var(--ease-out);
+}
+
+.card:hover .card__bg {
+  transform: scale(1.08);
+}
+
+/* 写真の上に敷く膜。文字を読みやすくする */
 .card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 0;
+  z-index: -1;
+  background:
+    linear-gradient(165deg, rgba(5, 32, 42, 0.92) 0%, rgba(5, 32, 42, 0.78) 45%, rgba(1, 84, 90, 0.84) 100%);
 }
 
-.card-text {
-  position: relative;
-  color: #fff;
-  z-index: 1;
+/* 内側に光る細い枠 */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  pointer-events: none;
 }
 
-.card-grid {
+/* ===== カードの見出し ===== */
+.card__head {
   position: relative;
-  z-index: 1;
+  max-width: 68ch;
+  margin-bottom: clamp(24px, 3.5vw, 40px);
+}
+
+.card__index {
+  display: block;
+  margin-bottom: 6px;
+  font-size: var(--step--1);
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--accent-2);
+}
+
+.card__title {
+  margin: 0;
+  font-size: var(--step-3);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+.card__desc {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  text-wrap: balance;
+}
+
+.card__grid {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 2vw, 24px);
 }
 
-/* ===== カードの中の各項目 ===== */
-.card-grid-item {
+.card__actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(24px, 3vw, 36px);
+}
+
+/* ===== カードの中の1項目（タイル） ===== */
+.tile {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 15px;
-  box-sizing: border-box;
+  padding: 20px;
   border-radius: var(--radius-lg);
-  background-color: #eaf4fb;
-  border: 2px solid #ccc;
-}
-
-.card-grid-item--warm {
-  background-color: #fff9f2;
-}
-
-.card-grid-item img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.card-grid-item__body {
-  margin: 10px;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-.card-grid-item__body p {
-  margin: 0;
-  width: 100%;
-}
-
-.card-grid-item__actions {
-  position: relative;
-  z-index: 1;
-  margin-top: 10px;
-}
-
-/* ===== 写真を背景いっぱいに敷くタイプ（開発カード） ===== */
-.card-grid-item--featured {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   overflow: hidden;
-  justify-content: flex-end;
-  border: none;
-  background: linear-gradient(135deg, #eaf4fb 0%, #f7fbff 60%, #ffffff 100%);
-  background-color: transparent;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-  min-height: 380px;
 }
 
-.card-grid-item--featured > img {
+/*
+ * ホバーの動きの速さ。
+ * .reveal（base.css）も transition を持っているので、
+ * そちらに負けないよう「.card__grid の中のタイル」と書いて強めています。
+ */
+.card__grid .tile {
+  transition:
+    transform 460ms var(--ease-out),
+    opacity 700ms var(--ease-out),
+    border-color 460ms var(--ease-out),
+    background 460ms var(--ease-out),
+    box-shadow 460ms var(--ease-out);
+}
+
+/* ふわっと浮かび上がる（reveal と組み合わせるので transform は上書きしない） */
+.tile.is-visible:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 198, 255, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
+}
+
+/* 少し暖色にしたい項目（データ側で tone: 'warm' を指定） */
+.tile--warm {
+  background: rgba(255, 176, 120, 0.1);
+}
+
+.tile__media {
+  position: relative;
+  margin-bottom: 16px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tile__media img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  transition: transform 800ms var(--ease-out);
+}
+
+.tile:hover .tile__media img {
+  transform: scale(1.06);
+}
+
+.tile__body {
+  flex: 1;
+}
+
+.tile__title {
+  margin: 0 0 8px;
+  font-size: var(--step-1);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.tile__desc {
+  margin: 0;
+  font-size: var(--step--1);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.76);
+  overflow-wrap: break-word;
+}
+
+.tile__actions {
+  margin-top: 18px;
+}
+
+/* ===== 写真を大きく見せるタイプ（開発カード） ===== */
+.tile--featured {
+  min-height: 420px;
+  padding: 0;
+  justify-content: flex-end;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(5, 32, 42, 0.4);
+}
+
+.tile--featured .tile__media {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   margin: 0;
-  object-fit: cover;
-  transform: scale(1.05);
-  filter: saturate(0.95) contrast(1.05);
-  /* 端をふわっと溶かすマスク */
-  -webkit-mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
-  mask-image: radial-gradient(120% 120% at 80% 20%, #000 60%, transparent 100%);
-  z-index: 0;
+  border-radius: inherit;
 }
 
-/* 画像の上に薄いカラーベールを敷いてトーンを揃える */
-.card-grid-item--featured::before {
+.tile--featured .tile__media img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 写真の下半分を暗くして、その上に文章を載せる */
+.tile--featured .tile__media::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    140deg,
-    rgba(0, 115, 230, 0.14),
-    rgba(255, 255, 255, 0) 45%,
-    rgba(0, 0, 0, 0.04)
+    180deg,
+    rgba(5, 32, 42, 0.1) 0%,
+    rgba(5, 32, 42, 0.45) 26%,
+    rgba(5, 32, 42, 0.86) 52%,
+    rgba(5, 32, 42, 0.97) 100%
   );
-  z-index: 0;
 }
 
-/* 文章はガラス風のカードに載せて読みやすくする */
-.card-grid-item--featured .card-grid-item__body {
+/*
+ * 文章が乗る部分には、文字数に関係なく必ず暗い下地を敷く。
+ * （写真まかせの暗さだと、説明が長い項目で読みにくくなるため）
+ */
+.tile--featured .tile__body,
+.tile--featured .tile__actions {
   position: relative;
   z-index: 1;
-  width: min(90%, 560px);
-  margin: auto auto 6px;
-  padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  padding-inline: 20px;
 }
 
-.card-grid-item--featured .card-grid-item__body h3 {
-  margin: 0 0 6px;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  color: #0a3d7a;
+.tile--featured .tile__body {
+  flex: 0;
+  padding-top: 36px;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 32, 42, 0) 0%,
+    rgba(5, 32, 42, 0.86) 34%,
+    rgba(5, 32, 42, 0.92) 100%
+  );
 }
 
-.card-grid-item--featured .card-grid-item__body p {
-  margin: 0;
-  color: #2c3e50;
-  line-height: 1.6;
+.tile--featured .tile__actions {
+  padding-bottom: 20px;
+  background: rgba(5, 32, 42, 0.92);
 }
 
-/* ===== カード下部のボタン ===== */
-.card-actions {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 20px;
+/* ===== 画面が狭いとき ===== */
+@media (max-width: 700px) {
+  .card {
+    border-radius: var(--radius-lg);
+  }
+
+  .tile--featured {
+    min-height: 360px;
+  }
+
+  .tile__media img {
+    height: 170px;
+  }
+
+  .card__actions .button,
+  .tile__actions .button {
+    width: 100%;
+  }
 }

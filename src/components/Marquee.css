@@ -1,0 +1,70 @@
+/* ===== 流れるキーワードの帯 ===== */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 14px 0;
+  background: var(--ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* 左右の端は、文字がふっと消えるようにぼかす */
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marqueeSlide 38s linear infinite;
+}
+
+/* マウスを乗せているあいだは止める（読みたい人のため） */
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marquee__group li {
+  display: flex;
+  align-items: center;
+  padding-inline: clamp(18px, 3vw, 36px);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+/* 項目のあいだに置く、小さな水色の点 */
+.marquee__group li::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  margin-left: clamp(18px, 3vw, 36px);
+  border-radius: 50%;
+  background: var(--accent-2);
+  opacity: 0.7;
+}
+
+@keyframes marqueeSlide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* 1組ぶんちょうど流れたら、最初の位置に戻る */
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}

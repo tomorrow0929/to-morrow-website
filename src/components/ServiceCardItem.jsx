@@ -4,9 +4,9 @@ export default function ServiceCardItem({ item, variant = 'plain', delay = 0 }) 
   const reveal = useReveal(delay)
 
   const classNames = [
-    'card-grid-item',
-    `card-grid-item--${variant}`,
-    item.tone ? `card-grid-item--${item.tone}` : '',
+    'tile',
+    `tile--${variant}`,
+    item.tone ? `tile--${item.tone}` : '',
     reveal.className,
   ]
     .filter(Boolean)
@@ -14,27 +14,30 @@ export default function ServiceCardItem({ item, variant = 'plain', delay = 0 }) 
 
   return (
     <div ref={reveal.ref} className={classNames} style={reveal.style}>
-      <img src={item.image} alt={item.imageAlt} loading="lazy" />
+      <div className="tile__media">
+        <img src={item.image} alt={item.imageAlt} loading="lazy" />
+      </div>
 
-      <div className="card-grid-item__body">
-        <h3>{item.title}</h3>
-        <p>{item.description}</p>
+      <div className="tile__body">
+        <h4 className="tile__title">{item.title}</h4>
+        <p className="tile__desc">{item.description}</p>
       </div>
 
       {item.action && (
-        <div className="card-grid-item__actions">
+        <div className="tile__actions">
           {item.action.href ? (
             <a
               href={item.action.href}
-              className="button"
-              {...(item.action.external
-                ? { target: '_blank', rel: 'noreferrer' }
-                : {})}
+              className="button button--sm"
+              {...(item.action.external ? { target: '_blank', rel: 'noreferrer' } : {})}
             >
               {item.action.label}
+              <span className="button__arrow" aria-hidden="true">
+                →
+              </span>
             </a>
           ) : (
-            <button type="button" className="button">
+            <button type="button" className="button button--sm" disabled>
               {item.action.label}
             </button>
           )}

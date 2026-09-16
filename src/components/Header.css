@@ -1,33 +1,291 @@
+/* ===== 画面上部に貼り付くヘッダー ===== */
 .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  transition:
+    background 400ms var(--ease-out),
+    box-shadow 400ms var(--ease-out),
+    backdrop-filter 400ms var(--ease-out);
+}
+
+/* 少しスクロールしたら、すりガラスの帯になる */
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow: 0 1px 0 rgba(10, 35, 50, 0.08), var(--shadow-sm);
+}
+
+.site-header__bar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: var(--brand-dark);
-  padding: 10px 20px;
-  color: #fff;
+  gap: 24px;
+  width: 100%;
+  max-width: var(--maxw);
+  height: var(--header-h);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.site-header__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform 300ms var(--ease-out);
+}
+
+.site-header__logo:hover {
+  transform: translateY(-1px);
 }
 
 .logo {
-  height: 70px;
+  height: 52px;
+  width: auto;
+  /* 写真の上では白抜きロゴのほうが映えるので、影で浮かせる */
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
+  transition: filter 400ms var(--ease-out);
 }
 
-.site-header nav ul {
-  list-style: none;
+.site-header.is-scrolled .logo {
+  filter: none;
+}
+
+/* ===== メニュー（パソコン表示） ===== */
+.site-header__nav {
+  margin-left: auto;
+}
+
+.site-header__nav ul {
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 34px);
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-.site-header nav a {
-  color: #fff;
+.site-header__nav a {
+  position: relative;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-decoration: none;
-  font-weight: bold;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  transition: color 300ms var(--ease-out);
 }
 
-@media (max-width: 600px) {
-  .site-header {
-    flex-direction: column;
-    gap: 10px;
+/* ホバーすると、下に線が左から伸びる */
+.site-header__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 340ms var(--ease-out);
+}
+
+.site-header__nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.site-header.is-scrolled .site-header__nav a {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.site-header.is-scrolled .site-header__nav a:hover {
+  color: var(--accent);
+}
+
+.site-header__cta {
+  flex-shrink: 0;
+}
+
+/* ===== 読んだ量を示す線 ===== */
+.site-header__progress {
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-warm));
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out);
+}
+
+.site-header.is-scrolled .site-header__progress {
+  opacity: 1;
+}
+
+/* ===== スマホ用の開閉ボタン ===== */
+.site-header__toggle {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition:
+    background 300ms var(--ease-out),
+    border-color 300ms var(--ease-out);
+}
+
+.site-header__toggle span {
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform 380ms var(--ease-out);
+}
+
+.site-header__toggle span:nth-child(1) {
+  transform: translate(-50%, -4px);
+}
+
+.site-header__toggle span:nth-child(2) {
+  transform: translate(-50%, 4px);
+}
+
+/* 開いているときは×印にする */
+.site-header.is-open .site-header__toggle span:nth-child(1) {
+  transform: translate(-50%, 0) rotate(45deg);
+}
+
+.site-header.is-open .site-header__toggle span:nth-child(2) {
+  transform: translate(-50%, 0) rotate(-45deg);
+}
+
+.site-header.is-scrolled .site-header__toggle {
+  border-color: rgba(10, 35, 50, 0.16);
+  background: rgba(10, 35, 50, 0.05);
+}
+
+.site-header.is-scrolled .site-header__toggle span {
+  background: var(--ink);
+}
+
+/* メニューを開いているあいだは、ボタンを常に白いままにする */
+.site-header.is-open .site-header__toggle {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.site-header.is-open .site-header__toggle span {
+  background: #fff;
+}
+
+/* ===== スマホで開くメニュー ===== */
+.site-menu {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: calc(var(--header-h) + 24px) var(--gutter) var(--gutter);
+  background:
+    radial-gradient(70% 60% at 20% 10%, rgba(0, 114, 255, 0.35), transparent 70%),
+    linear-gradient(160deg, var(--ink) 0%, var(--ink-2) 100%);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 420ms var(--ease-out),
+    visibility 420ms var(--ease-out);
+}
+
+/* hidden 属性が付いていても display:flex を保ちたいので、上書きする */
+.site-menu[hidden] {
+  display: flex;
+}
+
+.site-header.is-open .site-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-menu li {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 500ms var(--ease-out),
+    transform 500ms var(--ease-out);
+}
+
+.site-header.is-open .site-menu li {
+  opacity: 1;
+  transform: none;
+}
+
+.site-menu a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: var(--step-2);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-menu__index {
+  color: var(--accent-2);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.site-menu__cta {
+  margin-top: 28px;
+  align-self: flex-start;
+}
+
+/* ===== 切り替え ===== */
+@media (max-width: 860px) {
+  /* button.css の .button（display: inline-flex）に負けないよう、
+     「.site-header の中の」と書いて優先度を上げています */
+  .site-header .site-header__nav,
+  .site-header .site-header__cta {
+    display: none;
+  }
+
+  .site-header__toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .logo {
+    height: 38px;
+  }
+}
+
+@media (min-width: 861px) {
+  .site-menu {
+    display: none;
+  }
+
+  .site-menu[hidden] {
+    display: none;
   }
 }

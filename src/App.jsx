@@ -1,5 +1,6 @@
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
+import Marquee from './components/Marquee.jsx'
 import Services from './components/Services.jsx'
 import Works from './components/Works.jsx'
 import Voices from './components/Voices.jsx'
@@ -12,8 +13,9 @@ export default function App() {
   return (
     <>
       <Header />
-      <main>
+      <main id="top">
         <Hero />
+        <Marquee />
         <Services />
         {/* 公開したくなったら src/data/site.js の features を true にするだけ */}
         {features.works && <Works />}
