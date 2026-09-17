@@ -59,7 +59,7 @@ export default function Hero() {
       <div className="hero__inner">
         <p className="hero__badge">
           <span className="hero__badge-dot" />
-          広島発・ITコンサルティング / システム開発
+          広島発・AI活用 / SNS運用 / システム開発
         </p>
 
         <h1 className="hero__title">

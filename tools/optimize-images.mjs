@@ -23,6 +23,7 @@ const MAX_WIDTH = {
   'consulting-bg': 1600,
   'development-bg': 1600,
   'outsourcing-bg': 1600,
+  'ai-sns-bg': 1600,
   // カード内の各項目の画像。表示は 250〜400px 程度
   'dx-support': 800,
   'it-introduction': 800,
@@ -30,9 +31,20 @@ const MAX_WIDTH = {
   'website': 800,
   'system-tool': 800,
   'kintone-plugin': 800,
+  // 写真を大きく敷く項目（開発カードと同じ見せ方）。表示は 540px 程度
+  'ai-support': 1200,
+  'sns-operation': 1200,
 }
 
 const QUALITY = 80
+
+// 自作のイラスト（.svg）は、先に同じ名前の PNG に書き出してから変換する。
+// SVG を直すときは .svg を編集してこのコマンドを流し直せばよい。
+for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.svg'))) {
+  const name = path.basename(file, '.svg')
+  if (!MAX_WIDTH[name]) continue
+  await sharp(path.join(dir, file), { density: 144 }).png().toFile(path.join(dir, `${name}.png`))
+}
 
 const files = fs.readdirSync(dir).filter((f) => f.endsWith('.png'))
 

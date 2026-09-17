@@ -31,6 +31,8 @@ export const heroStats = [
 // ヒーローの下を流れるキーワード帯。
 // 「何ができる会社か」を一目で伝えるための飾りです。
 export const marqueeItems = [
+  'AI活用支援',
+  'SNS運用代行',
   'kintone導入支援',
   '帳票出力',
   'Excel出力',

@@ -9,9 +9,47 @@ import itOperation from '../assets/images/it-operation.webp'
 import website from '../assets/images/website.webp'
 import systemTool from '../assets/images/system-tool.webp'
 import kintonePlugin from '../assets/images/kintone-plugin.webp'
+// AI・SNSのカード背景は自作のSVG（ai-sns-bg.svg）から書き出したもの
+import aiSnsBg from '../assets/images/ai-sns-bg.webp'
+import aiSupport from '../assets/images/ai-support.webp'
+import snsOperation from '../assets/images/sns-operation.webp'
 import { externalLinks, detailPages } from './site.js'
 
+// 並び順がそのまま表示順（01, 02 …）になります。
 export const services = [
+  {
+    // 相談の多い分野なので先頭に置いている
+    id: 'ai-sns',
+    published: true,
+    title: 'AI活用・SNS運用',
+    description: '生成AIの業務への取り入れと、SNSの発信を代わりに担います。',
+    backgroundImage: aiSnsBg,
+    itemVariant: 'featured', // 開発カードと同じく、写真を背景いっぱいに敷く
+    items: [
+      {
+        id: 'ai',
+        title: 'AI活用支援',
+        description:
+          'ClaudeやChatGPTなどの生成AIを、日々の業務で使える形にします。どの作業に使うかの整理から、社内ルールづくり、使い方の説明、業務システムとの連携まで対応します。',
+        image: aiSupport,
+        imageAlt: 'AI活用支援のイメージ',
+        action: { label: 'AI活用支援について', href: `${detailPages.aiSns}#ai` },
+      },
+      {
+        id: 'sns',
+        title: 'SNS運用代行',
+        description:
+          'Instagram・X などの企画、投稿の作成、予約投稿、反応の振り返りまでをお引き受けします。「アカウントはあるが続かない」という段階からご相談いただけます。',
+        image: snsOperation,
+        imageAlt: 'SNS運用代行のイメージ',
+        action: { label: 'SNS運用代行について', href: `${detailPages.aiSns}#sns` },
+      },
+    ],
+    // 説明ページへは各項目のボタンから行けるので、ここは相談への導線だけにしている
+    actions: [
+      { id: 'free-consult-ai-sns', label: '無料で相談する', href: '#contact', variant: 'primary' },
+    ],
+  },
   {
     id: 'development',
     published: true,

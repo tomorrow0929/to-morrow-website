@@ -10,7 +10,7 @@ export const company = {
     { label: '屋号', value: 'to.Morrow' },
     { label: '所在地', value: '広島県広島市西区' },
     { label: '代表', value: '今井 渓' },
-    { label: '事業内容', value: 'ITコンサルティング / システム・Webサイト開発' },
+    { label: '事業内容', value: 'AI活用支援 / SNS運用代行 / ITコンサルティング / システム・Webサイト開発' },
     { label: '理念', value: 'ITの力で「明日」を共に創る。' },
   ],
 }
@@ -25,6 +25,7 @@ export const externalLinks = {
 // 事業内容の各ボタンから開く説明ページ。
 // public/ に置いた素のHTML（1ページ構成でルーターを入れていないため）。
 export const detailPages = {
+  aiSns: '/ai-sns.html',
   consulting: '/consulting.html',
   website: '/website.html',
   system: '/system.html',

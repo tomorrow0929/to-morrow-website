@@ -63,6 +63,7 @@ to.morrow_website/
 │   ├── robots.txt
 │   ├── page.css            ↓の下層ページ共通のスタイル
 │   ├── privacy.html        プライバシーポリシー
+│   ├── ai-sns.html         AI活用支援・SNS運用代行
 │   ├── consulting.html     ITコンサルティング
 │   ├── website.html        webサイト制作
 │   └── system.html         ITツール（システム）開発
@@ -127,6 +128,9 @@ to.morrow_website/
 3. `npm run optimize-images`
 4. `src/data/services.js` の import を `.webp` に
 
+AI・SNSカードの背景（`ai-sns-bg`）だけは `.svg` が元データ。
+`.svg` を直して `npm run optimize-images` を流すと、PNG → WebP まで作り直される。
+
 ---
 
 ## お問い合わせフォーム
@@ -179,6 +183,7 @@ Amplify コンソール側に古いビルド設定が保存されていること
 
 | ファイル | 内容 | どこから開くか |
 | --- | --- | --- |
+| `ai-sns.html` | AI活用支援・SNS運用代行 | 事業内容の「AI活用・SNS運用について」 |
 | `consulting.html` | ITコンサルティング | 事業内容の「ITコンサルについて」 |
 | `website.html` | webサイト制作 | 事業内容の「webサイトについて」 |
 | `system.html` | ITツール（システム）開発 | 事業内容の「ITツールについて」 |
