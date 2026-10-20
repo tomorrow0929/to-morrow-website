@@ -59,7 +59,7 @@
   padding: clamp(32px, 4vw, 56px) clamp(24px, 3vw, 40px);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background: linear-gradient(160deg, var(--ink) 0%, var(--ink-2) 55%, #0c4a52 100%);
+  background: linear-gradient(160deg, var(--ink) 0%, var(--ink-2) 55%, #24426a 100%);
   box-shadow: var(--shadow-lg);
   text-align: center;
 }
@@ -72,7 +72,7 @@
   width: 90%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 198, 255, 0.5), transparent 68%);
+  background: radial-gradient(circle, rgba(0, 174, 239, 0.5), transparent 68%);
   filter: blur(60px);
   animation: aboutGlow 16s var(--ease-in-out) infinite;
   pointer-events: none;
@@ -100,7 +100,7 @@
   font-size: var(--step-3);
   font-weight: 900;
   letter-spacing: 0.04em;
-  background: linear-gradient(110deg, #ffffff, #7fe7ff 60%, #ffb680);
+  background: linear-gradient(110deg, #ffffff, #8fdcfa 60%, #ffa75c);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -8,24 +8,24 @@
  */
 :root {
   /* ===== ブランドカラー ===== */
-  --brand-dark: #01545a;   /* ロゴの深緑。ヘッダーや濃い面に使う */
-  --brand-navy: #003a75;   /* 見出しの紺 */
-  --accent: #0072ff;       /* ボタンなどのメインカラー */
-  --accent-2: #00c6ff;     /* サブの差し色（水色） */
+  --brand-dark: #13243a;   /* ロゴに合わせた紺。ヘッダーや濃い面に使う */
+  --brand-navy: #13243a;   /* 見出しの紺 */
+  --accent: #0077a8;       /* ボタンなどのメインカラー */
+  --accent-2: #00aeef;     /* サブの差し色（水色） */
   --accent-warm: #ff8c42;  /* ロゴの夕日のオレンジ。差し色として少しだけ使う */
 
   /* 一番濃い地の色。ヒーローやフッターの背景 */
-  --ink: #05202a;
-  --ink-2: #0a3341;
+  --ink: #13243a;
+  --ink-2: #1d3550;
 
   /* ===== 背景・文字 ===== */
   --surface: #ffffff;      /* カードや入力欄の背景 */
-  --surface-muted: #f4f7fa;
-  --page-bg: #f6f8fb;
-  --border: #e4eaf1;
+  --surface-muted: #f4f1eb;
+  --page-bg: #faf8f4;
+  --border: #e4e0d8;
 
-  --text: #16242e;
-  --muted: #61717f;
+  --text: #13243a;
+  --muted: #4a5a6e;
   --danger: #b00020;
   --success: #0a7f45;
 
@@ -37,10 +37,10 @@
   --radius-pill: 999px;
 
   /* ===== 影 ===== */
-  --shadow-sm: 0 1px 2px rgba(10, 35, 50, 0.06), 0 2px 8px rgba(10, 35, 50, 0.05);
-  --shadow: 0 10px 30px rgba(10, 35, 50, 0.08), 0 2px 8px rgba(10, 35, 50, 0.04);
-  --shadow-lg: 0 24px 60px rgba(10, 35, 50, 0.14), 0 6px 18px rgba(10, 35, 50, 0.06);
-  --shadow-accent: 0 12px 30px rgba(0, 114, 255, 0.28);
+  --shadow-sm: 0 1px 2px rgba(19, 36, 58, 0.06), 0 2px 8px rgba(19, 36, 58, 0.05);
+  --shadow: 0 10px 30px rgba(19, 36, 58, 0.08), 0 2px 8px rgba(19, 36, 58, 0.04);
+  --shadow-lg: 0 24px 60px rgba(19, 36, 58, 0.14), 0 6px 18px rgba(19, 36, 58, 0.06);
+  --shadow-accent: 0 12px 30px rgba(255, 140, 66, 0.32);
 
   /* ===== 文字サイズ（画面幅に応じて滑らかに変わる） ===== */
   --step--1: clamp(0.82rem, 0.79rem + 0.13vw, 0.9rem);
