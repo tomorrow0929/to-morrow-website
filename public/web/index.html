@@ -56,11 +56,11 @@
     <header class="header">
       <div class="container header__inner">
         <a class="header__logo" href="#top" aria-label="to.Morrow ページの先頭へ">
-          <!-- ロゴ：同じフォルダに logo.png を置くと表示されます（無いあいだは文字で表示） -->
+          <!-- ロゴ：同じフォルダの logo.svg（読み込めないときは文字で表示） -->
           <img
-            src="logo.png"
+            src="logo.svg"
             alt="to.Morrow"
-            width="140"
+            width="213"
             height="32"
             onerror="this.hidden=true;this.nextElementSibling.hidden=false"
           />
@@ -415,7 +415,6 @@
             <details class="faq__item">
               <summary>運用・保守は、途中で解約できますか？</summary>
               <div class="faq__a">
-                <!-- 要確認：解約の条件は実際の契約内容に合わせて書き換えてください -->
                 <p>はい、月単位で解約できます。サーバーとドメインはお客様の名義なので、解約したあともホームページはそのまま使い続けられます。</p>
               </div>
             </details>
@@ -428,7 +427,6 @@
             <details class="faq__item">
               <summary>広島県外でも頼めますか？</summary>
               <div class="faq__a">
-                <!-- 要確認：対応エリアの方針に合わせて書き換えてください -->
                 <p>はい。打ち合わせはオンラインでもできますので、県外の方もお気軽にご相談ください。</p>
               </div>
             </details>
@@ -441,13 +439,12 @@
         <div class="container container--narrow">
           <p class="section__en" aria-hidden="true">CONTACT</p>
           <h2 class="section__title" id="contact-title">無料試作のお申し込み</h2>
-          <!-- 要確認：「2〜3日以内」はご自身の返信ペースに合わせて書き換えてください -->
           <p class="section__lead">
-            下のフォームからお気軽にどうぞ。2〜3日以内に、メールでご連絡します。<br class="u-pc" />「まだ決めていないけれど話を聞きたい」という段階でも大丈夫です。
+            下のフォームからお気軽にどうぞ。1週間以内に、メールでご連絡します。<br class="u-pc" />「まだ決めていないけれど話を聞きたい」という段階でも大丈夫です。
           </p>
 
-          <!-- フォームの送信先：action の URL を、Formspree などで発行したものに差し替えてください（ここ1か所だけ） -->
-          <form class="form" id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
+          <!-- フォームの送信先（Formspree）：変えるときは action の URL だけを差し替えてください -->
+          <form class="form" id="contact-form" action="https://formspree.io/f/xeaewnke" method="POST" novalidate>
             <div class="form__row">
               <label for="f-company">会社名・事業所名 <span class="req">必須</span></label>
               <input id="f-company" name="会社名" type="text" autocomplete="organization" required />
