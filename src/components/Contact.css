@@ -2,8 +2,8 @@
 .contact {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(165deg, var(--ink) 0%, var(--ink-2) 60%, #24426a 100%);
-  color: #fff;
+  background: linear-gradient(165deg, #e6f6fd 0%, var(--page-bg) 70%);
+  color: var(--ink);
 }
 
 /* 背景でゆっくり動く光 */
@@ -20,7 +20,7 @@
   width: 46vw;
   min-width: 320px;
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(0, 119, 168, 0.45), transparent 68%);
+  background: radial-gradient(circle, rgba(0, 174, 239, 0.16), transparent 68%);
   animation: contactFloat 20s var(--ease-in-out) infinite;
 }
 
@@ -30,7 +30,7 @@
   width: 40vw;
   min-width: 280px;
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(255, 140, 66, 0.3), transparent 68%);
+  background: radial-gradient(circle, rgba(255, 140, 66, 0.16), transparent 68%);
   animation: contactFloat 26s var(--ease-in-out) infinite reverse;
 }
 
@@ -49,22 +49,22 @@
 }
 
 /*
- * 濃い背景に載せるので、文字は白にする。
+ * 明るい背景に載せるので、文字は紺にする。
  * base.css の .section-title / .section-lead に負けないよう、
  * 「.contact の中の」と書いて優先度を上げています。
  */
 .contact .contact__title {
-  color: #fff;
+  color: var(--ink);
 }
 
 .contact .contact__lead {
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--muted);
 }
 
 .contact .contact__eyebrow {
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--accent-2);
+  border-color: rgba(0, 119, 168, 0.25);
+  background: #fff;
+  color: var(--accent);
 }
 
 /* ===== 入力欄を載せる白いカード ===== */
@@ -73,9 +73,9 @@
   margin-inline: auto;
   padding: clamp(24px, 4vw, 48px);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: var(--shadow);
   color: var(--text);
 }
 

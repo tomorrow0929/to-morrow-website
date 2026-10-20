@@ -8,8 +8,8 @@
   padding: calc(var(--header-h) + clamp(48px, 9vh, 96px)) var(--gutter)
     clamp(96px, 14vh, 150px);
   overflow: hidden;
-  background: var(--ink);
-  color: #fff;
+  background: var(--page-bg);
+  color: var(--ink);
   isolation: isolate;
 }
 
@@ -46,22 +46,18 @@
   }
 }
 
-/* 写真の上に敷く暗い膜。文字を読みやすくするためのもの */
+/* 写真の上に敷く明るい膜（生成り）。文字側は濃く、右側は写真が透けて見える */
 .hero__veil {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(
-      180deg,
-      rgba(19, 36, 58, 0.86) 0%,
-      rgba(19, 36, 58, 0.62) 45%,
-      rgba(19, 36, 58, 0.94) 100%
-    ),
+    linear-gradient(180deg, rgba(250, 248, 244, 0) 70%, var(--page-bg) 100%),
     linear-gradient(
       100deg,
-      rgba(29, 53, 80, 0.7) 0%,
-      rgba(0, 119, 168, 0.4) 55%,
-      rgba(19, 36, 58, 0.2) 100%
+      rgba(250, 248, 244, 0.97) 0%,
+      rgba(250, 248, 244, 0.92) 42%,
+      rgba(250, 248, 244, 0.55) 72%,
+      rgba(250, 248, 244, 0.25) 100%
     );
 }
 
@@ -70,8 +66,7 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.5;
-  mix-blend-mode: screen;
+  opacity: 0.28;
   pointer-events: none;
 }
 
@@ -122,8 +117,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(19, 36, 58, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 36, 58, 0.05) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 80%);
@@ -180,10 +175,8 @@
   margin: 0 0 clamp(20px, 3vw, 32px);
   padding: 8px 18px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(19, 36, 58, 0.12);
+  background: rgba(255, 255, 255, 0.85);
   font-size: var(--step--1);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -223,8 +216,8 @@
   display: inline-block;
   opacity: 0;
   transform: translateY(0.4em) rotate(4deg);
-  /* 白から水色・オレンジへ流れるグラデーション文字 */
-  background: linear-gradient(115deg, #ffffff 0%, #ffffff 45%, #8fdcfa 75%, #ffa75c 100%);
+  /* 紺から水色・オレンジへ流れるグラデーション文字（明るい背景でも読める濃さ） */
+  background: linear-gradient(115deg, #13243a 0%, #13243a 45%, #0077a8 75%, #c2560a 100%);
   background-size: 260% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -257,7 +250,7 @@
   font-size: var(--step-1);
   font-weight: 500;
   line-height: 1.85;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--text);
   text-wrap: balance;
 }
 
@@ -275,8 +268,8 @@
 
 .hero__note a {
   padding-bottom: 2px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid rgba(0, 119, 168, 0.35);
+  color: var(--accent);
   text-decoration: none;
   transition:
     color 200ms var(--ease-out),
@@ -284,11 +277,11 @@
 }
 
 .hero__note a:hover {
-  color: #fff;
-  border-color: #fff;
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
-/* ===== 数字（すりガラスのカード） ===== */
+/* ===== 数字（白いカード） ===== */
 .hero__stats {
   display: flex;
   flex-wrap: wrap;
@@ -301,10 +294,9 @@
   max-width: 260px;
   padding: 16px 20px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-sm);
   transition:
     transform 320ms var(--ease-out),
     background 320ms var(--ease-out);
@@ -312,7 +304,7 @@
 
 .hero__stat:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.12);
+  background: #fff;
 }
 
 .hero__stat-value {
@@ -322,20 +314,20 @@
   font-size: var(--step-2);
   font-weight: 800;
   line-height: 1.2;
-  color: #fff;
+  color: var(--ink);
 }
 
 .hero__stat-unit {
   font-size: var(--step-0);
   font-weight: 700;
-  color: var(--accent-2);
+  color: var(--accent);
 }
 
 .hero__stat-label {
   margin: 4px 0 0;
   font-size: var(--step--1);
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--muted);
 }
 
 /* ===== 写真を選ぶドット ===== */
@@ -357,7 +349,7 @@
   padding: 4px 0;
   border: none;
   background: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--muted);
   font: inherit;
   font-size: var(--step--1);
   letter-spacing: 0.06em;
@@ -367,7 +359,7 @@
 
 .hero__dot:hover,
 .hero__dot.is-active {
-  color: #fff;
+  color: var(--ink);
 }
 
 .hero__dot-label {
@@ -391,7 +383,7 @@
   width: 26px;
   height: 2px;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(19, 36, 58, 0.25);
   transition:
     width 400ms var(--ease-out),
     background 400ms var(--ease-out);
@@ -399,7 +391,7 @@
 
 .hero__dot.is-active .hero__dot-bar {
   width: 56px;
-  background: linear-gradient(90deg, var(--accent-2), #fff);
+  background: linear-gradient(90deg, var(--accent-2), var(--accent-warm));
 }
 
 /* ===== 下へどうぞ、の合図 ===== */
@@ -412,7 +404,7 @@
   align-items: center;
   gap: 8px;
   transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--muted);
   font-size: 0.68rem;
   letter-spacing: 0.3em;
   text-decoration: none;
@@ -420,7 +412,7 @@
 }
 
 .hero__scroll:hover {
-  color: #fff;
+  color: var(--ink);
 }
 
 .hero__scroll-line {
@@ -428,7 +420,7 @@
   width: 1px;
   height: 46px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(19, 36, 58, 0.18);
 }
 
 /* 線の中を、光の点が上から下へ流れていく */
@@ -454,6 +446,13 @@
 
 /* ===== 画面が狭いとき ===== */
 @media (max-width: 900px) {
+  /* 狭い画面では文字が写真全体に重なるので、膜をまんべんなく濃くする */
+  .hero__veil {
+    background:
+      linear-gradient(180deg, rgba(250, 248, 244, 0) 75%, var(--page-bg) 100%),
+      rgba(250, 248, 244, 0.9);
+  }
+
   .hero__dots {
     right: auto;
     left: var(--gutter);
@@ -523,6 +522,6 @@
 
   .hero__char {
     background: none;
-    -webkit-text-fill-color: #fff;
+    -webkit-text-fill-color: var(--ink);
   }
 }

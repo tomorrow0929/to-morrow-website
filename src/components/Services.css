@@ -33,8 +33,9 @@
   border-radius: var(--radius-xl);
   overflow: hidden;
   isolation: isolate;
-  color: #fff;
-  box-shadow: var(--shadow-lg);
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 /* 背景写真。カードに触れるとゆっくり寄る */
@@ -53,14 +54,13 @@
   transform: scale(1.08);
 }
 
-/* 写真の上に敷く膜。文字を読みやすくする */
+/* 写真の上に敷く白い膜。写真はうっすら透ける程度にして、文字を読みやすくする */
 .card::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(165deg, rgba(19, 36, 58, 0.92) 0%, rgba(19, 36, 58, 0.78) 45%, rgba(29, 53, 80, 0.84) 100%);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.93) 55%, rgba(255, 255, 255, 0.88) 100%);
 }
 
 /* 内側に光る細い枠 */
@@ -69,7 +69,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--border);
   pointer-events: none;
 }
 
@@ -86,7 +86,7 @@
   font-size: var(--step--1);
   font-weight: 800;
   letter-spacing: 0.24em;
-  color: var(--accent-2);
+  color: var(--accent);
 }
 
 .card__title {
@@ -99,7 +99,7 @@
 
 .card__desc {
   margin: 10px 0 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
   text-wrap: balance;
 }
 
@@ -125,10 +125,8 @@
   flex-direction: column;
   padding: 20px;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  background: var(--page-bg);
   overflow: hidden;
 }
 
@@ -150,13 +148,13 @@
 .tile.is-visible:hover {
   transform: translateY(-6px);
   border-color: rgba(0, 174, 239, 0.5);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
+  background: #fff;
+  box-shadow: var(--shadow-lg);
 }
 
 /* 少し暖色にしたい項目（データ側で tone: 'warm' を指定） */
 .tile--warm {
-  background: rgba(255, 176, 120, 0.1);
+  background: #fff1e4;
 }
 
 .tile__media {
@@ -164,7 +162,7 @@
   margin-bottom: 16px;
   border-radius: var(--radius);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--surface-muted);
 }
 
 .tile__media img {
@@ -187,14 +185,14 @@
   font-size: var(--step-1);
   font-weight: 800;
   letter-spacing: 0.02em;
-  color: #fff;
+  color: var(--ink);
 }
 
 .tile__desc {
   margin: 0;
   font-size: var(--step--1);
   line-height: 1.9;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--muted);
   overflow-wrap: break-word;
 }
 
@@ -202,76 +200,16 @@
   margin-top: 18px;
 }
 
-/* ===== 写真を大きく見せるタイプ（開発カード） ===== */
-.tile--featured {
-  min-height: 420px;
-  padding: 0;
-  justify-content: flex-end;
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(19, 36, 58, 0.4);
-}
-
-.tile--featured .tile__media {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  border-radius: inherit;
-}
-
+/* ===== 写真を大きく見せるタイプ ===== */
+/* 写真を上に大きく置き、その下に文章を載せる（写真に暗い膜は重ねない） */
 .tile--featured .tile__media img {
-  width: 100%;
-  height: 100%;
-}
-
-/* 写真の下半分を暗くして、その上に文章を載せる */
-.tile--featured .tile__media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(19, 36, 58, 0.1) 0%,
-    rgba(19, 36, 58, 0.45) 26%,
-    rgba(19, 36, 58, 0.86) 52%,
-    rgba(19, 36, 58, 0.97) 100%
-  );
-}
-
-/*
- * 文章が乗る部分には、文字数に関係なく必ず暗い下地を敷く。
- * （写真まかせの暗さだと、説明が長い項目で読みにくくなるため）
- */
-.tile--featured .tile__body,
-.tile--featured .tile__actions {
-  position: relative;
-  z-index: 1;
-  padding-inline: 20px;
-}
-
-.tile--featured .tile__body {
-  flex: 0;
-  padding-top: 36px;
-  background: linear-gradient(
-    180deg,
-    rgba(19, 36, 58, 0) 0%,
-    rgba(19, 36, 58, 0.86) 34%,
-    rgba(19, 36, 58, 0.92) 100%
-  );
-}
-
-.tile--featured .tile__actions {
-  padding-bottom: 20px;
-  background: rgba(19, 36, 58, 0.92);
+  height: 240px;
 }
 
 /* ===== 画面が狭いとき ===== */
 @media (max-width: 700px) {
   .card {
     border-radius: var(--radius-lg);
-  }
-
-  .tile--featured {
-    min-height: 360px;
   }
 
   .tile__media img {

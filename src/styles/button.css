@@ -87,22 +87,20 @@
   box-shadow: var(--shadow-accent);
 }
 
-/* ===== 濃い背景の上に置く、すりガラスタイプ ===== */
+/* ===== 白いボタン（明るい背景の上に置く、サブのボタン） ===== */
 .button--ghost {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--ink);
+  border: 1px solid rgba(19, 36, 58, 0.18);
   box-shadow: none;
 }
 
 .button--ghost::after {
-  background: rgba(255, 255, 255, 0.16);
+  background: #fff;
 }
 
 .button--ghost:hover {
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow);
 }
 
 /* ===== 小さめ ===== */
