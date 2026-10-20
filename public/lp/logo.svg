@@ -1,4 +1,4 @@
-<!-- to.Morrow ロゴ（LP用）。元は to.morrow_website/logo.svg。周りの余白を切り落としています -->
+<!-- to.Morrow ロゴ（LP用）。元はリポジトリ直下の logo.svg。周りの余白を切り落としています -->
 <svg xmlns="http://www.w3.org/2000/svg" width="420" height="63" viewBox="15 54 420 63">
   <defs>
     <!-- オレンジ多めグラデーション（40%以降オレンジ系） -->

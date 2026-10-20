@@ -1,9 +1,10 @@
-// to.Morrow「Web制作・運用」LP の動き
+// to.Morrow LP シリーズ共通の動き（/web/ と /movie/ で共有）
 // 1. スクロールで軽くフェードイン
 // 2. スマホ下部の申し込みボタンを、フォームが見えている間は隠す
 // 3. お問い合わせフォームの入力チェックと送信（送信先は index.html の form の action）
 // 4. フォントの読み込み（使っている文字だけ）
 // 5. アクセス計測の読み込み（表示が終わってから）
+// 6. 動画の読み込みと再生（画面に入ってから）
 
 (function () {
   'use strict';
@@ -69,6 +70,39 @@
       });
     }, { rootMargin: '0px 0px -10% 0px' });
     fades.forEach(function (el) { fadeObserver.observe(el); });
+  }
+
+  // ---------- 6. 動画 ----------
+  // <video data-src="動画のURL"> と書くと、画面に入ってから読み込んで、音なしで再生します。
+  // data-eager を付けた動画（ファーストビュー）は、ページの表示が終わってすぐ読み込みます。
+  // 「動きを減らす」設定の人には自動再生せず、再生ボタンで見られるようにします。
+  function startVideo(v) {
+    v.src = v.getAttribute('data-src');
+    v.removeAttribute('data-src');
+    if (reduce) {
+      v.controls = true;
+      return;
+    }
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+  var videos = Array.prototype.slice.call(document.querySelectorAll('video[data-src]'));
+  window.addEventListener('load', function () {
+    videos.filter(function (v) { return v.hasAttribute('data-eager'); }).forEach(startVideo);
+  });
+  var lazyVideos = videos.filter(function (v) { return !v.hasAttribute('data-eager'); });
+  if ('IntersectionObserver' in window) {
+    var videoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          startVideo(entry.target);
+          videoObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    lazyVideos.forEach(function (v) { videoObserver.observe(v); });
+  } else {
+    lazyVideos.forEach(startVideo);
   }
 
   // ---------- 2. スマホ下部のボタン ----------
