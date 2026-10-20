@@ -28,7 +28,8 @@ const MAX_WIDTH = {
   'dx-support': 800,
   'it-introduction': 800,
   'it-operation': 800,
-  'website': 800,
+  // Webサイト・LP は写真を大きく見せる項目に変わったので 1200
+  'website': 1200,
   'system-tool': 800,
   'kintone-plugin': 800,
   // 写真を大きく敷く項目（開発カードと同じ見せ方）。表示は 540px 程度
