@@ -42,8 +42,9 @@ export const detailPages = {
 }
 
 // サービスごとの申し込みページ（LP）。料金と無料試作の申し込みフォームがあります。
-// public/movie/ と public/web/ に置いています。
+// public/advisor/・public/movie/・public/web/ に置いています。
 export const landingPages = {
+  advisor: '/advisor/',
   video: '/movie/',
   website: '/web/',
 }

@@ -22,6 +22,14 @@
   --sub: #ff8c42;           /* 差し色 */
 
   --orange: #ff8c42;        /* 申し込みボタンの色（全LP共通） */
+
+  /* AI（攻め）＝オレンジ、IT（守り）＝水色。顧問LPで使い分ける */
+  --ai: #ff8c42;
+  --ai-text: #b34e08;       /* 指定の #C2560A を、小さい文字でも読める濃さにした色 */
+  --ai-pale: #fff1e4;
+  --it: #00aeef;
+  --it-text: #0077a8;
+  --it-pale: #e6f6fd;
   --orange-dark: #e9721f;
   --line: #e4e0d8;          /* 区切り線 */
   --brand-gradient: linear-gradient(90deg, #00aeef 0%, #00aeef 35%, #ffa75c 50%, #ff6f00 100%);
@@ -49,9 +57,17 @@
 /* 動画制作：オレンジがテーマ、水色が差し色 */
 [data-theme="movie"] {
   --theme: #ff8c42;
-  --theme-text: #b34e08;   /* 指定の #C2560A を、小さい文字でも読みやすい濃さ（4.5:1以上）に少しだけ濃くした色 */
+  --theme-text: var(--ai-text);
   --theme-pale: #fff1e4;
   --sub: #00aeef;
+}
+
+/* AI・IT伴走顧問：水色を基本に、AIの部分はオレンジで塗り分ける */
+[data-theme="advisor"] {
+  --theme: #00aeef;
+  --theme-text: #0077a8;
+  --theme-pale: #e6f6fd;
+  --sub: #ff8c42;
 }
 
 @media (min-width: 768px) {
@@ -446,6 +462,7 @@ a:hover { text-decoration: none; }
 }
 .form textarea { resize: vertical; min-height: 140px; }
 .form input:focus,
+.form select:focus,
 .form textarea:focus { outline: 3px solid var(--theme-pale); border-color: var(--theme-text); background: var(--white); }
 .form [aria-invalid="true"] { border-color: #c0392b; background: #fdf3f2; }
 .form__error { margin-top: 6px; font-size: 0.8125rem; color: #b03a2e; font-weight: 700; }
@@ -582,6 +599,161 @@ a:hover { text-decoration: none; }
 
 /* シリーズのほかのLPへのリンク（フッター） */
 .footer__series { margin-top: 12px; }
+
+/* =========================================================
+   AI・IT伴走顧問LPで使う部品（ほかのLPでも使えます）
+   ========================================================= */
+
+/* 見出しの下に、ブランドのグラデーションの短い線を引く（顧問LPだけ） */
+[data-theme="advisor"] .section__title::after {
+  content: ""; display: block; width: 56px; height: 4px; margin: 14px auto 0;
+  border-radius: 2px; background: var(--brand-gradient);
+}
+
+/* 「AI」「IT」の小さな札 */
+.chip {
+  display: inline-block; padding: 1px 10px; border-radius: 999px;
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; line-height: 1.7; vertical-align: 2px;
+}
+.chip--ai { background: var(--ai-pale); color: var(--ai-text); }
+.chip--it { background: var(--it-pale); color: var(--it-text); }
+.chip--base { background: var(--navy); color: var(--white); }
+
+/* お悩みを4つ並べる */
+@media (min-width: 600px) {
+  .worries--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .worries--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ファーストビュー右側：相談のやりとりのイメージ（画像に差し替えてもよい） */
+.chat {
+  position: relative; padding: 20px; border-radius: var(--radius);
+  background: var(--white); border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(19, 36, 58, 0.12);
+}
+.chat__head {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--line);
+  font-size: 0.8125rem; font-weight: 700; color: var(--navy-soft);
+}
+.chat__msg {
+  max-width: 85%; padding: 10px 14px; margin-bottom: 10px; border-radius: 14px;
+  font-size: 0.875rem; line-height: 1.7;
+}
+.chat__msg--you { margin-left: auto; background: var(--bg); border-bottom-right-radius: 4px; }
+.chat__msg--us { background: var(--theme-pale); border-bottom-left-radius: 4px; }
+.chat__msg--us.is-ai { background: var(--ai-pale); }
+.chat__who { display: block; margin-bottom: 2px; font-size: 0.6875rem; font-weight: 700; color: var(--navy-soft); }
+
+/* 1ヶ月の流れ（例） */
+.month {
+  max-width: 860px; margin: 40px auto 0; padding: 8px 20px;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.month__row {
+  display: grid; grid-template-columns: 1fr; gap: 6px; padding: 18px 0; border-bottom: 1px solid var(--line);
+}
+.month__row:last-child { border-bottom: 0; }
+.month__when { font-family: var(--font-head); font-weight: 700; font-size: 0.9375rem; color: var(--theme-text); }
+.month__what { font-weight: 700; }
+.month__what small { display: block; font-weight: 400; font-size: 0.875rem; color: var(--navy-soft); }
+.month__plan { align-self: start; }
+.month__note { margin-top: 12px; text-align: center; font-size: 0.8125rem; color: var(--navy-soft); }
+@media (min-width: 700px) {
+  .month { padding: 8px 32px; }
+  .month__row { grid-template-columns: 7em 1fr auto; gap: 20px; align-items: center; }
+}
+
+/* AI（攻め）と IT（守り）を並べる */
+.duo { display: grid; gap: var(--gap); margin-top: 40px; }
+.duo__card { padding: 24px; border-radius: var(--radius); border-top: 4px solid; }
+.duo__card--ai { background: var(--ai-pale); border-color: var(--ai); }
+.duo__card--it { background: var(--it-pale); border-color: var(--it); }
+.duo__label { font-family: var(--font-head); font-weight: 700; font-size: 1.25rem; }
+.duo__card--ai .duo__label { color: var(--ai-text); }
+.duo__card--it .duo__label { color: var(--it-text); }
+.duo__text { margin-top: 6px; font-weight: 700; }
+.duo__join {
+  text-align: center; font-family: var(--font-head); font-weight: 700; font-size: 1.0625rem;
+}
+@media (min-width: 768px) {
+  .duo { grid-template-columns: 1fr auto 1fr; align-items: stretch; }
+  .duo__join { display: grid; place-items: center; padding-inline: 8px; }
+  .duo__card { padding: 28px 32px; }
+}
+
+/* 成果テーマ（2列） */
+.themes { display: grid; gap: var(--gap); margin-top: 40px; }
+.theme-box { padding: 24px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.theme-box__title { display: flex; align-items: center; gap: 10px; font-size: 1.125rem; margin-bottom: 14px; }
+.theme-box__list { display: flex; flex-wrap: wrap; gap: 8px; }
+.theme-box__list li {
+  padding: 6px 14px; border-radius: 999px; background: var(--ai-pale);
+  font-size: 0.9375rem; font-weight: 700; color: var(--navy);
+}
+@media (min-width: 768px) {
+  .themes { grid-template-columns: 1fr 1fr; }
+  .theme-box { padding: 28px 32px; }
+}
+
+/* ITの対応範囲（3段） */
+.scope { display: grid; gap: var(--gap); margin-top: 32px; }
+.scope__item { display: grid; gap: 10px; padding: 22px 24px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); }
+.scope__level { display: flex; align-items: center; gap: 10px; font-family: var(--font-head); font-weight: 700; font-size: 1.0625rem; }
+.scope__mark {
+  flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  font-family: var(--font-body); font-size: 0.875rem; font-weight: 700;
+}
+.scope__item--full { border: 2px solid var(--it-text); }
+.scope__item--full .scope__mark { background: var(--it-text); color: var(--white); }
+.scope__item--first .scope__mark { background: var(--it-pale); color: var(--it-text); }
+.scope__item--guide .scope__mark { background: var(--bg); color: var(--navy); border: 1px solid var(--line); }
+.scope__item p { font-size: 0.9375rem; color: var(--navy-soft); }
+@media (min-width: 900px) {
+  .scope__item { grid-template-columns: 17em 1fr; align-items: start; gap: 24px; padding: 24px 32px; }
+}
+
+/* 育てたい人（2つ並べる） */
+.people { display: grid; gap: var(--gap); margin-top: 40px; }
+.person { padding: 28px 24px; text-align: center; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
+.person__title { font-size: 1.25rem; }
+.person__title span { color: var(--theme-text); }
+.person p { margin-top: 8px; font-size: 0.9375rem; color: var(--navy-soft); }
+.people__note { max-width: 760px; margin: 24px auto 0; text-align: center; color: var(--navy-soft); }
+@media (min-width: 768px) {
+  .people { grid-template-columns: 1fr 1fr; max-width: 860px; margin-inline: auto; }
+}
+
+/* 料金：土台＋追加の積み木 */
+.blocks { display: grid; gap: var(--gap); }
+.block__tag { margin-bottom: 6px; }
+@media (min-width: 900px) {
+  .blocks { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* 料金：組み合わせ4つ */
+.combo4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+.combo4 .plan { padding: 20px 12px; }
+.combo4 .plan { text-align: center; align-items: center; }
+.combo4 .plan__parts { margin-top: 6px; font-size: 0.8125rem; color: var(--navy-soft); }
+@media (min-width: 1000px) {
+  .combo4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* 小さな注記の箇条書き */
+.notes { margin-top: 20px; display: grid; gap: 6px; font-size: 0.875rem; color: var(--navy-soft); }
+.notes li { position: relative; padding-left: 1.1em; }
+.notes li::before { content: "※"; position: absolute; left: 0; }
+.disclaimer { margin-top: 16px; font-size: 0.75rem; color: var(--navy-soft); }
+.disclaimer--center { text-align: center; }
+.works.works--one { grid-template-columns: 1fr; }
+.works--one .work__img { aspect-ratio: 21 / 9; }
+.month__heading { max-width: 860px; margin-inline: auto; }
+@media (min-width: 900px) {
+  .options.options--one { grid-template-columns: 1fr; }
+}
+.options__note { display: block; font-size: 0.8125rem; color: var(--navy-soft); }
 
 /* ---------- スクロールで軽くフェードイン ---------- */
 /* JavaScript が動くときだけ隠す（動かない環境でも内容は必ず見える） */

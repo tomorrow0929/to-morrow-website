@@ -169,7 +169,7 @@
     field.removeAttribute('aria-describedby');
   }
 
-  var fields = form.querySelectorAll('input[id], textarea[id]');
+  var fields = form.querySelectorAll('input[id], select[id], textarea[id]');
   fields.forEach(function (field) {
     field.addEventListener('blur', function () {
       if (field.value !== '') field.checkValidity() ? clearError(field) : showError(field);

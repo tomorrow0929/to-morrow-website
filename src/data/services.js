@@ -33,7 +33,8 @@ export const services = [
           '30〜60分、オンラインまたは対面で。お困りごとを1つ、その場でAIを使って実際に解決してみせます。',
         image: aiSupport,
         imageAlt: '無料相談のイメージ',
-        action: { label: '無料相談について', href: `${detailPages.aiSupport}#free` },
+        // 顧問LPの無料相談の申し込みフォームへ
+        action: { label: '無料相談について', href: `${landingPages.advisor}#contact` },
       },
       {
         id: 'advisor',
@@ -42,7 +43,8 @@ export const services = [
           'いつでも相談できる土台に、講習やIT運用を必要に応じて足していきます。AIは常に変わるので、ゴールを更新しながら継続して伴走します。',
         image: advisor,
         imageAlt: 'AI・IT伴走顧問のイメージ',
-        action: { label: '伴走顧問について', href: `${detailPages.aiSupport}#advisor` },
+        // 顧問LP（できること・料金）へ
+        action: { label: '伴走顧問について', href: landingPages.advisor },
       },
     ],
     actions: [
