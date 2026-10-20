@@ -20,3 +20,10 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# 手元の作業用ファイル（公開しない）
+/経路_今井.pdf
+/見積書 - テスト株式会社 - レコードの詳細.pdf
+/150e656b-d51a-4001-928b-70d61c835a7d.pdf
+/67fba38a-32a6-47ca-b7fd-4a18ee8108c9.pdf
+.claude/

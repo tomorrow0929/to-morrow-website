@@ -6,11 +6,13 @@ export const company = {
   name: 'to.Morrow',
   tagline: '明日を創る。',
   lead: 'ITで次の一歩を支援する、信頼のパートナー',
+  // トップの見出しの下に出す、いちばん伝えたい考え方
+  message: 'AIを使いこなせる人の共通点は、「判断ができる人」と「責任が取れる人」。',
   profile: [
     { label: '屋号', value: 'to.Morrow' },
     { label: '所在地', value: '広島県広島市西区' },
     { label: '代表', value: '今井 渓' },
-    { label: '事業内容', value: 'AI活用支援 / SNS運用代行 / ITコンサルティング / システム・Webサイト開発' },
+    { label: '事業内容', value: 'AI・IT伴走顧問 / AI動画制作・動画内製化 / Webサイト制作 / kintone無料プラグインの配布' },
     { label: '理念', value: 'ITの力で「明日」を共に創る。' },
   ],
 }
@@ -25,11 +27,13 @@ export const externalLinks = {
 // 事業内容の各ボタンから開く説明ページ。
 // public/ に置いた素のHTML（1ページ構成でルーターを入れていないため）。
 export const detailPages = {
-  aiSns: '/ai-sns.html',
-  consulting: '/consulting.html',
+  // AI・IT伴走顧問と無料相談（旧 ai-sns.html / consulting.html はここへ転送）
+  aiSupport: '/ai-support.html',
+  // AI動画制作と動画内製化パッケージ
+  video: '/video.html',
   website: '/website.html',
   system: '/system.html',
-  // 有料メニューの料金表。プラグイン配布サイトのCTAからもここに来ます。
+  // 料金表。プラグイン配布サイトのCTAからもここに来ます。
   services: '/services.html',
   // 帳票出力に特化した説明ページ（検索からの入口を兼ねています）
   reports: '/reports.html',

@@ -9,9 +9,9 @@ import { detailPages } from './site.js'
 // caption は写真の右下に出る小さなラベルです。
 // 増やしたいときは、このリストに足すだけで枚数に合わせて動きます。
 export const heroSlides = [
-  { id: 'consulting', image: consultingBg, caption: 'ITコンサルティング' },
-  { id: 'development', image: developmentBg, caption: 'システム・Web開発' },
-  { id: 'dx', image: outsourcingBg, caption: '社内DX推進支援' },
+  { id: 'advisor', image: outsourcingBg, caption: 'AI・IT伴走顧問' },
+  { id: 'video', image: consultingBg, caption: 'AI動画制作・内製化' },
+  { id: 'website', image: developmentBg, caption: 'Webサイト制作' },
 ]
 
 // ヒーローのボタン
@@ -31,17 +31,16 @@ export const heroStats = [
 // ヒーローの下を流れるキーワード帯。
 // 「何ができる会社か」を一目で伝えるための飾りです。
 export const marqueeItems = [
-  'AI活用支援',
-  'SNS運用代行',
-  'kintone導入支援',
-  '帳票出力',
-  'Excel出力',
-  '業務システム開発',
-  '社内DX推進',
+  'AI・IT伴走顧問',
+  '無料相談',
+  '生成AI活用',
+  'AI講習',
+  'AI動画制作',
+  '動画内製化',
+  '定型業務の自動化',
+  '外注コスト削減',
   'Webサイト制作',
-  'プラグイン開発',
-  'ガントチャート',
-  '運用・保守サポート',
+  'kintone無料プラグイン',
 ]
 
 // 「無料相談」の下に出す一言（料金ページへの導線）

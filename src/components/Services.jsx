@@ -16,7 +16,7 @@ export default function Services() {
           <p className={`eyebrow ${head.className}`}>Services</p>
           <h2 className={`section-title ${head.className}`}>事業内容</h2>
           <p className={`section-lead ${head.className}`}>
-            つくる・支える・伴走する。AI活用やSNS運用から、kintoneの業務システム、Webサイトまで、
+            特定のAIに依存せず、どのAIでも成果を出せる人を社内に育てる。外注コストと作業時間を減らし、
             「次の一歩」に必要なものを一緒に形にします。
           </p>
         </div>

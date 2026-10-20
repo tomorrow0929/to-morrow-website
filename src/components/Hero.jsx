@@ -59,7 +59,7 @@ export default function Hero() {
       <div className="hero__inner">
         <p className="hero__badge">
           <span className="hero__badge-dot" />
-          広島発・AI活用 / SNS運用 / システム開発
+          広島発・AI伴走顧問 / AI動画制作 / Webサイト制作
         </p>
 
         <h1 className="hero__title">
@@ -74,7 +74,7 @@ export default function Hero() {
           ))}
         </h1>
 
-        <p className="hero__lead">{company.lead}</p>
+        <p className="hero__lead">{company.message}</p>
 
         <div className="hero__actions">
           {heroActions.map((action) => (

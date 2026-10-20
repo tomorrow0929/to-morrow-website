@@ -2,88 +2,118 @@
 // 画像は import して使うと、ビルド時に自動でファイル名が最適化されます。
 import consultingBg from '../assets/images/consulting-bg.webp'
 import developmentBg from '../assets/images/development-bg.webp'
-import outsourcingBg from '../assets/images/outsourcing-bg.webp'
 import dxSupport from '../assets/images/dx-support.webp'
-import itIntroduction from '../assets/images/it-introduction.webp'
 import itOperation from '../assets/images/it-operation.webp'
 import website from '../assets/images/website.webp'
 import systemTool from '../assets/images/system-tool.webp'
 import kintonePlugin from '../assets/images/kintone-plugin.webp'
-// AI・SNSのカード背景は自作のSVG（ai-sns-bg.svg）から書き出したもの
+// 背景は自作のSVG（ai-sns-bg.svg）から書き出したもの
 import aiSnsBg from '../assets/images/ai-sns-bg.webp'
 import aiSupport from '../assets/images/ai-support.webp'
-import snsOperation from '../assets/images/sns-operation.webp'
+import itIntroduction from '../assets/images/it-introduction.webp'
 import { externalLinks, detailPages } from './site.js'
 
 // 並び順がそのまま表示順（01, 02 …）になります。
 export const services = [
   {
-    // 相談の多い分野なので先頭に置いている
-    id: 'ai-sns',
+    // 入口の無料相談と、継続の顧問をひとまとめにしている
+    id: 'ai-support',
     published: true,
-    title: 'AI活用・SNS運用',
-    description: '生成AIの業務への取り入れと、SNSの発信を代わりに担います。',
+    title: 'AI・IT伴走顧問',
+    description:
+      '特定のAIに頼るのではなく、どのAIでも成果を出せる「使いこなせる人」を社内に育てます。',
     backgroundImage: aiSnsBg,
-    itemVariant: 'featured', // 開発カードと同じく、写真を背景いっぱいに敷く
+    itemVariant: 'featured', // 写真を背景いっぱいに敷く
     items: [
       {
-        id: 'ai',
-        title: 'AI活用支援',
+        id: 'free-consult',
+        title: '無料相談',
         description:
-          'ClaudeやChatGPTなどの生成AIを、日々の業務で使える形にします。どの作業に使うかの整理から、社内ルールづくり、使い方の説明、業務システムとの連携まで対応します。',
+          '30〜60分、オンラインまたは対面で。お困りごとを1つ、その場でAIを使って実際に解決してみせます。',
         image: aiSupport,
-        imageAlt: 'AI活用支援のイメージ',
-        action: { label: 'AI活用支援について', href: `${detailPages.aiSns}#ai` },
+        imageAlt: '無料相談のイメージ',
+        action: { label: '無料相談について', href: `${detailPages.aiSupport}#free` },
       },
       {
-        id: 'sns',
-        title: 'SNS運用代行',
+        id: 'advisor',
+        title: 'AI・IT伴走顧問（月額）',
         description:
-          'Instagram・X などの企画、投稿の作成、予約投稿、反応の振り返りまでをお引き受けします。「アカウントはあるが続かない」という段階からご相談いただけます。',
-        image: snsOperation,
-        imageAlt: 'SNS運用代行のイメージ',
-        action: { label: 'SNS運用代行について', href: `${detailPages.aiSns}#sns` },
+          'いつでも相談できる土台に、講習やIT運用を必要に応じて足していきます。AIは常に変わるので、ゴールを更新しながら継続して伴走します。',
+        image: dxSupport,
+        imageAlt: 'AI・IT伴走顧問のイメージ',
+        action: { label: '伴走顧問について', href: `${detailPages.aiSupport}#advisor` },
       },
     ],
-    // 説明ページへは各項目のボタンから行けるので、ここは相談への導線だけにしている
     actions: [
-      { id: 'free-consult-ai-sns', label: '無料で相談する', href: '#contact', variant: 'primary' },
+      { id: 'free-consult-ai', label: '無料で相談する', href: '#contact', variant: 'primary' },
+      { id: 'prices-ai', label: '料金を見る', href: detailPages.services, variant: 'outline' },
     ],
   },
   {
-    id: 'development',
+    id: 'video',
     published: true,
-    title: '開発',
-    description: 'Webシステム/HP・業務システムの設計・開発を提供。',
+    title: 'AI動画制作・動画内製化',
+    description: '企業紹介やSNS用の動画をAIで制作します。社内で作れるようになる支援も行います。',
+    backgroundImage: consultingBg,
+    itemVariant: 'featured',
+    items: [
+      {
+        id: 'video-production',
+        title: 'AI動画制作',
+        description:
+          '初めてのお客様は無料で試作し、気に入っていただけたらご購入いただく形です。購入後の修正は2回まで無料です。',
+        image: itIntroduction,
+        imageAlt: 'AI動画制作のイメージ',
+        action: { label: '動画制作について', href: `${detailPages.video}#production` },
+      },
+      {
+        id: 'video-inhouse',
+        title: '動画内製化パッケージ',
+        description:
+          '手順書とハンズオン、添削を通して、今後動画を外注しなくて済むように社内で作れる体制をつくります。',
+        image: itOperation,
+        imageAlt: '動画内製化パッケージのイメージ',
+        action: { label: '内製化パッケージについて', href: `${detailPages.video}#inhouse` },
+      },
+    ],
+    actions: [
+      { id: 'video-trial', label: '無料試作を相談する', href: '#contact', variant: 'primary' },
+    ],
+  },
+  {
+    id: 'website',
+    published: true,
+    title: 'Webサイト制作',
+    description: 'HPやLPを1から作成します。',
     backgroundImage: developmentBg,
-    itemVariant: 'featured', // 画像を背景いっぱいに敷くレイアウト
+    itemVariant: 'featured',
     items: [
       {
         id: 'web',
-        title: 'webサイト',
+        title: 'Webサイト・LP',
         description:
-          'webサイト、HPやLPを1から作成いたします。お客様のご要望に柔軟に対応した、独自のサイトをお作り致します。',
+          'お客様のご要望に柔軟に対応した、独自のサイトをお作りします。料金は内容をお聞きしたうえで個別にお見積りします。',
         image: website,
         imageAlt: 'Webサイト制作のイメージ',
-        action: { label: 'webサイトについて', href: detailPages.website },
+        action: { label: 'Webサイト制作について', href: detailPages.website },
       },
-      {
-        id: 'system',
-        title: 'ITツール(システム)',
-        description:
-          'kintoneを利用した記録システムや、業務支援システムパックの開発をしております。独自にシステムを作りたい！というご要望に沿って開発致します。',
-        image: systemTool,
-        imageAlt: '業務システム開発のイメージ',
-        action: { label: 'ITツールについて', href: detailPages.system },
-      },
+    ],
+  },
+  {
+    id: 'kintone',
+    published: true,
+    title: 'kintone',
+    description: 'kintoneで使えるプラグインを無料で公開しています。',
+    backgroundImage: developmentBg,
+    itemVariant: 'featured',
+    items: [
       {
         id: 'plugin',
-        title: 'kintone plugin',
+        title: 'kintone 無料プラグイン',
         description:
-          'kintoneで使える便利なプラグインを36本、すべて無料で公開しています（会員登録不要・利用期限なし）。帳票出力・Excel出力・ガントチャートなど。設定の代行やプラグイン開発のご依頼も承ります。',
+          'kintoneで使える便利なプラグインを36本、すべて無料で公開しています（会員登録不要・利用期限なし）。帳票出力・Excel出力・ガントチャートなど。',
         image: kintonePlugin,
         imageAlt: 'kintoneプラグインのイメージ',
-        // URLが未設定のうちは href が付かず、ただのボタン表示になります
         action: {
           label: 'kintone pluginサイト',
           // URLが未設定なら href が付かず、押せないボタン表示になります
@@ -91,89 +121,14 @@ export const services = [
           external: true, // 別サイトなので新しいタブで開く
         },
       },
-    ],
-    // 無料プラグインを見に来た方が、有料メニューにたどり着けるようにする導線。
-    // 「帳票を出したい」という具体的な困りごとが最も多いため、先に帳票ページを置く。
-    actions: [
       {
-        id: 'reports',
-        label: 'kintoneの帳票出力について',
-        href: detailPages.reports,
-        variant: 'primary',
-      },
-      { id: 'prices', label: '料金を見る', href: detailPages.services, variant: 'outline' },
-    ],
-  },
-  {
-    id: 'consulting',
-    published: true,
-    title: 'ITコンサルティング',
-    description: 'DX支援・業務改善を通じて企業成長をサポートします。',
-    backgroundImage: consultingBg,
-    itemVariant: 'plain', // 画像を上に、文章を下に置く通常レイアウト
-    items: [
-      {
-        id: 'dx',
-        title: '社内DX推進支援',
-        description: '社内におけるDX化を推進するための支援をさせていただいております。',
-        image: dxSupport,
-        imageAlt: '社内DX推進支援のイラスト',
-      },
-      {
-        id: 'introduction',
-        title: 'IT導入支援',
-        description:
-          '当方で開発したITシステムやその他のITシステムの導入のサポートをさせていただいております。',
-        image: itIntroduction,
-        imageAlt: 'IT導入支援のイラスト',
-        tone: 'warm', // 背景色を少し暖色にする
-      },
-      {
-        id: 'operation',
-        title: 'IT運用支援',
-        description: 'ITを導入した後の運用のサポートや修正対応をさせていただいております。',
-        image: itOperation,
-        imageAlt: 'IT運用支援のイラスト',
-      },
-    ],
-    actions: [
-      {
-        id: 'about-consulting',
-        label: 'ITコンサルについて',
-        href: detailPages.consulting,
-        variant: 'primary',
-      },
-      { id: 'free-consult', label: '無料相談', href: '#contact', variant: 'outline' },
-    ],
-  },
-  {
-    id: 'outsourcing',
-    published: false, // 準備中。true にすると表示されます
-    title: 'IT業務委託',
-    description: '常駐・リモートを問わず、柔軟に業務支援を行います。',
-    backgroundImage: outsourcingBg,
-    itemVariant: 'plain',
-    items: [
-      {
-        id: 'dx',
-        title: '社内DX推進支援',
-        description: '（準備中）',
-        image: dxSupport,
-        imageAlt: '社内DX推進支援のイラスト',
-      },
-      {
-        id: 'introduction',
-        title: 'IT導入支援',
-        description: '（準備中）',
-        image: itIntroduction,
-        imageAlt: 'IT導入支援のイラスト',
-      },
-      {
-        id: 'operation',
-        title: 'IT運用支援',
-        description: '（準備中）',
-        image: itOperation,
-        imageAlt: 'IT運用支援のイラスト',
+        id: 'paid',
+        title: 'kintone 有料メニュー',
+        description: '現在準備中です。受付開始までしばらくお待ちください。',
+        image: systemTool,
+        imageAlt: 'kintone有料メニューのイメージ',
+        // href を付けないので、押せない「準備中」ボタンとして表示されます
+        action: { label: '準備中' },
       },
     ],
   },
