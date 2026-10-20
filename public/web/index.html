@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ホームページ制作・運用 | to.Morrow（広島）</title>
+    <meta
+      name="description"
+      content="広島の中小企業・介護福祉の事業所向けのホームページ制作。まず無料でトップページ案を作るので、見てから決められます。制作3万円から。公開後の更新や社内で更新できるようにするお手伝いも。"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://to-morrow.net/web/" />
+    <meta name="theme-color" content="#13243A" />
+
+    <!-- SNSで共有されたときの表示（OGP）。画像は ogp.png（1200×630）を差し替え -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="to.Morrow" />
+    <meta property="og:title" content="ホームページ制作・運用 | to.Morrow（広島）" />
+    <meta
+      property="og:description"
+      content="まず無料でトップページ案を作ります。見てから決められるホームページ制作。公開後の更新も、社内で更新できるようにするお手伝いも。"
+    />
+    <meta property="og:url" content="https://to-morrow.net/web/" />
+    <meta property="og:image" content="https://to-morrow.net/web/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- フォント（見出し Zen Kaku Gothic New／本文 Noto Sans JP）。
+         表示を速くするため、main.js が「このページで使っている文字だけ」を Google Fonts から読み込みます。
+         フォントの種類や太さを変えるときは main.js の FONT_FAMILIES を直してください。 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700&display=swap"
+      />
+    </noscript>
+
+    <link rel="stylesheet" href="style.css" />
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="main.js" defer></script>
+    <!-- アクセス計測：サイト本体と共通の /analytics.js を、表示が終わってから main.js が読み込みます -->
+  </head>
+
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+
+    <header class="header">
+      <div class="container header__inner">
+        <a class="header__logo" href="#top" aria-label="to.Morrow ページの先頭へ">
+          <!-- ロゴ：同じフォルダに logo.png を置くと表示されます（無いあいだは文字で表示） -->
+          <img
+            src="logo.png"
+            alt="to.Morrow"
+            width="140"
+            height="32"
+            onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+          />
+          <span class="header__logo-text" hidden>to.Morrow</span>
+        </a>
+        <a class="btn btn--primary btn--sm" href="#contact">無料で相談</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 1. ファーストビュー -->
+      <section class="hero" id="top">
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <p class="hero__label">広島の中小企業・介護福祉の事業所のみなさまへ</p>
+            <h1 class="hero__title">
+              ホームページづくり、<br />
+              <span class="u-accent">見てから</span>決めませんか。
+            </h1>
+            <p class="hero__lead">
+              まずは無料で、あなたの会社のトップページ（上の部分）の案を1つお作りします。<br class="u-pc" />気に入ったら制作へ。合わなければ、そこで終わりで大丈夫です。
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary btn--lg" href="#contact">無料でトップページ案を作ってもらう</a>
+              <a class="hero__sub-link" href="#price">料金を見る</a>
+            </div>
+            <ul class="hero__points" aria-label="ポイント">
+              <li>試作は0円</li>
+              <li>制作は30,000円から</li>
+              <li>公開後の更新もおまかせ</li>
+            </ul>
+          </div>
+
+          <!-- 画像差し替え：ファーストビューの画像（推奨 1200×900 / WebP）。差し替えるときは、この div を
+               <img src="images/hero.webp" alt="" width="1200" height="900" fetchpriority="high">
+               に置き換えてください。 -->
+          <div class="hero__visual" aria-hidden="true">
+            <div class="mock">
+              <div class="mock__bar"><span></span><span></span><span></span></div>
+              <div class="mock__body">
+                <div class="mock__hero"></div>
+                <div class="mock__line mock__line--l"></div>
+                <div class="mock__line"></div>
+                <div class="mock__cards"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="mock mock--phone">
+              <div class="mock__body">
+                <div class="mock__hero"></div>
+                <div class="mock__line mock__line--l"></div>
+                <div class="mock__line"></div>
+                <div class="mock__line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. お悩み -->
+      <section class="section" id="worries" aria-labelledby="worries-title">
+        <div class="container">
+          <h2 class="section__title" id="worries-title">こんなお悩みはありませんか？</h2>
+          <ul class="worries">
+            <li class="worry fade">
+              <span class="worry__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M4 5h16v12H4zM8 21h8M12 17v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 9l6 4M15 9l-6 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <h3 class="worry__title">ホームページがない</h3>
+              <p>求人や問い合わせのときに「ホームページを見せてください」と言われて困ることがある。</p>
+            </li>
+            <li class="worry fade">
+              <span class="worry__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <h3 class="worry__title">古くて更新できない</h3>
+              <p>何年も前に作ったまま。情報が古く、作った人もいなくて、直し方がわからない。</p>
+            </li>
+            <li class="worry fade">
+              <span class="worry__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 3v18M16.5 7.5c0-1.7-2-3-4.5-3s-4.5 1.3-4.5 3S9.5 10 12 10.5s4.5 1.3 4.5 3.5-2 3.5-4.5 3.5-4.5-1.3-4.5-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <h3 class="worry__title">業者に頼むと高い</h3>
+              <p>見積もりを取ったら思ったより高かった。何にいくらかかるのかも、よくわからない。</p>
+            </li>
+          </ul>
+          <p class="worries__answer fade">そのお悩み、<strong>to.Morrow</strong> がまとめてお手伝いします。</p>
+        </div>
+      </section>
+
+      <!-- 3. 特徴 -->
+      <section class="section section--white" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">FEATURES</p>
+          <h2 class="section__title" id="features-title">to.Morrow の3つの特徴</h2>
+          <ol class="features">
+            <li class="feature fade">
+              <span class="feature__num" aria-hidden="true">01</span>
+              <h3 class="feature__title">まず無料で試作。<br />見てから決められます</h3>
+              <p>
+                お話を伺ったうえで、トップページ上部の案を1つ、無料でお作りします。実際の画面を見て「これなら頼みたい」と思えたら、正式にご依頼ください。
+              </p>
+            </li>
+            <li class="feature fade">
+              <span class="feature__num" aria-hidden="true">02</span>
+              <h3 class="feature__title">サーバーとドメインは<br />お客様の名義に</h3>
+              <p>
+                ホームページを置く場所（サーバー）と住所（ドメイン）は、お客様の名義で契約します。ホームページはお客様の財産になり、制作会社に縛られません。
+              </p>
+            </li>
+            <li class="feature fade">
+              <span class="feature__num" aria-hidden="true">03</span>
+              <h3 class="feature__title">公開後は「おまかせ」も<br />「自分たちで」も選べます</h3>
+              <p>
+                お知らせの追加などの更新は、月額でおまかせいただけます。社内で更新できるようになりたい方には、やり方を一緒に身につける「内製化」のお手伝いもあります。
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4. 制作の流れ -->
+      <section class="section" id="flow" aria-labelledby="flow-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">FLOW</p>
+          <h2 class="section__title" id="flow-title">制作の流れ</h2>
+          <ol class="flow">
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">1</span>
+              <div>
+                <h3 class="flow__title">無料で試作 <span class="tag tag--free">0円</span></h3>
+                <p>お話を伺い、トップページ上部の案を1つお作りします。ここまで費用はかかりません。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">2</span>
+              <div>
+                <h3 class="flow__title">内容を決める</h3>
+                <p>試作を見ながら、ベーシックとオプションの組み合わせを決めて、お見積もりをお出しします。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">3</span>
+              <div>
+                <h3 class="flow__title">制作</h3>
+                <p>ご用意いただいた原稿と写真で制作します。途中で確認していただき、修正は2回まで含みます。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">4</span>
+              <div>
+                <h3 class="flow__title">公開</h3>
+                <p>公開の作業はこちらで行います。サーバー・ドメインの契約も、おまかせいただけます（オプション）。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">5</span>
+              <div>
+                <h3 class="flow__title">運用・内製化</h3>
+                <p>更新をおまかせいただくか、社内で更新できるようにするか、お選びいただけます。</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 5. 料金 -->
+      <section class="section section--white" id="price" aria-labelledby="price-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">PRICE</p>
+          <h2 class="section__title" id="price-title">料金</h2>
+          <p class="section__lead">「ベーシック」に、必要なものだけ「オプション」を足す料金です。<br class="u-pc" />金額はすべて税別です。</p>
+
+          <p class="free-banner fade">
+            <span class="free-banner__price">0円</span>
+            <span>まずは無料で、トップページ上部の試作を1案お作りします。見てから決められます。</span>
+          </p>
+
+          <h3 class="price-heading">制作（ベーシック）</h3>
+          <div class="plans plans--make">
+            <div class="plan fade">
+              <p class="plan__name">LPベーシック</p>
+              <p class="plan__price"><span class="plan__num">30,000</span>円〜</p>
+              <p class="plan__desc">1ページ・5ブロックまで。サービスやイベントの紹介など、1ページで伝えるホームページです。</p>
+            </div>
+            <div class="plan fade">
+              <p class="plan__name">ホームページベーシック</p>
+              <p class="plan__price"><span class="plan__num">50,000</span>円〜</p>
+              <p class="plan__desc">3ページ（トップ・会社案内・お問い合わせ案内）。会社の基本の情報をまとめたホームページです。</p>
+            </div>
+          </div>
+          <p class="price-note">
+            <span class="price-note__label">どちらにも含まれます</span>スマホ対応／公開作業／修正2回まで
+          </p>
+          <p class="price-small">※ 原稿（載せる文章）と写真は、お客様にご用意いただきます。むずかしい場合は、下のオプションでお手伝いします。<br />※「ブロック」は、ページの中のひと区切り（例：サービス紹介、料金、よくある質問）のことです。</p>
+
+          <h3 class="price-heading">オプション（必要なものだけ）</h3>
+          <div class="options fade">
+            <table class="options__table">
+              <caption class="u-sr">オプションの料金一覧（税別）</caption>
+              <tbody>
+                <tr><th scope="row">ページの追加</th><td>10,000円<small>／ページ</small></td></tr>
+                <tr><th scope="row">ブロックの追加</th><td>5,000円<small>／ブロック</small></td></tr>
+                <tr><th scope="row">お問い合わせフォーム</th><td>10,000円</td></tr>
+                <tr><th scope="row">原稿づくり（AIで下書き）</th><td>10,000円<small>／ページ</small></td></tr>
+                <tr><th scope="row">画像づくり・写真の加工</th><td>5,000円<small>／点</small></td></tr>
+                <tr><th scope="row">お知らせ（ブログ）機能</th><td>20,000円</td></tr>
+              </tbody>
+            </table>
+            <table class="options__table">
+              <caption class="u-sr">オプションの料金一覧のつづき（税別）</caption>
+              <tbody>
+                <tr><th scope="row">サーバー・ドメインの契約代行</th><td>10,000円</td></tr>
+                <tr><th scope="row">地図・SNSの埋め込み</th><td>5,000円</td></tr>
+                <tr><th scope="row">アクセス解析（見られた数を調べるしくみ）の設定</th><td>5,000円</td></tr>
+                <tr><th scope="row">特急（1週間以内に仕上げ）</th><td>20,000円</td></tr>
+                <tr><th scope="row">3回目からの修正</th><td>5,000円<small>／回</small></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="price-heading">よくある組み合わせ</h3>
+          <div class="combos">
+            <div class="combo fade">
+              <p class="combo__title">1ページで、文章と画像もおまかせ</p>
+              <ul class="combo__list">
+                <li><span>LPベーシック</span><span>30,000円</span></li>
+                <li><span>お問い合わせフォーム</span><span>10,000円</span></li>
+                <li><span>原稿づくり（1ページ）</span><span>10,000円</span></li>
+                <li><span>画像づくり（2点）</span><span>10,000円</span></li>
+              </ul>
+              <p class="combo__total"><span>合計</span><span><span class="plan__num">60,000</span>円</span></p>
+            </div>
+            <div class="combo fade">
+              <p class="combo__title">5ページの会社ホームページを、手間なく</p>
+              <ul class="combo__list">
+                <li><span>ホームページベーシック（3ページ）</span><span>50,000円</span></li>
+                <li><span>ページの追加（2ページ）</span><span>20,000円</span></li>
+                <li><span>お問い合わせフォーム</span><span>10,000円</span></li>
+                <li><span>サーバー・ドメインの契約代行</span><span>10,000円</span></li>
+                <li><span>原稿づくり（3ページ）</span><span>30,000円</span></li>
+              </ul>
+              <p class="combo__total"><span>合計</span><span><span class="plan__num">120,000</span>円</span></p>
+            </div>
+          </div>
+
+          <h3 class="price-heading">運用・保守（月額）</h3>
+          <div class="plans plans--run">
+            <div class="plan fade">
+              <p class="plan__name">ライト</p>
+              <p class="plan__price"><span class="plan__num">5,000</span>円<small>／月</small></p>
+              <ul class="plan__list">
+                <li>サーバー・ドメインの管理</li>
+                <li>バックアップ</li>
+                <li>不具合の確認</li>
+              </ul>
+            </div>
+            <div class="plan plan--recommend fade">
+              <p class="plan__badge">おすすめ</p>
+              <p class="plan__name">スタンダード</p>
+              <p class="plan__price"><span class="plan__num">15,000</span>円<small>／月</small></p>
+              <ul class="plan__list">
+                <li>ライトの内容すべて</li>
+                <li>更新 月3回まで</li>
+              </ul>
+            </div>
+            <div class="plan fade">
+              <p class="plan__name">プラス</p>
+              <p class="plan__price"><span class="plan__num">30,000</span>円<small>／月</small></p>
+              <ul class="plan__list">
+                <li>ライトの内容すべて</li>
+                <li>更新 月8回まで</li>
+                <li>アクセス解析レポート</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="price-heading">Web内製化パッケージ</h3>
+          <div class="plan plan--wide fade">
+            <div>
+              <p class="plan__name">社内で更新できるようになりたい方に</p>
+              <p class="plan__price"><span class="plan__num">120,000</span>円</p>
+            </div>
+            <ul class="plan__list">
+              <li>手順書とひな形</li>
+              <li>一緒に操作しながら覚える練習（ハンズオン）3回</li>
+              <li>3ヶ月間の質問サポート</li>
+            </ul>
+          </div>
+
+          <p class="price-other">
+            ※ サーバー・ドメインの費用はお客様のご負担です（目安：年1〜2万円）。お客様の名義で契約するため、ホームページはお客様の財産になります。
+          </p>
+        </div>
+      </section>
+
+      <!-- 6. 制作実績 -->
+      <section class="section" id="works" aria-labelledby="works-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">WORKS</p>
+          <h2 class="section__title" id="works-title">制作実績</h2>
+          <div class="works">
+            <article class="work fade">
+              <!-- 画像差し替え：実績のスクリーンショット（推奨 1200×750 / WebP）。この div を <img src="images/work-to-morrow.webp" alt="to-morrow.net のトップページ" width="1200" height="750" loading="lazy"> に置き換え -->
+              <div class="work__img work__img--placeholder" aria-hidden="true">
+                <span>to-morrow.net</span>
+              </div>
+              <div class="work__body">
+                <p class="work__cat">自社サイト</p>
+                <h3 class="work__title">to-morrow.net</h3>
+                <p>to.Morrow のホームページ。スマホでの見やすさと表示の速さを大切に作っています。</p>
+                <a class="work__link" href="https://to-morrow.net/" target="_blank" rel="noopener">サイトを見る<span class="u-sr">（新しいタブで開きます）</span></a>
+              </div>
+            </article>
+
+            <!-- 実績差し替え：2件目ができたら、上の article をまるごとコピーしてこの article と入れ替えてください -->
+            <article class="work work--soon fade">
+              <div class="work__img work__img--soon" aria-hidden="true"><span>Coming soon</span></div>
+              <div class="work__body">
+                <p class="work__cat">準備中</p>
+                <h3 class="work__title">次の実績を準備しています</h3>
+                <p>公開できるようになりしだい、こちらでご紹介します。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. よくある質問 -->
+      <section class="section section--white" id="faq" aria-labelledby="faq-title">
+        <div class="container container--narrow">
+          <p class="section__en" aria-hidden="true">FAQ</p>
+          <h2 class="section__title" id="faq-title">よくある質問</h2>
+          <div class="faq">
+            <details class="faq__item">
+              <summary>無料試作だけで、お断りしてもいいですか？</summary>
+              <div class="faq__a">
+                <p>はい、大丈夫です。試作を見て合わないと感じたら、そこで終わりにしていただけます。費用は一切かかりません。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>文章や写真は、こちらで用意しないといけませんか？</summary>
+              <div class="faq__a">
+                <p>はい、原稿（載せる文章）と写真は、基本的にお客様にご用意いただいています。用意がむずかしい場合は、「原稿づくり（AIで下書き）」1ページ10,000円、「画像づくり・写真の加工」1点5,000円のオプションでお手伝いします。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>自分たちで更新できるようになりますか？</summary>
+              <div class="faq__a">
+                <p>はい。「Web内製化パッケージ」で、手順書を見ながら一緒に操作して覚えていただきます。終わったあとも3ヶ月間は、わからないことをいつでも質問できます。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>運用・保守は、途中で解約できますか？</summary>
+              <div class="faq__a">
+                <!-- 要確認：解約の条件は実際の契約内容に合わせて書き換えてください -->
+                <p>はい、月単位で解約できます。サーバーとドメインはお客様の名義なので、解約したあともホームページはそのまま使い続けられます。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>サーバーやドメインのことが、よくわかりません。</summary>
+              <div class="faq__a">
+                <p>サーバーは「ホームページを置いておく場所」、ドメインは「ホームページの住所（〇〇.com など）」のことです。契約はお客様の名義で行います。手続きをまるごとおまかせいただく「契約代行」（10,000円）もあるので、くわしくなくても大丈夫です。サーバー・ドメインの費用の目安は年1〜2万円です。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>広島県外でも頼めますか？</summary>
+              <div class="faq__a">
+                <!-- 要確認：対応エリアの方針に合わせて書き換えてください -->
+                <p>はい。打ち合わせはオンラインでもできますので、県外の方もお気軽にご相談ください。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. お問い合わせ -->
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="container container--narrow">
+          <p class="section__en" aria-hidden="true">CONTACT</p>
+          <h2 class="section__title" id="contact-title">無料試作のお申し込み</h2>
+          <!-- 要確認：「2〜3日以内」はご自身の返信ペースに合わせて書き換えてください -->
+          <p class="section__lead">
+            下のフォームからお気軽にどうぞ。2〜3日以内に、メールでご連絡します。<br class="u-pc" />「まだ決めていないけれど話を聞きたい」という段階でも大丈夫です。
+          </p>
+
+          <!-- フォームの送信先：action の URL を、Formspree などで発行したものに差し替えてください（ここ1か所だけ） -->
+          <form class="form" id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
+            <div class="form__row">
+              <label for="f-company">会社名・事業所名 <span class="req">必須</span></label>
+              <input id="f-company" name="会社名" type="text" autocomplete="organization" required />
+            </div>
+            <div class="form__row">
+              <label for="f-name">お名前 <span class="req">必須</span></label>
+              <input id="f-name" name="お名前" type="text" autocomplete="name" required />
+            </div>
+            <div class="form__row">
+              <label for="f-email">メールアドレス <span class="req">必須</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+            </div>
+            <div class="form__row">
+              <label for="f-tel">電話番号 <span class="opt">任意</span></label>
+              <input id="f-tel" name="電話番号" type="tel" autocomplete="tel" inputmode="tel" />
+            </div>
+            <div class="form__row">
+              <label for="f-message">ご相談内容 <span class="req">必須</span></label>
+              <textarea
+                id="f-message"
+                name="ご相談内容"
+                rows="6"
+                required
+                placeholder="例）介護事業所です。ホームページがないので、まずは試作を見てみたいです。"
+              ></textarea>
+            </div>
+            <!-- 迷惑メール対策（人には見えない欄） -->
+            <input class="form__trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="_subject" value="【to.Morrow Web】無料試作のお申し込み" />
+
+            <p class="form__privacy">
+              送信いただいた内容は、ご連絡のためだけに使います。くわしくは<a href="/privacy.html">プライバシーポリシー</a>をご覧ください。
+            </p>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">無料試作を申し込む</button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- 9. フッター -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__name">to.Morrow</p>
+        <p>代表 今井 渓</p>
+        <p>広島県</p>
+        <p><a href="https://to-morrow.net/">to-morrow.net</a></p>
+        <p class="footer__links"><a href="/privacy.html">プライバシーポリシー</a></p>
+        <p class="footer__copy"><small>&copy; to.Morrow</small></p>
+      </div>
+    </footer>
+
+    <!-- スマホで画面下に出る申し込みボタン -->
+    <div class="sticky-cta" id="sticky-cta">
+      <a class="btn btn--primary btn--block" href="#contact">無料でトップページ案を作ってもらう</a>
+    </div>
+  </body>
+</html>
