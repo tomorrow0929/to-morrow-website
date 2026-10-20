@@ -54,6 +54,26 @@
     else setTimeout(start, 1500);
   });
 
+  // ---------- ページ内の場所（#inhouse など）を指定して開かれたとき ----------
+  // 画面の外のセクションやフォントは後から高さが決まるので、読み込みが終わったら位置を合わせ直す。
+  // 見る人が自分でスクロールしたら、それ以降は動かさない。
+  if (location.hash) {
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var userMoved = false;
+      ['wheel', 'touchstart', 'keydown'].forEach(function (type) {
+        window.addEventListener(type, function () { userMoved = true; }, { once: true, passive: true });
+      });
+      var realign = function () {
+        if (!userMoved) requestAnimationFrame(function () { target.scrollIntoView({ behavior: 'instant' }); });
+      };
+      window.addEventListener('load', realign);
+      if (document.fonts && document.fonts.addEventListener) {
+        document.fonts.addEventListener('loadingdone', realign);
+      }
+    }
+  }
+
   // ---------- 1. フェードイン ----------
   var fades = document.querySelectorAll('.fade');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

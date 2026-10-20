@@ -12,7 +12,7 @@ import aiSupport from '../assets/images/ai-support.webp'
 import advisor from '../assets/images/advisor.webp'
 import videoProduction from '../assets/images/video-production.webp'
 import videoInhouse from '../assets/images/video-inhouse.webp'
-import { externalLinks, detailPages } from './site.js'
+import { externalLinks, detailPages, landingPages } from './site.js'
 
 // 並び順がそのまま表示順（01, 02 …）になります。
 export const services = [
@@ -65,7 +65,8 @@ export const services = [
           '初めてのお客様は無料で試作し、気に入っていただけたらご購入いただく形です。購入後の修正は2回まで無料です。',
         image: videoProduction,
         imageAlt: 'AI動画制作のイメージ',
-        action: { label: '動画制作について', href: `${detailPages.video}#production` },
+        // 動画LP（料金と無料試作の申し込み）へ
+        action: { label: '動画制作について', href: landingPages.video },
       },
       {
         id: 'video-inhouse',
@@ -74,7 +75,8 @@ export const services = [
           '手順書とハンズオン、添削を通して、今後動画を外注しなくて済むように社内で作れる体制をつくります。',
         image: videoInhouse,
         imageAlt: '動画内製化パッケージのイメージ',
-        action: { label: '内製化パッケージについて', href: `${detailPages.video}#inhouse` },
+        // 動画LPの「動画内製化パッケージ」の料金のところへ
+        action: { label: '内製化パッケージについて', href: `${landingPages.video}#inhouse` },
       },
     ],
     actions: [
@@ -96,7 +98,8 @@ export const services = [
           'お客様のご要望に柔軟に対応した、独自のサイトをお作りします。料金は内容をお聞きしたうえで個別にお見積りします。',
         image: website,
         imageAlt: 'Webサイト制作のイメージ',
-        action: { label: 'Webサイト制作について', href: detailPages.website },
+        // Web制作LP（料金と無料試作の申し込み）へ
+        action: { label: 'Webサイト制作について', href: landingPages.website },
       },
     ],
   },

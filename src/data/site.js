@@ -41,6 +41,13 @@ export const detailPages = {
   terms: '/terms.html',
 }
 
+// サービスごとの申し込みページ（LP）。料金と無料試作の申し込みフォームがあります。
+// public/movie/ と public/web/ に置いています。
+export const landingPages = {
+  video: '/movie/',
+  website: '/web/',
+}
+
 // お問い合わせフォームの送信先（Formspree）。
 // Amplify は静的配信なので、サーバー側のプログラムは動きません。
 // 外部のフォームサービスに送信しています。
