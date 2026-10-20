@@ -2,15 +2,16 @@
 // 画像は import して使うと、ビルド時に自動でファイル名が最適化されます。
 import consultingBg from '../assets/images/consulting-bg.webp'
 import developmentBg from '../assets/images/development-bg.webp'
-import dxSupport from '../assets/images/dx-support.webp'
-import itOperation from '../assets/images/it-operation.webp'
 import website from '../assets/images/website.webp'
 import systemTool from '../assets/images/system-tool.webp'
 import kintonePlugin from '../assets/images/kintone-plugin.webp'
 // 背景は自作のSVG（ai-sns-bg.svg）から書き出したもの
 import aiSnsBg from '../assets/images/ai-sns-bg.webp'
 import aiSupport from '../assets/images/ai-support.webp'
-import itIntroduction from '../assets/images/it-introduction.webp'
+// 伴走顧問・動画の3枚は ChatGPT で作成した画像（人物の顔は写さない方針）
+import advisor from '../assets/images/advisor.webp'
+import videoProduction from '../assets/images/video-production.webp'
+import videoInhouse from '../assets/images/video-inhouse.webp'
 import { externalLinks, detailPages } from './site.js'
 
 // 並び順がそのまま表示順（01, 02 …）になります。
@@ -39,7 +40,7 @@ export const services = [
         title: 'AI・IT伴走顧問（月額）',
         description:
           'いつでも相談できる土台に、講習やIT運用を必要に応じて足していきます。AIは常に変わるので、ゴールを更新しながら継続して伴走します。',
-        image: dxSupport,
+        image: advisor,
         imageAlt: 'AI・IT伴走顧問のイメージ',
         action: { label: '伴走顧問について', href: `${detailPages.aiSupport}#advisor` },
       },
@@ -62,7 +63,7 @@ export const services = [
         title: 'AI動画制作',
         description:
           '初めてのお客様は無料で試作し、気に入っていただけたらご購入いただく形です。購入後の修正は2回まで無料です。',
-        image: itIntroduction,
+        image: videoProduction,
         imageAlt: 'AI動画制作のイメージ',
         action: { label: '動画制作について', href: `${detailPages.video}#production` },
       },
@@ -71,7 +72,7 @@ export const services = [
         title: '動画内製化パッケージ',
         description:
           '手順書とハンズオン、添削を通して、今後動画を外注しなくて済むように社内で作れる体制をつくります。',
-        image: itOperation,
+        image: videoInhouse,
         imageAlt: '動画内製化パッケージのイメージ',
         action: { label: '内製化パッケージについて', href: `${detailPages.video}#inhouse` },
       },

@@ -34,6 +34,9 @@ const MAX_WIDTH = {
   // 写真を大きく敷く項目（開発カードと同じ見せ方）。表示は 540px 程度
   'ai-support': 1200,
   'sns-operation': 1200,
+  'advisor': 1200,
+  'video-production': 1200,
+  'video-inhouse': 1200,
 }
 
 const QUALITY = 80
