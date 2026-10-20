@@ -42,6 +42,9 @@
       />
     </noscript>
 
+    <!-- ファーストビューの動画のサムネイルは、画面でいちばん大きく見えるので先に読み込む -->
+    <link rel="preload" as="image" href="images/hero-poster.webp" type="image/webp" fetchpriority="high" />
+
     <!-- LPシリーズ共通のスタイル（色はテーマ「movie」＝オレンジ） -->
     <link rel="stylesheet" href="/lp/common.css" />
     <script>
@@ -105,12 +108,13 @@
           <div class="hero__video">
             <div class="vframe">
               <span class="vframe__label">サンプル</span>
-              <!-- 動画差し替え：ファーストビューのサンプル動画（横長 16:9、10〜20秒・3MB以下がおすすめ）。下の div.video-ph を消して、次の video を置いてください。
-                   <video data-src="videos/hero.mp4" data-eager poster="images/hero-poster.webp"
-                          muted loop playsinline preload="none" width="1280" height="720"
-                          aria-label="サンプル動画：企業CMの例"></video>
-                   ・poster は動画の1コマ目の画像（WebP）。読み込み中や、動きを減らす設定の人にはこれが見えます。・data-eager を付けると、ページの表示が終わってすぐ再生が始まります。 -->
-              <div class="video-ph" aria-hidden="true">サンプル動画（差し替え予定）</div>
+              <!-- ファーストビューのサンプル動画（元：toMorrow動画制作_15s_1920x1080.mp4 を 1280×720・音なしに軽くしたもの）。
+                   差し替えるときは videos/hero.mp4（横長 16:9、10〜20秒・3MB以下がおすすめ）と、
+                   images/hero-poster.webp（読み込み中や、動きを減らす設定の人に見える1コマ）を入れ替えてください。
+                   data-eager を付けているので、ページの表示が終わってすぐ再生が始まります。 -->
+              <video data-src="videos/hero.mp4" data-eager poster="images/hero-poster.webp"
+                     muted loop playsinline preload="none" width="1280" height="720"
+                     aria-label="サンプル動画：カフェ・介護施設・工務店のCMの例"></video>
             </div>
           </div>
         </div>
@@ -182,11 +186,12 @@
             <figure class="sample fade">
               <div class="vframe">
                 <span class="vframe__label">サンプル</span>
-                <!-- 動画差し替え：横長のCM（16:9）。div.video-ph を消して、次の video を置いてください。
-                     <video data-src="videos/sample-cm.mp4" poster="images/sample-cm.webp"
-                            muted loop playsinline preload="none" width="1280" height="720"
-                            aria-label="サンプル動画：企業CM"></video> -->
-                <div class="video-ph" aria-hidden="true">サンプル動画（差し替え予定）</div>
+                <!-- 横長のCM（元：toMorrowWeb制作・運用_15s_1920x1080.mp4 を 1280×720・音なしに軽くしたもの）。
+                     差し替えるときは videos/sample-cm.mp4 と images/sample-cm.webp を入れ替えてください。
+                     画面に入ってから読み込むので、ページは重くなりません。 -->
+                <video data-src="videos/sample-cm.mp4" poster="images/sample-cm.webp"
+                       muted loop playsinline preload="none" width="1280" height="720"
+                       aria-label="サンプル動画：お店のホームページを紹介するCM"></video>
               </div>
               <figcaption class="sample__cap">
                 <p class="sample__title">企業CM（横長）</p>
