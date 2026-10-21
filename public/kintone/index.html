@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="ja" data-theme="kintone">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>kintoneシステム開発｜導入から内製化まで丸ごと支えます | to.Morrow（広島）</title>
+    <meta
+      name="description"
+      content="kintoneの導入・開発・保守から、社内で作れるようになるまでをまとめてお手伝いします。AIを使った開発で、相場より安く早く。導入パッケージは500,000円（最初の2社は400,000円）。"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://to-morrow.net/kintone/" />
+    <meta name="theme-color" content="#13243A" />
+
+    <!-- SNSで共有されたときの表示（OGP）。画像は ogp.png（1200×630）を差し替え -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="to.Morrow" />
+    <meta property="og:title" content="kintoneシステム開発｜導入から内製化まで丸ごと支えます | to.Morrow（広島）" />
+    <meta
+      property="og:description"
+      content="Excelや紙の管理が限界、kintoneを入れたが作れる人がいない。導入・開発・保守・内製化まで、1件からご相談ください。"
+    />
+    <meta property="og:url" content="https://to-morrow.net/kintone/" />
+    <meta property="og:image" content="https://to-morrow.net/kintone/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- フォント（見出し Zen Kaku Gothic New／本文 Noto Sans JP）。表示を速くするため、/lp/common.js が「このページで使っている文字だけ」を Google Fonts から読み込みます。 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700&display=swap"
+      />
+    </noscript>
+
+    <!-- LPシリーズ共通のスタイル（色はテーマ「kintone」＝黄色） -->
+    <link rel="stylesheet" href="/lp/common.css" />
+    <script>
+      document.documentElement.classList.add('js');
+      // 再読み込みや「戻る」で開いたときは、前にいた場所や #contact などに飛ばず、ページの先頭から表示する
+      (function () {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+        if (nav && (nav.type === 'reload' || nav.type === 'back_forward') && location.hash) {
+          history.replaceState(null, '', location.pathname + location.search);
+        }
+        window.addEventListener('pageshow', function (e) { if (e.persisted) window.scrollTo(0, 0); });
+      })();
+    </script>
+    <script src="/lp/common.js" defer></script>
+    <!-- アクセス計測：サイト本体と共通の /analytics.js を、表示が終わってから /lp/common.js が読み込みます -->
+  </head>
+
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+
+    <header class="header">
+      <div class="container header__inner">
+        <a class="header__logo" href="/" aria-label="to.Morrow ホームページのトップへ">
+          <!-- ロゴ：LPシリーズ共通の /lp/logo.svg（読み込めないときは文字で表示） -->
+          <img
+            src="/lp/logo.svg"
+            alt="to.Morrow"
+            width="213"
+            height="32"
+            onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+          />
+          <span class="header__logo-text" hidden>to.Morrow</span>
+        </a>
+        <a class="btn btn--primary btn--sm" href="#contact">無料で相談</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 1. ファーストビュー -->
+      <section class="hero" id="top">
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <p class="hero__label">kintoneを入れたい・使いこなしたい会社のみなさまへ</p>
+            <h1 class="hero__title">
+              kintoneの導入から<br />内製化まで、<br />
+              <span class="u-accent">丸ごと支えます。</span>
+            </h1>
+            <p class="hero__lead">業務の聞き取りと設計から、アプリづくり、公開後の改善、社内で作れるようになるまで。1つの窓口で、まとめてお手伝いします。</p>
+            <div class="hero__cta">
+              <a class="btn btn--primary btn--lg" href="#contact">無料で相談する</a>
+              <a class="hero__sub-link" href="#price">料金を見る</a>
+            </div>
+            <ul class="hero__points" aria-label="ポイント">
+              <li>導入から内製化まで</li>
+              <li>1件からご依頼OK</li>
+              <li>AIで早く、相場より安く</li>
+            </ul>
+          </div>
+
+          <!-- 画像差し替え：ファーストビューの右側（推奨 1200×900 / WebP。kintoneの画面写真など）。今は仮の絵です。この div.hero__visual を
+               <img src="images/hero.webp" alt="" width="1200" height="900" fetchpriority="high"> に置き換えてください。
+               ※ kintoneの公式ロゴは使わないでください。 -->
+          <div class="hero__visual" aria-hidden="true">
+            <div class="mock">
+              <div class="mock__bar"><span></span><span></span><span></span></div>
+              <div class="mock__body">
+                <div class="mock__line mock__line--l"></div>
+                <div class="mock__cards"><i></i><i></i><i></i></div>
+                <div class="mock__line"></div>
+                <div class="mock__line"></div>
+                <div class="mock__line"></div>
+              </div>
+            </div>
+            <div class="mock mock--phone">
+              <div class="mock__body">
+                <div class="mock__line mock__line--l"></div>
+                <div class="mock__line"></div>
+                <div class="mock__line"></div>
+                <div class="mock__line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. お悩み -->
+      <section class="section" id="worries" aria-labelledby="worries-title">
+        <div class="container">
+          <h2 class="section__title" id="worries-title">こんなお悩みはありませんか？</h2>
+          <ul class="worries worries--4">
+            <li class="worry fade">
+              <span class="worry__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28"><rect x="4" y="3" width="16" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 9h16M4 15h16M10 3v18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              </span>
+              <h3 class="worry__title">Excelや紙の管理が限界</h3>
+              <p>ファイルが増えて、どれが最新かわからない。探すのにも、まとめるのにも時間がかかる。</p>
+            </li>
+            <li class="worry fade">
+              <span class="worry__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M4 5h16v11H4zM9 20h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <h3 class="worry__title">kintoneを入れたが使いこなせていない</h3>
+              <p>契約はしたものの、思ったように使えていない。結局Excelに戻ってしまった。</p>
+            </li>
+            <li class="worry fade">
+              <span class="worry__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M5 18c1.5-3 4-4.5 7-4.5s5.5 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M17 4l4 4M21 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <h3 class="worry__title">作った人が辞めて、誰も直せない</h3>
+              <p>アプリを作った担当者がいなくなり、少し直したいだけなのに手が出せない。</p>
+            </li>
+            <li class="worry fade">
+              <span class="worry__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 3v18M16.5 7.5c0-1.7-2-3-4.5-3s-4.5 1.3-4.5 3S9.5 10 12 10.5s4.5 1.3 4.5 3.5-2 3.5-4.5 3.5-4.5-1.3-4.5-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <h3 class="worry__title">開発会社に頼むと高い</h3>
+              <p>見積もりを取ったら思ったより高かった。小さな改修でも、頼みにくい。</p>
+            </li>
+          </ul>
+          <p class="worries__answer fade">そのお悩み、<strong>to.Morrow</strong> がまとめてお手伝いします。</p>
+        </div>
+      </section>
+
+      <!-- 3. 強み -->
+      <section class="section section--white" id="strengths" aria-labelledby="strengths-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">STRENGTHS</p>
+          <h2 class="section__title" id="strengths-title">to.Morrow の強み</h2>
+          <ol class="features features--4">
+            <li class="feature fade">
+              <span class="feature__num" aria-hidden="true">01</span>
+              <h3 class="feature__title">AIを使った開発で、<br />相場より安く、早く</h3>
+              <p>設計や作業の一部にAIを使うことで、手間を減らしています。そのぶん、相場より安く、早くお届けします。</p>
+            </li>
+            <li class="feature fade">
+              <span class="feature__num" aria-hidden="true">02</span>
+              <h3 class="feature__title">kintone・Garoonの<br />実務経験</h3>
+              <p>kintoneとGaroonでの開発と、導入・活用のご相談（コンサルティング）を、実際の仕事として行ってきました。</p>
+            </li>
+            <li class="feature fade">
+              <span class="feature__num" aria-hidden="true">03</span>
+              <h3 class="feature__title">自作のプラグインを<br />公開しています</h3>
+              <p>kintoneで使えるプラグインを自分で作り、無料で公開・配布しています。<a href="https://plugins.to-morrow.net/">プラグインの一覧を見る</a></p>
+            </li>
+            <li class="feature fade">
+              <span class="feature__num" aria-hidden="true">04</span>
+              <h3 class="feature__title">kintone認定資格を<br />持っています</h3>
+              <p>アプリデザインスペシャリスト／カスタマイズスペシャリスト／アソシエイト</p>
+              <!-- 認定マークの差し替え：各 div.cert の中身を、認定マークの画像に置き換えてください。例）<img src="images/cert-app-design.webp" alt="kintone認定 アプリデザインスペシャリスト" width="72" height="72" loading="lazy">
+                   ※ 認定マークの使用ルールに沿ってお使いください。 -->
+              <div class="certs">
+                <div class="cert">認定<br />マーク</div>
+                <div class="cert">認定<br />マーク</div>
+                <div class="cert">認定<br />マーク</div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4. サービスの全体像 -->
+      <section class="section" id="services" aria-labelledby="services-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">SERVICES</p>
+          <h2 class="section__title" id="services-title">サービスの全体像</h2>
+          <p class="section__lead">まずは導入から。そのあとは「作ってもらう」か「自分たちで作れるようになる」かを選べます。</p>
+          <div class="roadmap">
+            <div class="roadmap__step fade">
+              <span class="roadmap__num" aria-hidden="true">1</span>
+              <h3 class="roadmap__title"><small>入口</small>導入パッケージ</h3>
+              <p>業務の聞き取りと設計から、1つの業務をまるごとkintoneにするまで。</p>
+            </div>
+            <p class="roadmap__arrow" aria-hidden="true"><span>▼</span></p>
+            <div class="roadmap__step fade">
+              <span class="roadmap__num" aria-hidden="true">2</span>
+              <h3 class="roadmap__title"><small>作ってもらう</small>保守・改善 ／ 開発パートナー</h3>
+              <p>直したいところの改善や、新しいアプリづくりを、月額でおまかせ。</p>
+            </div>
+            <p class="roadmap__arrow" aria-hidden="true"><span>▼</span></p>
+            <div class="roadmap__step fade">
+              <span class="roadmap__num" aria-hidden="true">3</span>
+              <h3 class="roadmap__title"><small>自分たちで作る</small>内製化支援</h3>
+              <p>アプリづくりを社内でできるように、一緒に進めながら身につけます。</p>
+            </div>
+          </div>
+          <p class="roadmap__spot fade">必要なときに、1件から頼める「受託開発」もあります。<span>（アプリ1つ、プラグインの導入、カスタマイズ など）</span></p>
+        </div>
+      </section>
+
+      <!-- 5. 導入の流れ -->
+      <section class="section section--white" id="flow" aria-labelledby="flow-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">FLOW</p>
+          <h2 class="section__title" id="flow-title">導入の流れ</h2>
+          <ol class="flow">
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">1</span>
+              <div>
+                <h3 class="flow__title">聞き取り</h3>
+                <p>いまの仕事の進め方や、困っていることを伺います。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">2</span>
+              <div>
+                <h3 class="flow__title">設計書で範囲を確定</h3>
+                <p>どのアプリを、どこまで作るかを設計書にまとめ、一緒に確かめて決めます。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">3</span>
+              <div>
+                <h3 class="flow__title">構築</h3>
+                <p>設計書のとおりに、kintoneのアプリを作ります。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">4</span>
+              <div>
+                <h3 class="flow__title">Excelデータの取り込み</h3>
+                <p>いまお使いのExcelのデータを、kintoneに移します。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">5</span>
+              <div>
+                <h3 class="flow__title">操作講習</h3>
+                <p>実際の画面を使いながら、使い方をご説明します（2回）。</p>
+              </div>
+            </li>
+            <li class="flow__step fade">
+              <span class="flow__num" aria-hidden="true">6</span>
+              <div>
+                <h3 class="flow__title">1ヶ月サポート</h3>
+                <p>使い始めてから1ヶ月は、わからないことや困りごとにお答えします。</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 6. 料金 -->
+      <section class="section" id="price" aria-labelledby="price-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">PRICE</p>
+          <h2 class="section__title" id="price-title">料金</h2>
+          <p class="section__lead">金額はすべて税別です。kintoneの利用料は、お客様のご負担です。</p>
+
+          <h3 class="price-heading">導入パッケージ</h3>
+          <div class="package fade">
+            <div>
+              <p class="package__name">導入パッケージ</p>
+              <p class="package__price"><span class="plan__num">500,000</span>円</p>
+              <p class="campaign">最初の2社は、事例へのご協力で <strong>400,000円</strong></p>
+              <p class="package__note">範囲は聞き取りで一緒に決め、設計書で確定します。パッケージのアプリは、kintoneの標準機能で作ります。</p>
+            </div>
+            <ul class="plan__list">
+              <li>業務の聞き取りと設計書</li>
+              <li>初期設定（ユーザー・権限）</li>
+              <li>1つの業務をまるごと構築（例：顧客管理・案件管理・日報）</li>
+              <li>Excelデータの取り込み</li>
+              <li>操作講習2回・1ヶ月サポート</li>
+            </ul>
+          </div>
+
+          <h3 class="price-heading">受託開発（1件から）</h3>
+          <div class="options fade">
+            <table class="options__table">
+              <caption class="u-sr">受託開発の料金（税別）</caption>
+              <tbody>
+                <tr><th scope="row">業務アプリ1つ</th><td>150,000円〜</td></tr>
+                <tr><th scope="row">プラグインの導入</th><td>10,000円〜</td></tr>
+              </tbody>
+            </table>
+            <table class="options__table">
+              <caption class="u-sr">受託開発の料金のつづき（税別）</caption>
+              <tbody>
+                <tr><th scope="row">カスタマイズ（JavaScriptでの機能追加）</th><td>50,000円〜</td></tr>
+                <tr><th scope="row">外部サービスとの連携</th><td>100,000円〜</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="price-heading">保守・改善（月額）</h3>
+          <div class="plans plans--run">
+            <div class="plan fade">
+              <p class="plan__name">ライト</p>
+              <p class="plan__price"><span class="plan__num">30,000</span>円<small>／月</small></p>
+              <ul class="plan__list"><li>月2時間まで</li></ul>
+            </div>
+            <div class="plan fade">
+              <p class="plan__name">スタンダード</p>
+              <p class="plan__price"><span class="plan__num">50,000</span>円<small>／月</small></p>
+              <ul class="plan__list"><li>月4時間まで</li></ul>
+            </div>
+            <div class="plan fade">
+              <p class="plan__name">プラス</p>
+              <p class="plan__price"><span class="plan__num">100,000</span>円<small>／月</small></p>
+              <ul class="plan__list"><li>月8時間まで</li></ul>
+            </div>
+          </div>
+
+          <h3 class="price-heading">開発パートナー・内製化支援（月額）</h3>
+          <p class="which fade">作ってほしいなら「開発パートナー」、自分たちで作れるようになりたいなら「内製化支援」です。</p>
+          <div class="plan plan--wide fade">
+            <div>
+              <p class="plan__name">開発パートナー</p>
+              <p class="plan__price"><span class="plan__num">200,000</span>円<small>／月</small></p>
+            </div>
+            <ul class="plan__list">
+              <li>新しいアプリづくり・改修・保守を、月20時間まで</li>
+              <li>月初に、その月にやることを一緒に決めます</li>
+              <li>急ぎの不具合は最優先で対応します</li>
+              <li>使わなかった時間は、翌月まで繰り越せます</li>
+            </ul>
+          </div>
+          <div class="plans plans--two plans--spaced">
+            <div class="plan fade">
+              <p class="plan__name">内製化支援（標準機能）</p>
+              <p class="plan__price"><span class="plan__num">100,000</span>円<small>／月</small></p>
+              <ul class="plan__list"><li>kintoneの標準機能でのアプリづくりを、社内でできるようにします</li></ul>
+            </div>
+            <div class="plan fade">
+              <p class="plan__name">内製化支援（カスタマイズ込み）</p>
+              <p class="plan__price"><span class="plan__num">200,000</span>円<small>／月</small></p>
+              <ul class="plan__list"><li>標準機能に加えて、JavaScriptでのカスタマイズも社内でできるようにします</li></ul>
+            </div>
+          </div>
+          <ul class="notes">
+            <li>kintoneの利用料は、お客様のご負担です。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 7. 画面の例 -->
+      <section class="section section--white" id="screens" aria-labelledby="screens-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">SCREENS</p>
+          <h2 class="section__title" id="screens-title">画面の例</h2>
+          <p class="section__lead">kintoneで作るアプリの画面のイメージです。</p>
+          <!-- 画像差し替え：kintoneのアプリ画面のスクリーンショット（推奨 1200×750 / WebP）。各 div.shot__img を <img src="images/screen-1.webp" alt="顧客管理アプリの一覧画面" width="1200" height="750" loading="lazy"> に置き換え、
+               figcaption の文も合わせて書き換えてください。お客様の情報が写らないようにご注意ください。 -->
+          <div class="shots">
+            <figure class="shot fade">
+              <div class="shot__img">画面の例（差し替え予定）</div>
+              <figcaption class="shot__cap">顧客管理</figcaption>
+            </figure>
+            <figure class="shot fade">
+              <div class="shot__img">画面の例（差し替え予定）</div>
+              <figcaption class="shot__cap">案件管理</figcaption>
+            </figure>
+            <figure class="shot fade">
+              <div class="shot__img">画面の例（差し替え予定）</div>
+              <figcaption class="shot__cap">日報</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. 導入事例 -->
+      <section class="section" id="cases" aria-labelledby="cases-title">
+        <div class="container container--narrow">
+          <p class="section__en" aria-hidden="true">CASE</p>
+          <h2 class="section__title" id="cases-title">導入事例</h2>
+          <!-- 事例差し替え：実際の事例ができたら、この article を書き換えてください。写真は div.work__img を <img src="images/case-1.webp" alt="" width="1200" height="514" loading="lazy"> に置き換え。
+               ※ 掲載はお客様の許可を得てから。数字は実際に測ったものだけを載せてください。 -->
+          <div class="works works--one">
+            <article class="work work--soon fade">
+              <div class="work__img work__img--soon" aria-hidden="true"><span>Coming soon</span></div>
+              <div class="work__body">
+                <p class="work__cat">準備中</p>
+                <h3 class="work__title">導入事例を準備しています</h3>
+                <p>公開できるようになりしだい、こちらでご紹介します。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. よくある質問 -->
+      <section class="section section--white" id="faq" aria-labelledby="faq-title">
+        <div class="container container--narrow">
+          <p class="section__en" aria-hidden="true">FAQ</p>
+          <h2 class="section__title" id="faq-title">よくある質問</h2>
+          <div class="faq">
+            <details class="faq__item">
+              <summary>kintoneをまだ契約していなくても、相談できますか？</summary>
+              <div class="faq__a">
+                <p>はい、大丈夫です。kintoneが御社の仕事に合うかどうかから、一緒に考えます。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>今あるアプリの改修だけでも、頼めますか？</summary>
+              <div class="faq__a">
+                <p>はい。1件からの「受託開発」や、月額の「保守・改善」でお受けできます。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>「1つの業務」とは、どこまでですか？</summary>
+              <div class="faq__a">
+                <!-- 要確認：導入パッケージの範囲の考え方に合わせて書き換えてください -->
+                <p>たとえば「顧客管理」「案件管理」「日報」のように、1つのまとまった仕事を指します。どこまでを含めるかは聞き取りで一緒に決め、設計書で確定してから作り始めます。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>ほかの会社が作ったアプリも、直せますか？</summary>
+              <div class="faq__a">
+                <!-- 要確認：ほかの会社が作ったアプリを受ける条件に合わせて書き換えてください -->
+                <p>はい、ご相談ください。まずアプリの中身を確認して、どこまで直せるか、どれくらいかかるかをお伝えしてからお見積もりします。</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>途中で「内製化」に切り替えられますか？</summary>
+              <div class="faq__a">
+                <p>はい。はじめは作ってもらい、慣れてきたら自分たちで作れるように切り替える、という進め方もできます。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. お問い合わせ -->
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="container container--narrow">
+          <p class="section__en" aria-hidden="true">CONTACT</p>
+          <h2 class="section__title" id="contact-title">無料相談のお申し込み</h2>
+          <p class="section__lead">下のフォームからお気軽にどうぞ。1週間以内に、メールでご連絡します。<br class="u-pc" />「まだ何を頼むか決まっていない」という段階でも大丈夫です。</p>
+
+          <!-- フォームの送信先（Formspree。ほかのLPと同じ受け取り先）：変えるときは action の URL だけを差し替えてください -->
+          <form class="form" id="contact-form" action="https://formspree.io/f/xeaewnke" method="POST" novalidate>
+            <div class="form__row">
+              <label for="f-company">会社名・事業所名 <span class="req">必須</span></label>
+              <input id="f-company" name="会社名" type="text" autocomplete="organization" required />
+            </div>
+            <div class="form__row">
+              <label for="f-name">お名前 <span class="req">必須</span></label>
+              <input id="f-name" name="お名前" type="text" autocomplete="name" required />
+            </div>
+            <div class="form__row">
+              <label for="f-email">メールアドレス <span class="req">必須</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+            </div>
+            <div class="form__row">
+              <label for="f-tel">電話番号 <span class="opt">任意</span></label>
+              <input id="f-tel" name="電話番号" type="tel" autocomplete="tel" inputmode="tel" />
+            </div>
+            <div class="form__row">
+              <label for="f-status">kintoneの利用状況 <span class="req">必須</span></label>
+              <select id="f-status" name="kintoneの利用状況" required>
+                <option value="">選んでください</option>
+                <option>まだ導入していない</option>
+                <option>すでに導入している</option>
+              </select>
+            </div>
+            <div class="form__row">
+              <label for="f-message">ご相談内容 <span class="req">必須</span></label>
+              <textarea
+                id="f-message"
+                name="ご相談内容"
+                rows="6"
+                required
+                placeholder="例）顧客と案件の管理をExcelでしているが、限界を感じている。kintoneでまとめられるか相談したい。"
+              ></textarea>
+            </div>
+            <!-- 迷惑メール対策（人には見えない欄） -->
+            <input class="form__trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="_subject" value="【to.Morrow kintone】無料相談のお申し込み" />
+
+            <p class="form__privacy">
+              送信いただいた内容は、ご連絡のためだけに使います。くわしくは<a href="/privacy.html">プライバシーポリシー</a>をご覧ください。
+            </p>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">無料相談を申し込む</button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- 11. フッター -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__name">to.Morrow</p>
+        <p>代表 今井 渓</p>
+        <p>広島県</p>
+        <p><a href="https://to-morrow.net/">to-morrow.net</a></p>
+        <p class="footer__series"><a href="/advisor/">AI・IT伴走顧問のご案内</a></p>
+        <p><a href="/movie/">AI動画制作のご案内</a></p>
+        <p><a href="/web/">ホームページ制作・運用のご案内</a></p>
+        <p class="footer__links"><a href="/privacy.html">プライバシーポリシー</a></p>
+        <p class="footer__legal">kintoneはサイボウズ株式会社の登録商標です。</p>
+        <p class="footer__copy"><small>&copy; to.Morrow</small></p>
+      </div>
+    </footer>
+
+    <!-- スマホで画面下に出る申し込みボタン -->
+    <div class="sticky-cta" id="sticky-cta">
+      <a class="btn btn--primary btn--block" href="#contact">無料で相談する</a>
+    </div>
+  </body>
+</html>

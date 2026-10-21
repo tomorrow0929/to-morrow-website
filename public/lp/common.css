@@ -74,6 +74,15 @@
   --sub: #ff8c42;
 }
 
+/* kintoneシステム開発：黄色。#FFCC00 は面や帯だけに使い、文字には使わない。
+   黄色の面の上の小さい文字は紺（#7A5F00 だと 4.0:1 で基準に届かないため）。 */
+[data-theme="kintone"] {
+  --theme: #ffcc00;
+  --theme-text: #7a5f00;   /* 白地・生成り・薄い黄色の上の文字（5.4:1 以上） */
+  --theme-pale: #fff3bf;
+  --sub: #00aeef;
+}
+
 @media (min-width: 768px) {
   :root {
     --gutter: 32px;
@@ -117,6 +126,7 @@ h1, h2, h3 {
 }
 
 p { margin: 0; }
+figure { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
 [hidden] { display: none !important; }
@@ -758,6 +768,96 @@ a:hover { text-decoration: none; }
   .options.options--one { grid-template-columns: 1fr; }
 }
 .options__note { display: block; font-size: 0.8125rem; color: var(--navy-soft); }
+
+/* =========================================================
+   kintoneシステム開発LPで使う部品（ほかのLPでも使えます）
+   ========================================================= */
+
+/* 強みを4つ並べる */
+@media (min-width: 700px) {
+  .features--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px) {
+  .features--4 { grid-template-columns: repeat(4, 1fr); }
+  .features--4 .feature { padding: 28px 24px; }
+}
+
+/* 認定資格のマークを置く枠 */
+.certs { display: grid; grid-template-columns: repeat(3, minmax(0, 72px)); gap: 8px; margin-top: 14px; }
+.cert {
+  display: grid; place-items: center; aspect-ratio: 1; padding: 4px;
+  border: 1px dashed var(--line); border-radius: 12px; background: var(--white);
+  font-size: 0.625rem; line-height: 1.4; text-align: center; color: var(--navy-soft);
+}
+.cert img { width: 100%; height: 100%; object-fit: contain; }
+
+/* サービスの全体像（①→②→③） */
+.roadmap { display: grid; gap: 12px; margin-top: 40px; }
+.roadmap__step {
+  position: relative; padding: 22px 22px 22px 70px; border-radius: var(--radius);
+  background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.roadmap__num {
+  position: absolute; left: 20px; top: 22px; display: grid; place-items: center;
+  width: 36px; height: 36px; border-radius: 50%; background: var(--theme); color: var(--navy);
+  font-family: var(--font-head); font-weight: 700;
+}
+.roadmap__title { font-size: 1.0625rem; }
+.roadmap__title small { display: block; font-family: var(--font-body); font-size: 0.8125rem; font-weight: 700; color: var(--theme-text); }
+.roadmap__step p { margin-top: 4px; font-size: 0.9375rem; color: var(--navy-soft); }
+.roadmap__arrow { text-align: center; font-size: 1.25rem; line-height: 1; color: var(--theme-text); }
+.roadmap__spot {
+  margin-top: 16px; padding: 18px 22px; border-radius: var(--radius);
+  background: var(--theme-pale); font-weight: 700;
+}
+.roadmap__spot span { font-weight: 400; color: var(--navy-soft); }
+@media (min-width: 900px) {
+  .roadmap { grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; }
+  .roadmap__arrow { display: grid; place-items: center; }
+  .roadmap__arrow span { transform: rotate(-90deg); display: inline-block; }
+  .roadmap__spot { text-align: center; }
+}
+
+/* 料金：導入パッケージの大きなカード */
+.package {
+  display: grid; gap: 20px; padding: 28px 24px; border-radius: var(--radius);
+  background: var(--white); border: 2px solid var(--theme-text); box-shadow: var(--shadow);
+}
+.package__name { font-family: var(--font-head); font-weight: 700; font-size: 1.25rem; }
+.package__price { margin-top: 4px; font-weight: 700; }
+.package__price .plan__num { font-size: 2.5rem; }
+.campaign {
+  display: inline-block; margin-top: 12px; padding: 8px 16px; border-radius: 10px;
+  background: var(--theme); color: var(--navy); font-weight: 700; line-height: 1.6;
+}
+.campaign strong { font-family: var(--font-head); font-size: 1.25rem; }
+.package__note { margin-top: 10px; font-size: 0.8125rem; color: var(--navy-soft); }
+@media (min-width: 900px) {
+  .package { grid-template-columns: 1fr 1.2fr; align-items: start; padding: 36px 40px; gap: 40px; }
+}
+
+/* 「作ってほしい／自分たちで作りたい」の違いを1行で */
+.which {
+  margin: 0 0 20px; padding: 14px 18px; border-left: 4px solid var(--theme);
+  background: var(--white); border-radius: 0 10px 10px 0; font-weight: 700;
+}
+
+/* 画面の例（スクリーンショット3枚） */
+.shots { display: grid; gap: var(--gap); margin-top: 40px; }
+.shot__img {
+  aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden;
+  background: repeating-linear-gradient(45deg, #fbf6df 0 12px, #f7efcf 12px 24px);
+  border: 1px solid var(--line); display: grid; place-items: center;
+  font-size: 0.8125rem; font-weight: 700; color: var(--navy-soft);
+}
+.shot__img img { width: 100%; height: 100%; object-fit: cover; }
+.shot__cap { margin-top: 10px; font-weight: 700; font-size: 0.9375rem; }
+@media (min-width: 768px) {
+  .shots { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* 商標などの小さな注記（フッター） */
+.footer__legal { margin-top: 12px; font-size: 0.75rem; color: #a9b3bf; }
 
 /* ---------- スクロールで軽くフェードイン ---------- */
 /* JavaScript が動くときだけ隠す（動かない環境でも内容は必ず見える） */
