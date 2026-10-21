@@ -66,11 +66,11 @@ function render(size) {
 // 64x64 座標系で 1px を塗る色を返す（favicon.svg と同じ図形）
 function sample(x, y) {
   let color = [0, 0, 0, 0]
-  // 角丸長方形の背景 #01545a（r=12）
+  // 角丸長方形の背景 #13243a（紺。サイトの配色に合わせた。r=12）
   const r = 12
   const cx = Math.min(Math.max(x, r), 64 - r)
   const cy = Math.min(Math.max(y, r), 64 - r)
-  if (Math.hypot(x - cx, y - cy) <= r) color = [1, 84, 90, 255]
+  if (Math.hypot(x - cx, y - cy) <= r) color = [19, 36, 58, 255]
   if (color[3] === 0) return color
 
   // 光の輪（r=12 の細いリング）
