@@ -64,16 +64,14 @@
          文字が出ないまま待たされるのを防ぎます。 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <!-- フォントは /site-boost.js が、表示のあとに「使っている文字だけ」読み込みます -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" /></noscript>
 
     <!-- ===== SEO / SNSシェア用 ===== -->
-    <title>to.Morrow | AI・IT伴走顧問・AI動画制作・Webサイト制作</title>
+    <title>会社の土台を、強くする｜広島のAI活用・業務効率化・kintone | to.Morrow</title>
     <meta
       name="description"
-      content="広島のIT事業者。特定のAIに依存せず、どのAIでも成果を出せる人を社内に育てるAI・IT伴走顧問、AI動画制作・動画内製化、Webサイト制作を行っています。kintone無料プラグインも配布中。"
+      content="広島の中小企業の「業務の土台」を、AIとITでつくります。散らばったExcelや紙の記録を仕組みに置き換え、使いこなせる人も一緒に育てます。AI・IT伴走顧問、AI研修、kintone開発、ホームページ制作、AI動画制作。"
     />
     <!-- ↓ 独自ドメインを設定したら、このURLを書き換えてください -->
     <link rel="canonical" href="https://to-morrow.net/" />
@@ -81,7 +79,7 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="to.Morrow" />
-    <meta property="og:title" content="to.Morrow" />
+    <meta property="og:title" content="会社の土台を、強くする。| to.Morrow（広島）" />
     <meta
       property="og:description"
       content="AIを使いこなせる人の共通点は、「判断ができる人」と「責任が取れる人」。AI・IT伴走顧問、AI動画制作・動画内製化、Webサイト制作。まずは無料相談から。"
@@ -89,18 +87,22 @@
     <meta property="og:url" content="https://to-morrow.net/" />
     <meta
       property="og:image"
-      content="https://to-morrow.net/favicon-512x512.png"
+      content="https://to-morrow.net/ogp.png"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="ja_JP" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "to.Morrow",
       "url": "https://to-morrow.net/",
-      "description": "広島のIT事業者。特定のAIに依存せず、どのAIでも成果を出せる人を社内に育てるAI・IT伴走顧問、AI動画制作・動画内製化、Webサイト制作を行っています。kintone無料プラグインも配布中。",
-      "slogan": "ITで次の一歩を支援する、信頼のパートナー",
+      "description": "広島の中小企業の「業務の土台」を、AIとITでつくる個人事業。散らばったExcelや紙の記録を仕組みに置き換え、使いこなせる人も一緒に育てます。AI・IT伴走顧問、AI研修、kintoneシステム開発、ホームページ制作、AI動画制作。",
+      "image": "https://to-morrow.net/ogp.png",
+      "logo": "https://to-morrow.net/favicon-512x512.png",
+      "slogan": "会社の土台を、強くする。",
       "founder": {
         "@type": "Person",
         "name": "今井 渓"
@@ -112,11 +114,14 @@
         "addressLocality": "広島市西区"
       },
       "areaServed": {
-        "@type": "Country",
-        "name": "日本"
+        "@type": "AdministrativeArea",
+        "name": "広島県"
       },
       "knowsAbout": [
         "生成AI活用支援",
+        "AI研修",
+        "業務効率化",
+        "kintoneシステム開発",
         "AI人材育成",
         "AI動画制作",
         "動画内製化",
@@ -129,8 +134,8 @@
       ]
     }
     </script>
-    <!-- アクセス計測（測定IDは public/analytics.js の1箇所） -->
-    <script src="/analytics.js" defer></script>
+    <!-- フォントとアクセス計測を、表示のあとに読み込む（public/site-boost.js） -->
+    <script src="/site-boost.js" defer></script>
   </head>
   <body>
     <!-- React はこの div の中に描画されます -->
@@ -144,7 +149,7 @@
     -->
     <div id="file-protocol-notice" hidden>
       <div style="font-family: sans-serif; max-width: 640px; margin: 15vh auto; padding: 24px; line-height: 1.8; color: #333;">
-        <h1 style="font-size: 1.2rem; color: #004d99;">このファイルは直接開けません</h1>
+        <p style="font-size: 1.2rem; font-weight: 700; color: #004d99;">このファイルは直接開けません</p>
         <p>
           このサイトは React で作られているため、<code>index.html</code> をダブルクリックしても表示されません。<br />
           ターミナルでプロジェクトのフォルダを開き、次のコマンドを実行してください。

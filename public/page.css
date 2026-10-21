@@ -254,6 +254,19 @@ section > h3:first-of-type {
   margin-top: 0;
 }
 
+/* 規約の条文の見出し。見出しの順番（h1→h2）を守るため h2 にしているが、見た目は h3 と同じ */
+section > h2.h-article {
+  margin: 22px 0 6px;
+  padding-bottom: 0;
+  font-size: 1rem;
+  color: var(--text);
+  border-bottom: 0;
+}
+
+section > h2.h-article:first-of-type {
+  margin-top: 0;
+}
+
 section p {
   margin: 0 0 12px;
 }

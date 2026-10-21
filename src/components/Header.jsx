@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import logo from '../assets/logo.svg'
-import { navLinks, company } from '../data/site.js'
+import { navLinks, company, pages } from '../data/site.js'
 import './Header.css'
 
 /**
@@ -54,7 +54,7 @@ export default function Header() {
       }`}
     >
       <div className="site-header__bar">
-        <a className="site-header__logo" href="#top" aria-label={`${company.name} トップへ`}>
+        <a className="site-header__logo" href="/" aria-label={`${company.name} トップへ`}>
           <img src={logo} alt={`${company.name} ロゴ`} className="logo" />
         </a>
 
@@ -68,7 +68,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <a className="button button--sm site-header__cta" href="#contact">
+        <a className="button button--sm site-header__cta" href={pages.contact}>
           無料相談
           <span className="button__arrow" aria-hidden="true">
             →
@@ -104,7 +104,7 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <a className="button site-menu__cta" href="#contact" onClick={() => setIsMenuOpen(false)}>
+        <a className="button site-menu__cta" href={pages.contact} onClick={() => setIsMenuOpen(false)}>
           無料で相談する
           <span className="button__arrow" aria-hidden="true">
             →

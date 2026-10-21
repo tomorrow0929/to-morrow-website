@@ -83,7 +83,15 @@ const FIELDS = [
 
 const EMPTY_VALUES = { subject: '', name: '', email: '', message: '' }
 
-export default function Contact() {
+/**
+ * お問い合わせフォーム。
+ * 送信の仕組み（送信先・項目・入力チェック・reCAPTCHA）は、どこに置いても同じです。
+ *
+ * headingLevel：見出しの階層。お問い合わせページ（/contact/）では、ページの見出しなので 'h1'
+ * notice：見出しのすぐ下に出す案内（例：無料相談の案内）
+ */
+export default function Contact({ headingLevel = 'h2', notice = '' }) {
+  const Heading = headingLevel
   const [values, setValues] = useState(EMPTY_VALUES)
   const [errors, setErrors] = useState({})
   const [isSending, setIsSending] = useState(false)
@@ -198,7 +206,8 @@ export default function Contact() {
       <div className="container contact__inner">
         <div className="section-head contact__head">
           <p className="eyebrow contact__eyebrow">Contact</p>
-          <h2 className="section-title contact__title">お問い合わせ</h2>
+          <Heading className="section-title contact__title">お問い合わせ</Heading>
+          {notice && <p className="contact__notice">{notice}</p>}
           <p className="section-lead contact__lead">
             ご相談・お見積りは無料です。設定を変えるだけで解決できる場合は、そのようにお伝えします。
           </p>

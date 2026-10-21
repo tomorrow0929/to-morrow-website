@@ -1,0 +1,31 @@
+/* ===== ページの最後の「お問い合わせ」案内 ===== */
+.cta-band {
+  background: linear-gradient(165deg, #e6f6fd 0%, var(--page-bg) 70%);
+}
+
+.cta-band__box {
+  max-width: var(--maxw-narrow);
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.cta-band__title {
+  margin: 0 0 10px;
+  font-size: var(--step-2);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.cta-band__text {
+  max-width: 46ch;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+.cta-band__actions {
+  margin-top: 24px;
+}

@@ -3,7 +3,7 @@
 import consultingBg from '../assets/images/consulting-bg.webp'
 import developmentBg from '../assets/images/development-bg.webp'
 import outsourcingBg from '../assets/images/outsourcing-bg.webp'
-import { detailPages } from './site.js'
+import { detailPages, pages } from './site.js'
 
 // 背景でゆっくり切り替わる写真。
 // caption は写真の右下に出る小さなラベルです。
@@ -16,7 +16,7 @@ export const heroSlides = [
 
 // ヒーローのボタン
 export const heroActions = [
-  { id: 'contact', label: '無料で相談する', href: '#contact', variant: 'primary' },
+  { id: 'contact', label: '無料で相談する', href: pages.contact, variant: 'primary' },
   { id: 'services', label: '事業内容を見る', href: '#services', variant: 'ghost' },
 ]
 

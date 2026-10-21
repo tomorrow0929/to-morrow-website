@@ -4,9 +4,17 @@ export const company = {
   // 屋号（個人事業）。法人を設立したら「合同会社to.Morrow」に変更してください。
   // ※ 会社法7条により、法人登記が済むまで名称に「合同会社」は使えません。
   name: 'to.Morrow',
-  tagline: '明日を創る。',
-  lead: 'ITで次の一歩を支援する、信頼のパートナー',
-  // トップの見出しの下に出す、いちばん伝えたい考え方
+  // トップの大きな見出し（キャッチコピー）
+  tagline: '会社の土台を、強くする。',
+  // フッターなどに出す一言
+  lead: 'AIとITで、中小企業の「業務の土台」をつくる',
+  // トップの見出しの下に出すリード文（段落ごとに分けています）
+  heroLead: [
+    'to.Morrowは、AIとITで中小企業の「業務の土台」をつくります。',
+    '散らばったExcel、紙の記録、特定の人に頼りきりの作業。ひとつずつ仕組みに置き換えて、会社を内側から強くしていきます。',
+    'つくって終わりにはしません。現場の方が自分たちで育てていけるように、使いこなせる人も一緒に育てます。',
+  ],
+  // いちばん伝えたい考え方（「to.Morrowとは」ページで使います）
   message: 'AIを使いこなせる人の共通点は、「判断ができる人」と「責任が取れる人」。',
   profile: [
     { label: '屋号', value: 'to.Morrow' },
@@ -41,6 +49,13 @@ export const detailPages = {
   terms: '/terms.html',
 }
 
+// 「to.Morrowとは」と「お問い合わせ」のページ。
+// どちらも Vite の複数ページ機能で作っています（about/index.html・contact/index.html）。
+export const pages = {
+  about: '/about/',
+  contact: '/contact/',
+}
+
 // サービスごとの申し込みページ（LP）。料金と無料試作の申し込みフォームがあります。
 // public/advisor/・public/movie/・public/web/・public/kintone/ に置いています。
 export const landingPages = {
@@ -57,12 +72,40 @@ export const landingPages = {
 // 環境変数 VITE_CONTACT_ENDPOINT を設定すると、そちらが優先されます。
 export const contactEndpoint = 'https://formspree.io/f/meaqvnvy'
 
+// ヘッダー・フッターのメニュー。
+// トップ以外のページ（/about/・/contact/）からも使うので、「/」から始まるURLにしています。
 export const navLinks = [
-  { href: '#about', label: '事業者情報' },
-  { href: '#services', label: '事業内容' },
+  { href: '/about/', label: 'to.Morrowとは' },
+  { href: '/#services', label: '事業内容' },
   // 料金を先に見せることで、予算感の合わないお問い合わせを減らす狙いがあります
   { href: '/services.html', label: '料金' },
-  { href: '#contact', label: 'お問い合わせ' },
+  { href: '/contact/', label: 'お問い合わせ' },
+]
+
+// トップと「to.Morrowとは」の「進め方」（3ステップ）。
+// detail は「to.Morrowとは」ページで出す、少しくわしい説明です。
+export const steps = [
+  {
+    no: '01',
+    title: '集める',
+    text: '今の業務と困りごとを洗い出します',
+    detail:
+      '今の仕事の流れと困りごとを、聞き取りで洗い出します。散らばったExcelや紙の記録、特定の人に頼っている作業を、一緒に見える形にします。',
+  },
+  {
+    no: '02',
+    title: '組み立てる',
+    text: 'kintoneやAIで、業務の仕組みをつくります',
+    detail:
+      'kintoneやAIを使って、業務の仕組みをつくります。まずは成果が見えやすいところから、ひとつずつ置き換えていきます。',
+  },
+  {
+    no: '03',
+    title: '強くする',
+    text: '使いながら改善し、社内で回せる人を育てます',
+    detail:
+      '使いながら改善し、社内で回せる人を育てます。つくって終わりにせず、現場の方が自分たちで仕組みを育てていける状態を目指します。',
+  },
 ]
 
 // SNS。href が空のものはフッターに表示されない（リンク切れを作らないため）。

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#13243a" />
+
+    <!-- フォント（トップと同じ Noto Sans JP） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- フォントは /site-boost.js が、表示のあとに「使っている文字だけ」読み込みます -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" /></noscript>
+
+    <!-- ===== SEO / SNSシェア用 ===== -->
+    <title>お問い合わせ・無料相談｜広島のAI活用・業務効率化 | to.Morrow</title>
+    <meta
+      name="description"
+      content="to.Morrowへのお問い合わせ・無料相談（30〜60分）はこちら。広島の中小企業のAI活用、業務効率化、kintone、ホームページ制作のご相談を受け付けています。お見積りは無料です。"
+    />
+    <link rel="canonical" href="https://to-morrow.net/contact/" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="to.Morrow" />
+    <meta property="og:title" content="お問い合わせ・無料相談 | to.Morrow（広島）" />
+    <meta
+      property="og:description"
+      content="無料相談（30〜60分）も受け付けています。AI活用、業務効率化、kintone、ホームページ制作のご相談はこちらから。"
+    />
+    <meta property="og:url" content="https://to-morrow.net/contact/" />
+    <meta property="og:image" content="https://to-morrow.net/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "お問い合わせ・無料相談",
+      "url": "https://to-morrow.net/contact/",
+      "inLanguage": "ja",
+      "about": {
+        "@type": "ProfessionalService",
+        "name": "to.Morrow",
+        "url": "https://to-morrow.net/",
+        "areaServed": { "@type": "AdministrativeArea", "name": "広島県" }
+      }
+    }
+    </script>
+    <!-- フォントとアクセス計測を、表示のあとに読み込む（public/site-boost.js） -->
+    <script src="/site-boost.js" defer></script>
+  </head>
+  <body>
+    <!-- React はこの div の中に描画されます（src/contact.jsx） -->
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 24px; font-family: sans-serif">お問い合わせフォームを使うには JavaScript を有効にしてください。</p>
+    </noscript>
+    <script type="module" src="/src/contact.jsx"></script>
+  </body>
+</html>

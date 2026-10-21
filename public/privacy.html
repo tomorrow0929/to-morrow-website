@@ -10,38 +10,39 @@
     <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192" />
     <meta name="theme-color" content="#13243a" />
 
-    <title>プライバシーポリシー | to.Morrow</title>
-    <meta name="description" content="to.Morrow の個人情報の取り扱いについて。" />
+    <title>プライバシーポリシー | to.Morrow（広島）</title>
+    <meta name="description" content="広島で AI活用・業務効率化を支援する to.Morrow の、個人情報の取り扱いについて。" />
 
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://to-morrow.net/privacy.html" />
 
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="to.Morrow" />
-    <meta property="og:title" content="プライバシーポリシー | to.Morrow" />
+    <meta property="og:title" content="プライバシーポリシー" />
     <meta property="og:description" content="to.Morrow の個人情報の取り扱いについて。" />
     <meta property="og:url" content="https://to-morrow.net/privacy.html" />
-    <meta property="og:image" content="https://to-morrow.net/favicon-512x512.png" />
+    <meta property="og:image" content="https://to-morrow.net/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="ja_JP" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- 本文のフォント（Noto Sans JP）。サイト本体と字面をそろえています -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <!-- フォントは /site-boost.js が、表示のあとに「使っている文字だけ」読み込みます -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" /></noscript>
     <link rel="stylesheet" href="/page.css" />
-    <!-- アクセス計測（測定IDは public/analytics.js の1箇所） -->
-    <script src="/analytics.js" defer></script>
+    <!-- フォントとアクセス計測を、表示のあとに読み込む（public/site-boost.js） -->
+    <script src="/site-boost.js" defer></script>
   </head>
   <body>
     <header class="page-header">
       <a href="/">← to.Morrow</a>
       <nav class="page-header__nav">
+        <a href="/about/">to.Morrowとは</a>
         <a href="/#services">事業内容</a>
-        <a href="/#contact">お問い合わせ</a>
+        <a href="/contact/">お問い合わせ</a>
       </nav>
     </header>
 
@@ -68,7 +69,7 @@
         <dt>所在地</dt>
         <dd>広島県広島市西区</dd>
         <dt>連絡先</dt>
-        <dd><a href="/#contact">当サイトのお問い合わせフォーム</a>よりご連絡ください</dd>
+        <dd><a href="/contact/">当サイトのお問い合わせフォーム</a>よりご連絡ください</dd>
       </dl>
 
       <h2>2. 取得する情報</h2>
@@ -174,7 +175,7 @@
       <h2>7. 開示・訂正・削除のご請求</h2>
       <p>
         ご自身の個人情報について、開示・訂正・利用停止・削除をご希望の場合は、
-        <a href="/#contact">お問い合わせフォーム</a>よりご連絡ください。
+        <a href="/contact/">お問い合わせフォーム</a>よりご連絡ください。
         ご本人であることを確認したうえで、速やかに対応します。
       </p>
 
@@ -195,7 +196,11 @@
 
     <footer class="page-footer">
       <p>&copy; 2026 to.Morrow</p>
-      <p><a href="/">トップページへ戻る</a></p>
+      <p>
+        <a href="/">トップページ</a> ｜
+        <a href="/about/">to.Morrowとは</a> ｜
+        <a href="/contact/">お問い合わせ</a>
+      </p>
     </footer>
   </body>
 </html>

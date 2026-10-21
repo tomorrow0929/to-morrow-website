@@ -1,5 +1,5 @@
 import logo from '../assets/logo.svg'
-import { company } from '../data/site.js'
+import { company, pages } from '../data/site.js'
 import { useReveal } from '../hooks/useReveal.js'
 import './About.css'
 
@@ -23,6 +23,16 @@ export default function About() {
               </div>
             ))}
           </dl>
+
+          {/* くわしい考え方・代表プロフィールは「to.Morrowとは」ページへ */}
+          <div className={`about__actions ${head.className}`}>
+            <a className="button button--ghost" href={pages.about}>
+              to.Morrowとは
+              <span className="button__arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
         </div>
 
         {/* 右：ロゴと理念を載せた、光るパネル */}

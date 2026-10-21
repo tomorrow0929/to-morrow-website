@@ -65,8 +65,7 @@
 .hero__aurora {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.28;
+  opacity: 0.22;
   pointer-events: none;
 }
 
@@ -245,13 +244,22 @@
 }
 
 .hero__lead {
-  max-width: 46ch;
+  max-width: 46em;
   margin: clamp(18px, 2.5vw, 28px) 0 0;
   font-size: var(--step-1);
   font-weight: 500;
   line-height: 1.85;
   color: var(--text);
   text-wrap: balance;
+}
+
+.hero__lead p {
+  margin: 0;
+  max-width: 40em;
+}
+
+.hero__lead p + p {
+  margin-top: 0.6em;
 }
 
 .hero__actions {

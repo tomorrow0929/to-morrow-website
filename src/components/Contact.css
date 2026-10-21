@@ -10,7 +10,6 @@
 .contact__glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
   pointer-events: none;
 }
 
@@ -55,6 +54,17 @@
  */
 .contact .contact__title {
   color: var(--ink);
+}
+
+.contact .contact__notice {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(0, 119, 168, 0.25);
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .contact .contact__lead {

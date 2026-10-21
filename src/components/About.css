@@ -50,6 +50,10 @@
   overflow-wrap: break-word;
 }
 
+.about__actions {
+  margin-top: 24px;
+}
+
 /* ===== 右側のパネル ===== */
 .about__panel {
   position: relative;
@@ -74,7 +78,6 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0, 174, 239, 0.18), transparent 68%);
-  filter: blur(60px);
   animation: aboutGlow 16s var(--ease-in-out) infinite;
   pointer-events: none;
 }

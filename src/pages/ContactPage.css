@@ -1,0 +1,5 @@
+/* ===== お問い合わせページ ===== */
+/* 固定ヘッダーの下から始まるように、上の余白を足す */
+.contact-page .contact {
+  padding-top: calc(var(--header-h) + clamp(40px, 6vw, 72px));
+}

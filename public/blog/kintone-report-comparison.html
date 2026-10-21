@@ -31,17 +31,17 @@
       property="og:url"
       content="https://to-morrow.net/blog/kintone-report-comparison.html"
     />
-    <meta property="og:image" content="https://to-morrow.net/favicon-512x512.png" />
+    <meta property="og:image" content="https://to-morrow.net/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="ja_JP" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- 本文のフォント（Noto Sans JP）。サイト本体と字面をそろえています -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <!-- フォントは /site-boost.js が、表示のあとに「使っている文字だけ」読み込みます -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" /></noscript>
     <link rel="stylesheet" href="/page.css" />
     <script type="application/ld+json">
 {
@@ -84,16 +84,17 @@
       ]
     }
     </script>
-    <!-- アクセス計測（測定IDは public/analytics.js の1箇所） -->
-    <script src="/analytics.js" defer></script>
+    <!-- フォントとアクセス計測を、表示のあとに読み込む（public/site-boost.js） -->
+    <script src="/site-boost.js" defer></script>
   </head>
   <body>
     <header class="page-header">
       <a href="/">← to.Morrow</a>
       <nav class="page-header__nav">
+        <a href="/about/">to.Morrowとは</a>
         <a href="/blog.html">ブログ</a>
         <a href="/services.html">料金</a>
-        <a href="/#contact">お問い合わせ</a>
+        <a href="/contact/">お問い合わせ</a>
       </nav>
     </header>
 
@@ -469,11 +470,13 @@
       <p>&copy; 2026 to.Morrow</p>
       <p>
         <a href="/">トップページ</a> ｜
+        <a href="/about/">to.Morrowとは</a> ｜
         <a href="/blog.html">ブログ</a> ｜
         <a href="/reports.html">帳票出力</a> ｜
         <a href="/services.html">料金</a> ｜
         <a href="https://plugins.to-morrow.net/" target="_blank" rel="noreferrer">無料プラグイン</a>
         ｜
+        <a href="/contact/">お問い合わせ</a> ｜
         <a href="/privacy.html">プライバシーポリシー</a>
       </p>
     </footer>

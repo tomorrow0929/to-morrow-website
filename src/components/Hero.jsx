@@ -17,6 +17,15 @@ export default function Hero() {
   const [active, setActive] = useState(0)
   // 押したドットで送り直せるように、タイマーを作り直すためのきっかけ
   const [restart, setRestart] = useState(0)
+  // 2枚目以降の写真は、ページの表示が終わってから読み込む（最初の表示を速くするため）
+  const [restLoaded, setRestLoaded] = useState(false)
+
+  useEffect(() => {
+    const done = () => setRestLoaded(true)
+    if (document.readyState === 'complete') done()
+    else window.addEventListener('load', done, { once: true })
+    return () => window.removeEventListener('load', done)
+  }, [])
 
   useEffect(() => {
     // 動きを減らす設定の人には、自動で切り替えない
@@ -46,7 +55,7 @@ export default function Hero() {
           <div
             key={slide.id}
             className={`hero__slide${index === active ? ' is-active' : ''}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={index === 0 || restLoaded ? { backgroundImage: `url(${slide.image})` } : undefined}
           />
         ))}
         <div className="hero__veil" />
@@ -74,7 +83,11 @@ export default function Hero() {
           ))}
         </h1>
 
-        <p className="hero__lead">{company.message}</p>
+        <div className="hero__lead">
+          {company.heroLead.map((text) => (
+            <p key={text}>{text}</p>
+          ))}
+        </div>
 
         <div className="hero__actions">
           {heroActions.map((action) => (

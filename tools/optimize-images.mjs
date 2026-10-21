@@ -42,6 +42,12 @@ const MAX_WIDTH = {
 
 const QUALITY = 80
 
+// 画質を下げてよい画像（上に白い膜が重なり、細部が見えないもの）。表示を速くするため軽くする
+const QUALITY_OVERRIDE = {
+  'consulting-bg': 62,
+  'development-bg': 62,
+}
+
 // 自作のイラスト（.svg）は、先に同じ名前の PNG に書き出してから変換する。
 // SVG を直すときは .svg を編集してこのコマンドを流し直せばよい。
 for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.svg'))) {
@@ -71,7 +77,7 @@ for (const file of files) {
   const meta = await sharp(src).metadata()
   const width = Math.min(meta.width, maxWidth)
 
-  await sharp(src).resize({ width, withoutEnlargement: true }).webp({ quality: QUALITY }).toFile(dest)
+  await sharp(src).resize({ width, withoutEnlargement: true }).webp({ quality: QUALITY_OVERRIDE[name] ?? QUALITY }).toFile(dest)
 
   const b = fs.statSync(src).size
   const a = fs.statSync(dest).size

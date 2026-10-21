@@ -1,0 +1,232 @@
+/* ===== 「to.Morrowとは」ページ ===== */
+
+/* ページの見出し（固定ヘッダーの下から始める） */
+.page-intro {
+  padding: calc(var(--header-h) + clamp(40px, 7vw, 80px)) var(--gutter) clamp(36px, 5vw, 56px);
+  background:
+    radial-gradient(70% 90% at 15% 0%, rgba(0, 174, 239, 0.14), transparent 62%),
+    radial-gradient(60% 80% at 95% 100%, rgba(255, 140, 66, 0.12), transparent 62%),
+    var(--page-bg);
+  text-align: center;
+}
+
+.page-intro__title {
+  margin: 0;
+  font-size: var(--step-4);
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.page-intro__lead {
+  max-width: 44ch;
+  margin: 16px auto 0;
+  color: var(--muted);
+  text-wrap: balance;
+}
+
+/* 読みやすい幅で中央に置く */
+.about-page__narrow {
+  max-width: var(--maxw-narrow);
+  text-align: center;
+}
+
+.about-page__mission {
+  background: var(--surface);
+}
+
+.about-page__mission-text {
+  margin: 20px 0 0;
+  font-size: var(--step-2);
+  font-weight: 800;
+  line-height: 1.6;
+  color: var(--accent);
+  text-wrap: balance;
+}
+
+.about-page__body {
+  margin: 16px 0 0;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* 考え方のカード */
+.about-page__cards {
+  display: grid;
+  gap: clamp(16px, 2vw, 24px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-page__card {
+  padding: clamp(24px, 3vw, 32px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.about-page__card-no {
+  display: block;
+  font-size: var(--step-2);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.about-page__card-title {
+  margin: 8px 0;
+  font-size: var(--step-1);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.about-page__card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* 提供サービスの一覧 */
+.about-page__services {
+  background: var(--surface);
+}
+
+.about-page__links {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-page__link {
+  display: block;
+  height: 100%;
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--page-bg);
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    border-color 240ms var(--ease-out),
+    box-shadow 240ms var(--ease-out),
+    transform 240ms var(--ease-out);
+}
+
+.about-page__link:hover {
+  border-color: var(--accent-2);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.about-page__link-title {
+  margin: 0 0 6px;
+  font-size: var(--step-1);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.about-page__link p {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+.about-page__link-more {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* 代表プロフィール */
+.about-page__person {
+  margin-top: 28px;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.about-page__person-role {
+  margin: 0;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.about-page__person-name {
+  margin: 2px 0 16px;
+  font-size: var(--step-2);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.about-page__career {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--text);
+}
+
+.about-page__career li + li {
+  margin-top: 6px;
+}
+
+.about-page__license {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 16px 0 0;
+}
+
+.about-page__license dt {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.about-page__license dd {
+  margin: 0;
+  color: var(--text);
+}
+
+.about-page__message {
+  margin: 20px 0 0;
+  padding: 16px 20px;
+  border-left: 4px solid var(--accent-warm);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--page-bg);
+}
+
+.about-page__message p {
+  margin: 0;
+  color: var(--text);
+}
+
+/* 画面には出さず、読み上げだけに使う文字 */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (min-width: 860px) {
+  .about-page__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-page__links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 859px) {
+  .about-page__links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

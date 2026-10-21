@@ -12,7 +12,7 @@ import aiSupport from '../assets/images/ai-support.webp'
 import advisor from '../assets/images/advisor.webp'
 import videoProduction from '../assets/images/video-production.webp'
 import videoInhouse from '../assets/images/video-inhouse.webp'
-import { externalLinks, detailPages, landingPages } from './site.js'
+import { externalLinks, detailPages, landingPages, pages } from './site.js'
 
 // 並び順がそのまま表示順（01, 02 …）になります。
 export const services = [
@@ -48,7 +48,7 @@ export const services = [
       },
     ],
     actions: [
-      { id: 'free-consult-ai', label: '無料で相談する', href: '#contact', variant: 'primary' },
+      { id: 'free-consult-ai', label: '無料で相談する', href: pages.contact, variant: 'primary' },
       { id: 'prices-ai', label: '料金を見る', href: detailPages.services, variant: 'outline' },
     ],
   },
@@ -82,7 +82,7 @@ export const services = [
       },
     ],
     actions: [
-      { id: 'video-trial', label: '無料試作を相談する', href: '#contact', variant: 'primary' },
+      { id: 'video-trial', label: '無料試作を相談する', href: pages.contact, variant: 'primary' },
     ],
   },
   {

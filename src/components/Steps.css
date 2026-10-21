@@ -1,0 +1,64 @@
+/* ===== 進め方（3ステップ） ===== */
+.steps {
+  background: var(--surface);
+}
+
+.steps__list {
+  display: grid;
+  gap: clamp(16px, 2vw, 24px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps__item {
+  position: relative;
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--page-bg);
+}
+
+/* 番号の上に、ブランドのグラデーションの細い線を引く */
+.steps__item::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(90deg, #00aeef 0%, #00aeef 35%, #ffa75c 50%, #ff6f00 100%);
+}
+
+.steps__no {
+  display: block;
+  font-size: var(--step-3);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.steps__title {
+  margin: 12px 0 8px;
+  font-size: var(--step-2);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.steps__text {
+  margin: 0;
+  color: var(--muted);
+}
+
+.steps__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+@media (min-width: 860px) {
+  .steps__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

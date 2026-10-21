@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#13243a" />
+
+    <!-- フォント（トップと同じ Noto Sans JP） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- フォントは /site-boost.js が、表示のあとに「使っている文字だけ」読み込みます -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" /></noscript>
+
+    <!-- ===== SEO / SNSシェア用 ===== -->
+    <title>to.Morrowとは｜広島でAI活用・業務効率化を支援 | to.Morrow</title>
+    <meta
+      name="description"
+      content="to.Morrowは、広島でAIとITを使って中小企業の「業務の土台」をつくる個人事業です。目指すこと、考え方、進め方、提供サービス、代表プロフィールをご紹介します。"
+    />
+    <link rel="canonical" href="https://to-morrow.net/about/" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="to.Morrow" />
+    <meta property="og:title" content="to.Morrowとは｜広島でAI活用・業務効率化を支援" />
+    <meta
+      property="og:description"
+      content="会社の業務の土台を、AIとITで作り上げて強くする。広島の中小企業の業務効率化とAI活用をお手伝いします。"
+    />
+    <meta property="og:url" content="https://to-morrow.net/about/" />
+    <meta property="og:image" content="https://to-morrow.net/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "to.Morrowとは",
+      "url": "https://to-morrow.net/about/",
+      "inLanguage": "ja",
+      "about": {
+        "@type": "ProfessionalService",
+        "name": "to.Morrow",
+        "url": "https://to-morrow.net/",
+        "areaServed": { "@type": "AdministrativeArea", "name": "広島県" }
+      },
+      "mainEntity": {
+        "@type": "Person",
+        "name": "今井 渓",
+        "jobTitle": "代表",
+        "worksFor": { "@type": "ProfessionalService", "name": "to.Morrow", "url": "https://to-morrow.net/" },
+        "knowsAbout": ["kintone", "JavaScript", "API連携", "業務システム開発", "生成AI活用"]
+      }
+    }
+    </script>
+    <!-- フォントとアクセス計測を、表示のあとに読み込む（public/site-boost.js） -->
+    <script src="/site-boost.js" defer></script>
+  </head>
+  <body>
+    <!-- React はこの div の中に描画されます（src/about.jsx） -->
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 24px; font-family: sans-serif">このページを表示するには JavaScript を有効にしてください。</p>
+    </noscript>
+    <script type="module" src="/src/about.jsx"></script>
+  </body>
+</html>

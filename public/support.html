@@ -9,40 +9,41 @@
     <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192" />
     <meta name="theme-color" content="#13243a" />
 
-    <title>サポート範囲 | to.Morrow</title>
+    <title>kintoneプラグインのサポート範囲 | to.Morrow（広島）</title>
     <meta
       name="description"
-      content="無料配布している kintone プラグインについて、無償で対応する範囲と返信の目安をご案内します。"
+      content="広島の to.Morrow が無料配布している kintone プラグインについて、無償で対応する範囲と返信の目安をご案内します。"
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://to-morrow.net/support.html" />
 
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="to.Morrow" />
-    <meta property="og:title" content="サポート範囲 | to.Morrow" />
+    <meta property="og:title" content="kintoneプラグインのサポート範囲" />
     <meta property="og:description" content="無料配布している kintone プラグインについて、無償で対応する範囲と返信の目安をご案内します。" />
     <meta property="og:url" content="https://to-morrow.net/support.html" />
-    <meta property="og:image" content="https://to-morrow.net/favicon-512x512.png" />
+    <meta property="og:image" content="https://to-morrow.net/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="ja_JP" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- 本文のフォント（Noto Sans JP）。サイト本体と字面をそろえています -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <!-- フォントは /site-boost.js が、表示のあとに「使っている文字だけ」読み込みます -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" /></noscript>
     <link rel="stylesheet" href="/page.css" />
-    <!-- アクセス計測（測定IDは public/analytics.js の1箇所） -->
-    <script src="/analytics.js" defer></script>
+    <!-- フォントとアクセス計測を、表示のあとに読み込む（public/site-boost.js） -->
+    <script src="/site-boost.js" defer></script>
   </head>
   <body>
     <header class="page-header">
       <a href="/">← to.Morrow</a>
       <nav class="page-header__nav">
+        <a href="/about/">to.Morrowとは</a>
         <a href="/services.html">料金</a>
-        <a href="/#contact">お問い合わせ</a>
+        <a href="/contact/">お問い合わせ</a>
       </nav>
     </header>
 
@@ -84,7 +85,7 @@
       <section>
         <h2>返信の目安</h2>
         <ul>
-          <li>お問い合わせの窓口は <a href="/#contact">フォーム</a> のみです（電話番号は公開していません）。</li>
+          <li>お問い合わせの窓口は <a href="/contact/">フォーム</a> のみです（電話番号は公開していません）。</li>
           <li>ご返信は週2回（火曜・金曜）にまとめてお返ししています。</li>
           <li>不具合の修正は、原則として月1回のメンテナンス日にまとめて反映します。</li>
         </ul>
@@ -105,7 +106,7 @@
       <div class="cta">
         <h2>ご不明な点はお問い合わせください</h2>
         <p>不具合のご報告は、お問い合わせフォームから承ります。</p>
-        <a href="/#contact" class="button">お問い合わせへ</a>
+        <a href="/contact/" class="button">お問い合わせへ</a>
       </div>
     </main>
 
@@ -113,8 +114,10 @@
       <p>&copy; 2026 to.Morrow</p>
       <p>
         <a href="/">トップページ</a> ｜
+        <a href="/about/">to.Morrowとは</a> ｜
         <a href="/services.html">料金</a> ｜
         <a href="/terms.html">利用規約</a> ｜
+        <a href="/contact/">お問い合わせ</a> ｜
         <a href="/privacy.html">プライバシーポリシー</a>
       </p>
     </footer>

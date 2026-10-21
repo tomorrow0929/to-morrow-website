@@ -1,5 +1,5 @@
 import logo from '../assets/logo.svg'
-import { company, footerLinks, snsLinks, navLinks } from '../data/site.js'
+import { company, footerLinks, snsLinks, navLinks, pages } from '../data/site.js'
 import './Footer.css'
 
 export default function Footer() {
@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="site-footer__brand">
           <img src={logo} alt={`${company.name} ロゴ`} className="site-footer__logo" />
           <p className="site-footer__lead">{company.lead}</p>
-          <a className="button button--sm" href="#contact">
+          <a className="button button--sm" href={pages.contact}>
             無料で相談する
             <span className="button__arrow" aria-hidden="true">
               →

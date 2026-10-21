@@ -17,5 +17,14 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    // React で作るページは3つ。それぞれ dist/index.html・dist/about/index.html・dist/contact/index.html になります。
+    // （/about/・/contact/ でそのまま開けるように、フォルダ＋index.html の形にしています）
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        about: 'about/index.html',
+        contact: 'contact/index.html',
+      },
+    },
   },
 })
