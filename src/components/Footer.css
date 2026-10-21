@@ -71,9 +71,9 @@
   transition: color 240ms var(--ease-out);
 }
 
-/* フッター内のボタンは、上の白っぽい文字ではなく紺の文字にする（オレンジの上で読めるように） */
+/* フッター内のボタンは、上の白っぽい文字ではなくボタン用の濃いグレーにする（オレンジの上で読めるように） */
 .site-footer a.button {
-  color: var(--ink);
+  color: var(--button-text);
 }
 
 .site-footer__col a:hover {

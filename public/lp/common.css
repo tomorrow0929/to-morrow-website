@@ -21,7 +21,11 @@
   --theme-pale: #e6f6fd;    /* 薄い背景 */
   --sub: #ff8c42;           /* 差し色 */
 
-  --orange: #ff8c42;        /* 申し込みボタンの色（全LP共通） */
+  --orange: #ff8c42;        /* オレンジ（「おすすめ」の札など） */
+  /* 申し込みボタン（HP・LP・プラグインサイト共通）。薄めのオレンジに濃いグレーの文字（6.0:1） */
+  --button-bg: #ffa35c;
+  --button-bg-hover: #ff9548;
+  --button-text: #33383d;
 
   /* AI（攻め）＝オレンジ、IT（守り）＝水色。顧問LPで使い分ける */
   --ai: #ff8c42;
@@ -156,8 +160,8 @@ a:hover { text-decoration: none; }
   border: 0; border-radius: 999px; cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
 }
-.btn--primary { background: var(--orange); color: var(--navy); }
-.btn--primary:hover { background: var(--orange-dark); }
+.btn--primary { background: var(--button-bg); color: var(--button-text); }
+.btn--primary:hover { background: var(--button-bg-hover); }
 .btn--primary:active { transform: translateY(1px); }
 .btn--sm { min-height: 40px; padding: 8px 18px; font-size: var(--fs-small); white-space: nowrap; }
 .btn--lg { min-height: 56px; padding: 14px 16px; font-size: 1rem; }

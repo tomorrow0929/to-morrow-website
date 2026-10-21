@@ -13,6 +13,10 @@
   --accent: #0077a8;
   --accent-2: #00aeef;
   --accent-warm: #ff8c42;
+  /* 申し込みボタン（HP・LP・プラグインサイト共通）。薄めのオレンジに濃いグレーの文字（6.0:1） */
+  --button-bg: #ffa35c;
+  --button-bg-hover: #ff9548;
+  --button-text: #33383d;
 
   --ink: #13243a;
   --ink-2: #1d3550;
@@ -397,8 +401,8 @@ li {
   padding: 14px 28px;
   border: none;
   border-radius: 999px;
-  background: var(--accent-warm); /* LPと同じ、オレンジに紺の文字 */
-  color: var(--ink);
+  background: var(--button-bg); /* LPと同じ、薄めのオレンジに濃いグレーの文字 */
+  color: var(--button-text);
   font-weight: 700;
   letter-spacing: 0.03em;
   text-decoration: none;
@@ -410,8 +414,8 @@ li {
 
 .button:hover {
   transform: translateY(-3px);
-  background: #f27a2a;
-  box-shadow: 0 18px 38px rgba(255, 140, 66, 0.4);
+  background: var(--button-bg-hover);
+  box-shadow: 0 18px 38px rgba(255, 163, 92, 0.4);
 }
 
 .button:active {

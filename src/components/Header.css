@@ -228,6 +228,11 @@
   align-self: flex-start;
 }
 
+/* 上の「.site-menu a（紺の文字）」に負けないよう、優先度を上げてボタン用の文字色にする */
+.site-menu a.site-menu__cta {
+  color: var(--button-text);
+}
+
 /* ===== 切り替え ===== */
 @media (max-width: 860px) {
   /* button.css の .button（display: inline-flex）に負けないよう、
