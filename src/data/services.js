@@ -129,12 +129,13 @@ export const services = [
       },
       {
         id: 'paid',
-        title: 'kintone 有料メニュー',
-        description: '現在準備中です。受付開始までしばらくお待ちください。',
+        title: 'kintoneシステム開発',
+        description:
+          'kintoneの導入から、開発・保守、社内で作れるようになるまでをまとめてお手伝いします。1件からのご依頼もできます。',
         image: systemTool,
-        imageAlt: 'kintone有料メニューのイメージ',
-        // href を付けないので、押せない「準備中」ボタンとして表示されます
-        action: { label: '準備中' },
+        imageAlt: 'kintoneシステム開発のイメージ',
+        // kintoneシステム開発LP（料金と無料相談の申し込み）へ
+        action: { label: 'kintoneシステム開発について', href: landingPages.kintone },
       },
     ],
   },
