@@ -6,10 +6,15 @@ export default function ServiceCard({ service, index = 0 }) {
 
   return (
     <article ref={reveal.ref} className={`card ${reveal.className}`} style={reveal.style}>
-      {/* 背景写真と、その上に敷く暗い膜 */}
+      {/* 背景写真（上に白い膜が重なります）。
+          最初の表示を速くするため、カードが画面に入ってから読み込みます */}
       <div
         className="card__bg"
-        style={{ backgroundImage: `url(${service.backgroundImage})` }}
+        style={
+          reveal.className.includes('is-visible')
+            ? { backgroundImage: `url(${service.backgroundImage})` }
+            : undefined
+        }
         aria-hidden="true"
       />
 

@@ -71,7 +71,8 @@ a {
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   border: 1px solid color-mix(in oklab, var(--accent) 22%, transparent);
-  background: color-mix(in oklab, var(--accent) 7%, transparent);
+  /* 生成りの背景の上でも文字が読めるよう（4.5:1以上）、地は白にする */
+  background: #fff;
   color: var(--accent);
   font-size: var(--step--1);
   font-weight: 700;
