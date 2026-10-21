@@ -87,14 +87,15 @@
           <div class="hero__text">
             <p class="hero__label">広島の中小企業・介護福祉の事業所のみなさまへ</p>
             <h1 class="hero__title">
-              AIとITの相談相手を、<br />
-              <span class="u-accent">月3万円から。</span>
+              AIもITも<br />「これどうする？」を、<br />
+              <span class="u-accent">月3万円でいつでも相談。</span>
             </h1>
             <p class="hero__lead">AIで外注費や作業時間を減らすことと、パソコンやツールの困りごと。社内に詳しい人がいなくても、1つの窓口でまとめて相談できる月額の顧問です。</p>
             <div class="hero__cta">
               <a class="btn btn--primary btn--lg" href="#contact">無料で相談する</a>
               <a class="hero__sub-link" href="#price">料金を見る</a>
             </div>
+            <p class="hero__after">続けるなら、月3万円の相談から</p>
             <ul class="hero__points" aria-label="ポイント">
               <li>AIもITもまとめて相談</li>
               <li>チャットでいつでも</li>
@@ -156,11 +157,12 @@
         <div class="container">
           <p class="section__en" aria-hidden="true">SERVICE</p>
           <h2 class="section__title" id="service-title">顧問でできること</h2>
-          <ol class="features">
-            <li class="feature fade">
+          <ol class="features features--lead">
+            <!-- いちばん売りたい「相談」のカード。ほかの2つより大きく、色を付けて目立たせる -->
+            <li class="feature feature--main fade">
               <span class="feature__num" aria-hidden="true">01</span>
               <h3 class="feature__title">いつでも相談 <span class="chip chip--ai">AI</span> <span class="chip chip--it">IT</span></h3>
-              <p>「これ、AIでできる？」「パソコンの調子が悪い」。そんなときにチャットで聞いてください。返信は24〜48時間以内が目安です。</p>
+              <p>「これAIでできる？」「パソコンの調子が悪い」「こういうの作れる？」に、チャットでお答えします。返信は24〜48時間以内が目安です。</p>
             </li>
             <li class="feature fade">
               <span class="feature__num" aria-hidden="true">02</span>
@@ -337,12 +339,47 @@
         </div>
       </section>
 
+      <!-- 相談から先の流れ（入口は相談。そこから制作・開発や講習へ） -->
+      <section class="section section--white" id="path" aria-labelledby="path-title">
+        <div class="container">
+          <p class="section__en" aria-hidden="true">NEXT STEP</p>
+          <h2 class="section__title" id="path-title">相談から、その先へ</h2>
+          <ol class="path">
+            <li class="path__step fade">
+              <span class="path__num" aria-hidden="true">1</span>
+              <h3 class="path__title">無料相談<small>（30〜60分）</small></h3>
+              <p>まずはお困りごとを伺います。</p>
+            </li>
+            <li class="path__step fade">
+              <span class="path__num" aria-hidden="true">2</span>
+              <h3 class="path__title">月3万円の相談</h3>
+              <p>続けて、いつでもチャットで聞けます。</p>
+            </li>
+            <li class="path__step fade">
+              <span class="path__num" aria-hidden="true">3</span>
+              <h3 class="path__title">「これ作れる？」は無料でお見積もり</h3>
+              <p>相談の時間には数えません。</p>
+            </li>
+            <li class="path__step fade">
+              <span class="path__num" aria-hidden="true">4</span>
+              <h3 class="path__title">制作・開発、または講習</h3>
+              <p>動画・Web・kintoneなどの制作・開発か、講習で社内でできるように。</p>
+              <ul class="path__links">
+                <li><a href="/movie/">AI動画制作のご案内</a></li>
+                <li><a href="/web/">ホームページ制作・運用のご案内</a></li>
+                <li><a href="/kintone/">kintoneシステム開発のご案内</a></li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </section>
+
       <!-- 8. 料金 -->
       <section class="section" id="price" aria-labelledby="price-title">
         <div class="container">
           <p class="section__en" aria-hidden="true">PRICE</p>
-          <h2 class="section__title" id="price-title">料金</h2>
-          <p class="section__lead">土台の「相談」に、必要なものを足すだけです。<br class="u-pc" />金額はすべて税別・月額です。</p>
+          <h2 class="section__title" id="price-title">まずは月3万円の相談から。<br />必要なものを足すだけ</h2>
+          <p class="section__lead">金額はすべて税別・月額です。</p>
 
           <h3 class="price-heading">土台と、足せるもの</h3>
           <div class="blocks">
@@ -378,7 +415,9 @@
 
           <h3 class="price-heading">組み合わせ</h3>
           <div class="combo4">
-            <div class="plan fade">
+            <!-- いちばん目立たせる「入口」のプラン -->
+            <div class="plan plan--start fade">
+              <p class="plan__badge plan__badge--start">まずはここから</p>
               <p class="plan__name">相談のみ</p>
               <p class="plan__price">月 <span class="plan__num">3</span>万円</p>
               <p class="plan__parts">相談</p>
@@ -400,6 +439,7 @@
               <p class="plan__parts">相談 ＋ 講習 ＋ IT運用</p>
             </div>
           </div>
+          <p class="which which--after fade">相談の中で「これ作れる？」となったものは、相談の時間に数えずに、無料でお見積もりします。</p>
 
           <h3 class="price-heading">追加のご依頼</h3>
           <div class="options options--one fade">
@@ -488,6 +528,7 @@
         <div class="container container--narrow">
           <p class="section__en" aria-hidden="true">CONTACT</p>
           <h2 class="section__title" id="contact-title">無料相談のお申し込み</h2>
+          <p class="contact__next">無料相談のあと、続けて相談したくなったら月3万円の相談から始められます。</p>
           <p class="section__lead">下のフォームからお気軽にどうぞ。1週間以内に、メールでご連絡します。<br class="u-pc" />「何を相談すればいいかわからない」という段階でも大丈夫です。</p>
 
           <!-- フォームの送信先（Formspree。ほかのLPと同じ受け取り先）：変えるときは action の URL だけを差し替えてください -->

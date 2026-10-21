@@ -855,6 +855,57 @@ a:hover { text-decoration: none; }
 /* 商標などの小さな注記（フッター） */
 .footer__legal { margin-top: 12px; font-size: 0.75rem; color: #a9b3bf; }
 
+/* =========================================================
+   顧問LP「入口は相談」の見せ方で使う部品
+   ========================================================= */
+
+/* ボタンの下の小さな一言 */
+.hero__after { margin-top: 10px; font-size: 0.8125rem; font-weight: 700; color: var(--navy-soft); }
+
+/* 「できること」の先頭カードを大きく・色付きに */
+.feature--main { background: var(--theme-pale); border-top-width: 6px; }
+.feature--main .feature__title { font-size: 1.375rem; }
+.feature--main p { font-size: 1rem; color: var(--navy); }
+@media (min-width: 900px) {
+  .features--lead { grid-template-columns: repeat(2, 1fr); }
+  .features--lead .feature--main { grid-column: 1 / -1; padding: 40px 48px; }
+}
+
+/* 料金：いちばん目立たせる「まずはここから」 */
+.plan--start {
+  border: 3px solid var(--theme-text); background: var(--theme-pale);
+  box-shadow: 0 16px 36px rgba(19, 36, 58, 0.14);
+}
+.plan__badge--start { background: var(--navy); color: var(--white); }
+.which--after { margin: 20px 0 0; }
+
+/* 相談から先の流れ（横並び。スマホでは縦並び） */
+.path { display: grid; gap: 36px; margin-top: 40px; }
+.path__step {
+  position: relative; padding: 24px 22px; border-radius: var(--radius);
+  background: var(--bg); border: 1px solid var(--line);
+}
+.path__step:not(:last-child)::after {
+  content: "▼"; position: absolute; left: 50%; bottom: -28px; transform: translateX(-50%);
+  font-size: 0.875rem; color: var(--theme-text);
+}
+.path__step:last-child { background: var(--theme-pale); border-color: transparent; }
+.path__num {
+  display: grid; place-items: center; width: 36px; height: 36px; margin-bottom: 10px; border-radius: 50%;
+  background: var(--navy); color: var(--white); font-family: var(--font-head); font-weight: 700;
+}
+.path__title { font-size: 1.0625rem; }
+.path__title small { font-family: var(--font-body); font-size: 0.8125rem; font-weight: 700; color: var(--navy-soft); }
+.path__step p { margin-top: 6px; font-size: 0.9375rem; color: var(--navy-soft); }
+.path__links { margin-top: 12px; display: grid; gap: 4px; font-size: 0.875rem; font-weight: 700; }
+@media (min-width: 900px) {
+  .path { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .path__step:not(:last-child)::after { content: "▶"; left: auto; right: -24px; bottom: auto; top: 50%; transform: translateY(-50%); }
+}
+
+/* お問い合わせの見出しの下の一言 */
+.contact__next { margin-top: 12px; text-align: center; font-weight: 700; }
+
 /* ---------- スクロールで軽くフェードイン ---------- */
 /* JavaScript が動くときだけ隠す（動かない環境でも内容は必ず見える） */
 .js .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
